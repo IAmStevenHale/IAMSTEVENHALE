@@ -7,6 +7,7 @@ import DocAssistContent from '../components/DocAssistContent';
 import AstronyxContent from '../components/AstronyxContent';
 import GHCContent from '../components/GHCContent';
 import { useState } from 'react';
+import Head from 'next/head';
 
 
 const Home: React.FC = () => {
@@ -15,6 +16,9 @@ const Home: React.FC = () => {
 
     return (
         <Wrapper>
+            <Head>
+                <link rel="preconnect" href="https://iamstevenhale.io" />
+            </Head>
             <ScrollingContainer currentIndex={currentIndex} setCurrentIndex={setCurrentIndex}>
                 <HomeContent thisIndex={0} currentIndex={currentIndex} setCurrentIndex={setCurrentIndex} />
                 <DicefallContent thisIndex={1} currentIndex={currentIndex} /> 
