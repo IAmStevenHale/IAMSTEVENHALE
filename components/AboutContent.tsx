@@ -1,9 +1,10 @@
 import Image from 'next/image';
 import styled from 'styled-components';
 import { useState, useEffect } from 'react';
+import ContentProps from '../Interfaces';
 
 //
-const AboutContent = () => {
+const AboutContent: React.FC<ContentProps> = ({ currentIndex, thisIndex }) => {
 
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
