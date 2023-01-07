@@ -31,10 +31,10 @@ const Button = styled.button`
     font-size: 1rem; 
     outline: none; 
     padding: 0; 
-    color: #ff5e00; 
-    font-weight: 700;
+    color: white; 
+    font-weight: 500;
     &:hover { 
-        color: #fd7e14; 
+        color: #fd9814; 
     };
     & > p {
         -webkit-writing-mode: vertical-rl;

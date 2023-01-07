@@ -1,16 +1,43 @@
 import Image from 'next/image';
 import styled from 'styled-components';
-import ContentProps from '../Interfaces';
+import { useState, useEffect } from 'react';
 
 //
-const AboutContent = ({ currentIndex, thisIndex }: ContentProps) => {
+const AboutContent = () => {
+
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            if (currentImageIndex  >= 5- 1) {
+                setCurrentImageIndex(0);
+            } else {
+                setCurrentImageIndex(currentImageIndex + 1);
+            }
+        }, 4000);
+        return () => clearInterval(interval);
+    }, [currentImageIndex]);
 
     return (
         <Wrapper>
             <ShowCaseContainerLeft>
-                <ImageWrapper>
-                    <Image src='/docAssist.png' alt='A landscape ipad showcasing the Dicefall app.' width={1200} height={1430} style={{ height: 'auto', width: '100%' }} />
-                </ImageWrapper>
+                <ImagesWrapper>
+                    <ImageWrapper isCurrent={currentImageIndex === 0} >
+                        <Image src='/22ada7249943f29418eed29f2e8f9fa4.jpg' alt='Profile picture 1' width={1200} height={1430} />
+                    </ImageWrapper>
+                    <ImageWrapper isCurrent={currentImageIndex === 1} >
+                        <Image src='/934858926a3da6e5f4b05927579cc3d4.jpg' alt='Profile picture 1' width={1200} height={1430} />
+                    </ImageWrapper>
+                    <ImageWrapper isCurrent={currentImageIndex === 2} >
+                        <Image src='/a0274b258023688e60bdfd527020b993.jpg' alt='Profile picture 1' width={1200} height={1430} />
+                    </ImageWrapper>
+                    <ImageWrapper isCurrent={currentImageIndex === 3} >
+                        <Image src='/e578e6d03c3b11e4026467865bf02f11.jpg' alt='Profile picture 1' width={1200} height={1430} />
+                    </ImageWrapper>
+                    <ImageWrapper isCurrent={currentImageIndex === 4} >
+                        <Image src='/ee3293cf04b3369a76146b546122332f.jpg' alt='Profile picture 1' width={1200} height={1430} />
+                    </ImageWrapper>
+                </ImagesWrapper>
                 <h1>Steven Hale</h1>
 
             </ShowCaseContainerLeft>
@@ -29,6 +56,7 @@ const Wrapper = styled.div`
 
 const ShowCaseContainerLeft = styled.div`
     width: 50%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -57,8 +85,28 @@ const ShowCaseContainerRight = styled.div`
     }
 `;
 
-const ImageWrapper = styled.div`
-height: 50%;
+const ImagesWrapper = styled.div`
+    height: 300px;
+    width: 300px;
+    border: 1px;
+    position: relative;
+    overflow: hidden;
+    object-fit: contain;
+    display: flex;
+    align-items: center;
+    border-radius: 50%;
+`;
+
+const ImageWrapper = styled.div<{ isCurrent: boolean }>`
+        height: 300px;
+        width: 300px;
+        position: absolute;
+        opacity: ${props => props.isCurrent ? `1` : `0`};
+        transition: 1.5s;
+        & * {
+            height: 100%;
+            width: auto;
+        }
 `;
 
 export default AboutContent;

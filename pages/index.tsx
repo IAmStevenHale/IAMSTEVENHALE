@@ -6,7 +6,6 @@ import DicefallContent from '../components/DicefallContent';
 import DocAssistContent from '../components/DocAssistContent';
 import AstronyxContent from '../components/AstronyxContent';
 import GHCContent from '../components/GHCContent';
-import MiscContent from '../components/MiscContent';
 import { useState } from 'react';
 
 
@@ -17,14 +16,11 @@ const Home: React.FC = () => {
     return (
         <Wrapper>
             <ScrollingContainer currentIndex={currentIndex} setCurrentIndex={setCurrentIndex}>
-                {/* TODO */}
-                <HomeContent thisIndex={0} currentIndex={currentIndex} />
+                <HomeContent thisIndex={0} currentIndex={currentIndex} setCurrentIndex={setCurrentIndex} />
                 <DicefallContent thisIndex={1} currentIndex={currentIndex} /> 
                 <DocAssistContent thisIndex={2} currentIndex={currentIndex} />
                 <AstronyxContent thisIndex={3} currentIndex={currentIndex} />
                 <GHCContent thisIndex={4} currentIndex={currentIndex} />
-                {/* TODO */}
-                <MiscContent thisIndex={5} currentIndex={currentIndex} />
                 {/* TODO */}
                 <AboutContent thisIndex={6} currentIndex={currentIndex} />
             </ScrollingContainer>

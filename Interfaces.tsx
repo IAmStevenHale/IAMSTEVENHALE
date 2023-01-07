@@ -1,6 +1,7 @@
 export default interface ContentProps {
     currentIndex: number;
     thisIndex: number;
+    setCurrentIndex?: any;
 }
 
 export type LineTextProps = {

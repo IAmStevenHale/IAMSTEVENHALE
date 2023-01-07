@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
+import JumpToNav from './JumpToNav';
 interface Props {
     children: React.ReactNode[];
     currentIndex: number;
@@ -50,6 +51,7 @@ const ScrollingContainer = ({ children, currentIndex, setCurrentIndex }: Props) 
 
     return (
         <Container>
+            <JumpToNav setCurrentIndex={setCurrentIndex} />
             <JumpTo isHomeScreen={isHomeScreen}>
                 {children.map((_, i) => (
                         <JumpToCircle onClick={() => handleJumpTo(i)} key={i} isCurrent={i === currentIndex}/>
