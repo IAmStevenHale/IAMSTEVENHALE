@@ -25,7 +25,6 @@ const Home: React.FC = () => {
                 <DocAssistContent thisIndex={2} currentIndex={currentIndex} />
                 <AstronyxContent thisIndex={3} currentIndex={currentIndex} />
                 <GHCContent thisIndex={4} currentIndex={currentIndex} />
-                {/* TODO */}
                 <AboutContent thisIndex={6} currentIndex={currentIndex} />
             </ScrollingContainer>
         </Wrapper>

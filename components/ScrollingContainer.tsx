@@ -84,10 +84,10 @@ const JumpToCircle = styled.span<{ isCurrent: boolean }>`
     height: 10px;
     width: 10px;
     border-radius: 50%;
-    border: 1px solid #ff5e00;
+    border: 1px solid white;
     margin-bottom: 10px;
     cursor: pointer;
-    background-color: ${ props => props.isCurrent ? `#ff5e00` : 'none'};
+    background-color: ${ props => props.isCurrent ? `white` : 'none'};
     z-index: 2;
 `;
 
