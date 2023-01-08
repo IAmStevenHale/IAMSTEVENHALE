@@ -47,6 +47,9 @@ const NavList = styled.ul<{ isOpen: boolean }>`
     left: 45px; 
     transform: ${ ({ isOpen }) => isOpen ? 'translateY(-50%) translateX(0)' : 'translateY(-50%) translateX(calc(-100% + -45px))' }; 
     transition: transform 200ms ease-in-out;
+    height: 30px;
+    display: flex;
+    align-items: center;
     ` ;
 
 const NavItem = styled.li`

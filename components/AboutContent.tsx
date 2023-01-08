@@ -22,7 +22,25 @@ const AboutContent: React.FC<ContentProps> = ({ currentIndex, thisIndex }) => {
         "styled-components.png",
         "Typescript_logo_2020.png",
         "Vercel.png",
+        "api.png",
+        "git.png",
+        "github.png",
+        "html_logo.png",
     ];
+
+    const profileUrls = [
+        "1d62d29067f8824bcc22c1dbaf922bfc.jpg",
+        "4a8861c2be55787c4450d90a9a8baab1.jpg",
+        "6f690e4c4f39dc1a96496bb62738159a.jpg",
+        "8f571ef315c0346d749bcee6170c71f0.jpg",
+        "22ada7249943f29418eed29f2e8f9fa4.jpg",
+        "50ec4af07690f0f8729efc9e6118bcb7.jpg",
+        "9606631f93e4a80bfb80c4f414016371.jpg",
+        "934858926a3da6e5f4b05927579cc3d4.jpg",
+        "a0274b258023688e60bdfd527020b993.jpg",
+        "df65ad6e7e74f9ccd30d977cf1cf5f3f.jpg",
+        "e578e6d03c3b11e4026467865bf02f11.jpg",
+    ]
 
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
@@ -43,47 +61,20 @@ const AboutContent: React.FC<ContentProps> = ({ currentIndex, thisIndex }) => {
             <ShowCaseContainerLeft>
                 <ImageContainer>
                     <ImagesWrapper>
-                        <ImageWrapper isCurrent={currentImageIndex === 0} >
-                            <Image src='/1d62d29067f8824bcc22c1dbaf922bfc.jpg' alt='Profile picture 0' width={1024} height={1024} />
-                        </ImageWrapper>
-                        <ImageWrapper isCurrent={currentImageIndex === 1} >
-                            <Image src='/4a8861c2be55787c4450d90a9a8baab1.jpg' alt='Profile picture 1' width={1024} height={1024} />
-                        </ImageWrapper>
-                        <ImageWrapper isCurrent={currentImageIndex === 2} >
-                            <Image src='/6f690e4c4f39dc1a96496bb62738159a.jpg' alt='Profile picture 2' width={1024} height={1024} />
-                        </ImageWrapper>
-                        <ImageWrapper isCurrent={currentImageIndex === 3} >
-                            <Image src='/8f571ef315c0346d749bcee6170c71f0.jpg' alt='Profile picture 3' width={1024} height={1024} />
-                        </ImageWrapper>
-                        <ImageWrapper isCurrent={currentImageIndex === 4} >
-                            <Image src='/22ada7249943f29418eed29f2e8f9fa4.jpg' alt='Profile picture 4' width={1024} height={1024} />
-                        </ImageWrapper>
-                        <ImageWrapper isCurrent={currentImageIndex === 5} >
-                            <Image src='/50ec4af07690f0f8729efc9e6118bcb7.jpg' alt='Profile picture 5' width={1024} height={1024} />
-                        </ImageWrapper>
-                        <ImageWrapper isCurrent={currentImageIndex === 6} >
-                            <Image src='/9606631f93e4a80bfb80c4f414016371.jpg' alt='Profile picture 6' width={1024} height={1024} />
-                        </ImageWrapper>
-                        <ImageWrapper isCurrent={currentImageIndex === 7} >
-                            <Image src='/934858926a3da6e5f4b05927579cc3d4.jpg' alt='Profile picture 7' width={1024} height={1024} />
-                        </ImageWrapper>
-                        <ImageWrapper isCurrent={currentImageIndex === 8} >
-                            <Image src='/a0274b258023688e60bdfd527020b993.jpg' alt='Profile picture 8' width={1024} height={1024} />
-                        </ImageWrapper>
-                        <ImageWrapper isCurrent={currentImageIndex === 9} >
-                            <Image src='/df65ad6e7e74f9ccd30d977cf1cf5f3f.jpg' alt='Profile picture 10' width={1024} height={1024} />
-                        </ImageWrapper>
-                        <ImageWrapper isCurrent={currentImageIndex === 10} >
-                            <Image src='/e578e6d03c3b11e4026467865bf02f11.jpg' alt='Profile picture 11' width={1024} height={1024} />
-                        </ImageWrapper>
+                        {profileUrls.map((profileUrl, i) => (
+                            <ImageWrapper key={i} isCurrent={currentImageIndex === i} >
+                                <Image src={`/${profileUrl}`} alt={`Profile image picture ${i}, AI generated image.`} width={1024} height={1024} />
+                            </ImageWrapper>
+                        ))}
                             <Sphere />
                     </ImagesWrapper>
                     <Shadow />
                 </ImageContainer>
             </ShowCaseContainerLeft>
             <ShowCaseContainerRight>
-                <h1>Steven Hale</h1>
+                <h1>I am Steven Hale.</h1>
                 <p></p>
+                
                 <Carousel items={items}/>
             </ShowCaseContainerRight>
         </Wrapper>

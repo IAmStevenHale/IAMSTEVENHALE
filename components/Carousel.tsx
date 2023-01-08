@@ -1,25 +1,36 @@
 import Image from 'next/image';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import styled, { css, keyframes } from 'styled-components';
 
 interface CarouselProps {
-    items: any[];
+    items: string[];
 }
 
+//items[] should be an array of relative image paths from the public folder
+
 const Carousel: React.FC<CarouselProps> = ({ items }) => {
-    const [currentItems] = useState(items);
-    const [currentIteration, setCurrentIteration] = useState(0)
+    const [currentItems, setCurrentItems] = useState(items);
+    const intervalRef = useRef<any | undefined>();
 
     // useEffect(() => {
-        // const shiftElement = () => {
-        //     const element = currentItems[currentIteration];
-        //     setCurrentItems([...currentItems, element]);
-        //     setCurrentIteration(currentIteration + 1);
-        // }
-        // setInterval(() => {
-        //     shiftElement();
-        // }, 2000);
-    // }, [currentItems, currentIteration]);
+    //     const shiftElement = () => {
+    //         const arrayHolder: any = currentItems;
+    //         const element = arrayHolder.shift();
+    //         const newArray = [...arrayHolder, element];
+    //         setCurrentItems(newArray);
+    //     };
+
+    //     intervalRef.current = setInterval(() => {
+    //         shiftElement();
+    //     }, 2000);
+
+    //     return () => {
+    //         if (intervalRef.current) {
+    //             clearInterval(intervalRef.current);
+    //         }
+    //     };
+    // }, [currentItems]);
+
 
     return (
         <Wrapper>
@@ -35,35 +46,36 @@ const Carousel: React.FC<CarouselProps> = ({ items }) => {
 };
 
 const Wrapper = styled.div`
-  height: 200px;
-  width: 100%;
-  position: absolute;
-  bottom: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  width: 600px;
-    /* background: #3700ff6f; */
-    background: radial-gradient(ellipse 50% 20% at 50% 50%,#7e7e7eb0,var(--transparent));
+    height: 200px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    width: 600px;
+    border-radius: 50%;
+    background: radial-gradient(ellipse 100% 20% at 50% 50%,#7e7e7eb0,var(--transparent));
 `;
 
 const moveLeft = keyframes`
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-1350px);
-  }
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-1950px);
+    }
 `;
 
 const Slider = styled.div`
   left: 0;
   position: absolute;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  animation: ${css`${moveLeft} 26s linear infinite`};
+  width: 2550px;
+  animation: ${css`${moveLeft} 34s linear infinite`};
 `;
 
 interface CarouselItemWrapperProps {

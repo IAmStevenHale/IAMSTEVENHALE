@@ -119,6 +119,10 @@ const SocialsContainer = styled.div`
     padding: 15px;
     & ul > li {
         margin-bottom: 30px;
+        transition: 0.24s;
+        &:hover{
+            transform: translateY(-6px);
+        }
     }
     & ul > :last-child {
         margin-bottom: 10px;
@@ -159,6 +163,10 @@ const EmailContainer = styled.div`
     & li {
         list-style: none;
         padding-left: 5px;
+        transition: 0.24s;
+        &:hover{
+            transform: translateY(-6px);
+        }
     }
 `;
 
