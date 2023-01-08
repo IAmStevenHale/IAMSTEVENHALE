@@ -3,9 +3,26 @@ import styled, { css } from 'styled-components';
 import { useState, useEffect } from 'react';
 import ContentProps from '../Interfaces';
 import { bounce, hover, shadowAnimation } from '../animations';
+import Carousel from './Carousel';
 
 //
 const AboutContent: React.FC<ContentProps> = ({ currentIndex, thisIndex }) => {
+
+    const items = [
+        "api.png",
+        "git.png",
+        "github.png",
+        "html_logo.png",
+        "Javascript_badge.png",
+        "Next_js.png",
+        "Nodejs.png",
+        "React-icon.png",
+        "sass.png",
+        "sql.png",
+        "styled-components.png",
+        "Typescript_logo_2020.png",
+        "Vercel.png",
+    ];
 
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
@@ -66,6 +83,8 @@ const AboutContent: React.FC<ContentProps> = ({ currentIndex, thisIndex }) => {
             </ShowCaseContainerLeft>
             <ShowCaseContainerRight>
                 <h1>Steven Hale</h1>
+                <p></p>
+                <Carousel items={items}/>
             </ShowCaseContainerRight>
         </Wrapper>
     );
@@ -109,6 +128,8 @@ const ShowCaseContainerRight = styled.div`
     flex-direction: column;
     text-align: center;
     color: whitesmoke;
+    position: relative;
+    height: 100%;
     font-family: "Linear","SF Pro Display",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu, Cantarell,"Open Sans","Helvetica Neue",sans-serif;
 `;
 
@@ -171,10 +192,8 @@ const Sphere = styled.div`
     width: 300px;
     background-origin: border-box;
     background-clip: border-box;
-    background: radial-gradient(circle at 150px 100px, var(--transparent) 20%,  #000 75%),
-    radial-gradient(circle at 30% 20%,  rgb(255, 255, 255, 0.6), rgba(255, 255, 255, 0) 40%);
-
-
+    background: radial-gradient(circle at 150px 100px, var(--transparent) 30%,  #000 75%),
+    radial-gradient(circle at 30% 20%,  rgb(255, 255, 255, 0.5), rgba(255, 255, 255, 0) 30%);
 `;
 
 export default AboutContent;
