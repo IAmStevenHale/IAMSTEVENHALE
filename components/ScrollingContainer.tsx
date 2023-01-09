@@ -93,13 +93,13 @@ const ScrollingContainer = ({ children, currentIndex, setCurrentIndex }: Props) 
 
 const Container = styled.div`
     overflow: hidden;
-    height: 100vh;
+    height: 100svh;
 `;
 
 const InnerContainer = styled.div<{ children: React.ReactNode[]; currentIndex: number; animationDuration: number }>`
-    height: ${props => props.children && props.children.length * 100}vh;
+    height: ${props => props.children && props.children.length * 100}svh;
     transition: transform ${props => props.animationDuration}ms ease-in-out;
-    transform: translateY(${props => -props.currentIndex * 100}vh);
+    transform: translateY(${props => -props.currentIndex * 100}svh);
     position: initial;
 `;
 
@@ -137,7 +137,7 @@ const JumpTo = styled.div<{ isHomeScreen: boolean}>`
 `;
 
 const ChildWrapper = styled.div`
-    height: 100vh;
+    height: 100svh;
 `;
 
 export default ScrollingContainer;
