@@ -34,7 +34,7 @@ const ScrollingContainer = ({ children, currentIndex, setCurrentIndex }: Props) 
 
     useEffect(() => {
         const handleScroll = (event: WheelEvent) => {
-            // event.preventDefault();
+            event.preventDefault();
             if (isScrolling) return;
             
             startScrolling();
@@ -48,7 +48,7 @@ const ScrollingContainer = ({ children, currentIndex, setCurrentIndex }: Props) 
         let previousTouchPositionY = 0;
 
         const handleTouchMove = (event: TouchEvent) => {
-            // event.preventDefault();
+            event.preventDefault();
             if (isScrolling) return;
             if (event.touches.length > 0) {
                 startScrolling();
