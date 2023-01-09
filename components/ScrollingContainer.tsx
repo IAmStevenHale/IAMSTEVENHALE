@@ -137,7 +137,7 @@ const JumpTo = styled.div<{ isHomeScreen: boolean}>`
 `;
 
 const ChildWrapper = styled.div`
-    height: 100vh;
+    height: 100dvh;
 `;
 
 export default ScrollingContainer;

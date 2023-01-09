@@ -93,7 +93,7 @@ const AboutContent: React.FC<ContentProps> = ({ currentIndex, thisIndex }) => {
 };
 
 const Wrapper = styled.div`
-    height: 100%;
+    height: 100dvh;
     width: 100%;
     overflow: hidden;
     position: relative;
