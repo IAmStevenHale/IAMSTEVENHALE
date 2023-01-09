@@ -35,7 +35,7 @@ const DicefallContent: React.FC<ContentProps> = ({currentIndex, thisIndex}) => {
 
 const Wrapper = styled.div`
     //DEFAULT
-    height: 100vh;
+    height: 100%;
     width: 100vw;
     display: flex;
     overflow: hidden;
