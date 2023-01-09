@@ -54,7 +54,6 @@ const ScrollingContainer = ({ children, currentIndex, setCurrentIndex }: Props) 
                 if (isScrolling) return;
 
                 startScrolling();
-                setCurrentIndex(currentIndex + 1);
                 }
                 const touch = event.touches[0];
                 const touchPositionY = touch.clientY;
@@ -64,11 +63,9 @@ const ScrollingContainer = ({ children, currentIndex, setCurrentIndex }: Props) 
             if (touchDirection === 'down' && currentIndex > 0) {
                 setCurrentIndex(currentIndex - 1);
             } else if (touchDirection === 'up' && currentIndex < children.length - 1) {
-
                 setCurrentIndex(currentIndex + 1);
             }
         };
-
 
         window.addEventListener('wheel', handleScroll, { passive: false });
         window.addEventListener('touchmove', handleTouchMove, { passive: false });
