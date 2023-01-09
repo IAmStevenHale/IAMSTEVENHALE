@@ -45,8 +45,37 @@ const ScrollingContainer = ({ children, currentIndex, setCurrentIndex }: Props) 
             }
         };
 
+        let previousTouchPositionY = 0;
+
+        const handleTouchMove = (event: TouchEvent) => {
+            if (event.touches.length > 0) {
+
+                event.preventDefault();
+                if (isScrolling) return;
+
+                startScrolling();
+                setCurrentIndex(currentIndex + 1);
+                }
+                const touch = event.touches[0];
+                const touchPositionY = touch.clientY;
+                const touchDirection = touchPositionY > previousTouchPositionY ? 'down' : 'up';
+                previousTouchPositionY = touchPositionY;
+
+            if (touchDirection === 'down' && currentIndex > 0) {
+                setCurrentIndex(currentIndex - 1);
+            } else if (touchDirection === 'up' && currentIndex < children.length - 1) {
+
+                setCurrentIndex(currentIndex + 1);
+            }
+        };
+
+
         window.addEventListener('wheel', handleScroll, { passive: false });
-        return () => window.removeEventListener('wheel', handleScroll);
+        window.addEventListener('touchmove', handleTouchMove, { passive: false });
+        return () =>{
+            window.removeEventListener('wheel', handleScroll);
+            window.removeEventListener('touchmove', handleTouchMove);
+        };
     }, [currentIndex, setCurrentIndex, children, isScrolling]);
 
     return (
