@@ -26,15 +26,9 @@ const DocAssistContent: React.FC<ContentProps> = ({ currentIndex, thisIndex }) =
             <Gradient/>
                 <ShowCaseContainerLeft isCurrent={isCurrent}>
                     <h2>DocAssist</h2>
-                    <TextContainer>
-                        {text.split(' ').map((word, index) => (
-                            <span key={index} >
-                                <TextBlock index={index} text={word} fontChanged={fontChanged} />
-                                {word === '\n' && <br />}
-                                {' '}
-                            </span>
-                        ))}
-                    </TextContainer>
+                    <br />
+                    <p>{text}</p>
+                    <br/>
                     <p><a target={'_blank'} rel="noreferrer" href='https://www.docassist.org/'>https://www.docassist.org/</a></p>
                 </ShowCaseContainerLeft>
                 <ShowCaseContainerRight isCurrent={isCurrent}>

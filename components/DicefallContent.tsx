@@ -24,9 +24,10 @@ const DicefallContent: React.FC<ContentProps> = ({currentIndex, thisIndex}) => {
                 </ShowCaseContainerLeft>
                 <ShowCaseContainerRight isCurrent={isCurrent}>
                     <h2>Dicefall</h2>
+                <br />
                     <p>DiceFall is the perfect tool for managing and running in-person Dungeons and Dragons campaigns. With a focus on collaboration and real-time interactivity, DiceFall makes it easy to plan epic tabletop adventures with your friends. Its intuitive interface allows players and Dungeon Masters to stay connected and engaged in their campaigns. Whether you&rsquo;re a seasoned DM or a newcomer to tabletop gaming, DiceFall has something for everyone. Start your next adventure today with DiceFall!</p>
                     <br/>
-                    <p><strong>---Currently in Development---</strong></p>
+                    <p><strong>Currently in Development</strong></p>
                 </ShowCaseContainerRight>
         </Wrapper>
     );

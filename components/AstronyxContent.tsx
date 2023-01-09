@@ -24,9 +24,11 @@ const AstronyxContent = ({ currentIndex, thisIndex }: ContentProps) => {
                     <TextWrapper>
                         ASTRONYX
                     </TextWrapper>
+                    <br/>
                     <TextWrapper>
                         <p>Astronyx is a software development company that specializes in creating visually stunning websites and intuitive applications. Our team of experienced developers and designers work together to create innovative digital solutions that exceed our clients&rsquo; expectations. We pride ourselves on combining cosmic wonder with practical functionality, combining astral beauty and the durable nature of onyx to create products that are both aesthetically pleasing and sturdy. At Astronyx, we strive to bring the convergence of cosmic marvel and functional reliability to every project we work on. With a strong focus on customer satisfaction and delivering top-quality results, Astronyx is the perfect partner for your next web or app development project.</p>
-                        <a target={'_blank'} rel="noreferrer" href='https://www.astronyx.com.au/'>https://www.astronyx.com.au/</a>
+                        <br/>
+                    <p><a target={'_blank'} rel="noreferrer" href='https://www.astronyx.com.au/'>https://www.astronyx.com.au/</a></p>
                     </TextWrapper>
                 </ShowCaseContainerRight>
         </Wrapper>
@@ -65,9 +67,6 @@ const TextWrapper = styled.div`
     background-clip: text;
     gap: 50px;
     font-family: "Linear","SF Pro Display",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu, Cantarell,"Open Sans","Helvetica Neue",sans-serif;
-    & :first-child {
-        margin-bottom: 40px;
-    }
 `;
 
 const ShowCaseContainerRight = styled.div<ShowCaseContainer>`

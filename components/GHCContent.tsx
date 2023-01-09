@@ -22,8 +22,10 @@ const GHCContent: React.FC<ContentProps> = ({ currentIndex, thisIndex }) => {
                     <TextWrapper>
                         <h2>GamerHC</h2>
                     </TextWrapper>
+                <br />
                     <TextWrapper>
                         <p>GamerHC is an ecommerce platform targeting the gaming community, both recreational and professional. Our goal is to provide motivation and guidance to help customers lead a more active lifestyle, through the use of gaming-themed products and resources. The platform is built with a modern tech stack including React, TypeScript, and styled components, ensuring a smooth and visually appealing user experience. We offer a range of products and services, including workout guides, nutrition plans, and gaming-themed merchandise, to help our customers reach their health and wellness goals. GamerHC is more than just an online store - it&rsquo;s a community for gamers who want to take control of their health and wellness. Join us and discover the benefits of gaming-inspired motivation and guidance.</p>
+                        <br/>
                         <p><a target={'_blank'} rel="noreferrer" href='https://www.gamerhc.com/'>https://www.gamerhc.com/</a></p>
                     </TextWrapper>
                 </ShowCaseContainerLeft>
@@ -105,9 +107,6 @@ const ShowCaseContainerLeft = styled.div<ShowCaseContainer>`
     & > :first-child {
         font-weight: 700;
         font-size: 50px;
-    }
-    & > :last-child > :last-child {
-        margin-top: 20px;
     }
         //TABLET
     @media (max-width: 900px) {
