@@ -66,12 +66,6 @@ const ScrollingContainer = ({ children, currentIndex, setCurrentIndex }: Props) 
 
         window.addEventListener('wheel', handleScroll, { passive: false });
         window.addEventListener('touchmove', handleTouchMove, { passive: false });
-        window.addEventListener("load", function () {
-            setTimeout(function () {
-                // This hides the address bar:
-                window.scrollTo(0, 1);
-            }, 0);
-        });
         return () =>{
             window.removeEventListener('wheel', handleScroll);
             window.removeEventListener('touchmove', handleTouchMove);
