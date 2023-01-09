@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import React, { useState, useEffect, useRef } from 'react';
 import styled, { css, keyframes } from 'styled-components';
 
 interface CarouselProps {
@@ -9,33 +8,10 @@ interface CarouselProps {
 //items[] should be an array of relative image paths from the public folder
 
 const Carousel: React.FC<CarouselProps> = ({ items }) => {
-    const [currentItems, setCurrentItems] = useState(items);
-    const intervalRef = useRef<any | undefined>();
-
-    // useEffect(() => {
-    //     const shiftElement = () => {
-    //         const arrayHolder: any = currentItems;
-    //         const element = arrayHolder.shift();
-    //         const newArray = [...arrayHolder, element];
-    //         setCurrentItems(newArray);
-    //     };
-
-    //     intervalRef.current = setInterval(() => {
-    //         shiftElement();
-    //     }, 2000);
-
-    //     return () => {
-    //         if (intervalRef.current) {
-    //             clearInterval(intervalRef.current);
-    //         }
-    //     };
-    // }, [currentItems]);
-
-
     return (
         <Wrapper>
             <Slider>
-                {currentItems.map((item, i) => (
+                {items.map((item, i) => (
                     <CarouselItemWrapper key={i} width={150}>
                         <Image src={`/${item}`} alt='Profile picture 0' width={1024} height={1024} style={{height: '50px', width: 'auto'}} />
                     </CarouselItemWrapper>
@@ -46,7 +22,7 @@ const Carousel: React.FC<CarouselProps> = ({ items }) => {
 };
 
 const Wrapper = styled.div`
-    height: 200px;
+    height: 100px;
     width: 100%;
     position: absolute;
     bottom: 0;
@@ -57,6 +33,10 @@ const Wrapper = styled.div`
     width: 600px;
     border-radius: 50%;
     background: radial-gradient(ellipse 100% 20% at 50% 50%,#7e7e7eb0,var(--transparent));
+    @media (max-width: 600px) {
+        height: 75px;
+        background: radial-gradient(ellipse 100% 50% at 50% 50%,#7e7e7eb0,var(--transparent));
+    }
 `;
 
 const moveLeft = keyframes`

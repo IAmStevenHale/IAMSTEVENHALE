@@ -83,7 +83,6 @@ const AboutContent: React.FC<ContentProps> = ({ currentIndex, thisIndex }) => {
                     My experience with React, Typescript, and Next.js has given me the ability to build high-performance, scalable web applications 
                     that provide a seamless user experience.
                 </p>
-                <p>Kind regards,</p>
                 <br/>
                 <p style={{ fontFamily: "'Gloria Hallelujah', cursive"}}>Steven Hale</p>
                 
@@ -99,6 +98,9 @@ const Wrapper = styled.div`
     overflow: hidden;
     position: relative;
     display: flex;
+    @media (max-width: 600px) {
+        flex-direction: column;
+    }
 `;
 
 const Gradient = styled.div`
@@ -106,6 +108,9 @@ const Gradient = styled.div`
     position: absolute;
     height: 100%;
     width: 100%;
+    @media (max-width: 600px) {
+        background: radial-gradient(ellipse 60% 60% at 50% 0%,#c6be7771,var(--transparent));
+    }
 `;
 
 const ShowCaseContainerLeft = styled.div`
@@ -120,6 +125,11 @@ const ShowCaseContainerLeft = styled.div`
     text-align: center;
     gap: 20px;
     font-family: "Linear","SF Pro Display",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu, Cantarell,"Open Sans","Helvetica Neue",sans-serif;
+    @media (max-width: 600px) {
+        width: 100%;
+        height: 30%;
+        padding-top: 100px;
+    }
 `;
 const ShowCaseContainerRight = styled.div`
     width: 50%;
@@ -139,11 +149,20 @@ const ShowCaseContainerRight = styled.div`
     & > p {
         width: 100%;
     }
+    @media (max-width: 600px) {
+        width: 100%;
+        height: 70%;
+        padding: 0 20px;
+    }
 `;
 
 const ImageContainer = styled.div`
     height: 300px;
     width: 300px;
+        @media (max-width: 600px) {
+        height: 230px;
+        width: 230px;
+    }
 `;
 
 const ImagesWrapper = styled.div`
@@ -157,18 +176,26 @@ const ImagesWrapper = styled.div`
     align-items: center;
     border-radius: 50%;
     animation: ${css`${hover} 5s ease-in-out infinite`};
+        @media (max-width: 600px) {
+        height: 230px;
+        width: 230px;
+    }
 `;
 
 const ImageWrapper = styled.div<{ isCurrent: boolean }>`
-        height: 300px;
-        width: 300px;
-        position: absolute;
-        opacity: ${props => props.isCurrent ? `1` : `0`};
-        transition: 1.5s;
-        & * {
-            height: 100%;
-            width: auto;
-        }
+    height: 300px;
+    width: 300px;
+    position: absolute;
+    opacity: ${props => props.isCurrent ? `1` : `0`};
+    transition: 1.5s;
+    & * {
+        height: 100%;
+        width: auto;
+    }
+        @media (max-width: 600px) {
+        height: 230px;
+        width: 230px;
+    }
 `;
 
 const Shadow = styled.div`
@@ -202,6 +229,10 @@ const Sphere = styled.div`
     background-clip: border-box;
     background: radial-gradient(circle at 150px 100px, var(--transparent) 30%,  #000 75%),
     radial-gradient(circle at 30% 20%,  rgb(255, 255, 255, 0.5), rgba(255, 255, 255, 0) 30%);
+    @media (max-width: 600px) {
+        height: 230px;
+        width: 230px;
+    }
 `;
 
 export default AboutContent;

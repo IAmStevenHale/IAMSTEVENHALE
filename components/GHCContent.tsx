@@ -16,7 +16,7 @@ const GHCContent: React.FC<ContentProps> = ({ currentIndex, thisIndex }) => {
 
     return (
         <Wrapper>
-            <Gradient>
+            <Gradient/>
 
                 <ShowCaseContainerLeft isCurrent={isCurrent}>
                     <TextWrapper>
@@ -30,7 +30,6 @@ const GHCContent: React.FC<ContentProps> = ({ currentIndex, thisIndex }) => {
                 <ShowCaseContainerRight isCurrent={isCurrent}>
                     <Image src='/GamerHCLogo.png' alt='A landscape ipad showcasing the Dicefall app.' width={908} height={772} />
                 </ShowCaseContainerRight>
-            </Gradient>
         </Wrapper>
     );
 };
@@ -41,11 +40,22 @@ const Wrapper = styled.div`
     display: flex;
     background-color: #130000;
     overflow: hidden;
+    position: relative;
+        //MOBILE
+    @media (max-width: 600px) {
+        flex-direction: column-reverse;
+    }
 `;
 
 const Gradient = styled.div`
     background: radial-gradient(ellipse 50% 50% at 80% 50%,#c6be774c,var(--transparent));
-    display: flex;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    //MOBILE
+    @media (max-width: 600px) {
+        background: radial-gradient(ellipse 60% 30% at 50% 20%,#c6be774c,var(--transparent));
+    }
 `;
 
 const TextWrapper = styled.div`
@@ -56,6 +66,12 @@ const TextWrapper = styled.div`
     padding-bottom: 0.13em;
     font-weight: 600;
     background: linear-gradient(to right, #ffffff66 20%, #ffffff );
+    @media (max-width: 600px){
+        background: linear-gradient(to top, #ffffff66 5%, #ffffff );
+        -webkit-background-clip: text;
+        background-clip: text;
+    }
+    
     -webkit-background-clip: text;
     background-clip: text;
     gap: 50px;
@@ -67,18 +83,24 @@ const TextWrapper = styled.div`
     & p {
         font-family: "Linear","SF Pro Display",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu, Cantarell,"Open Sans","Helvetica Neue",sans-serif;
     }
+    @media (max-width: 600px){
+        & h2 {
+            font-size: 50px;
+        }
+    }
+    
 `;
 
 const ShowCaseContainerLeft = styled.div<ShowCaseContainer>`
+    //DEFAULT
     width: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 50px 100px 50px 50px;
+    padding: 50px;
     color: #b4bcd0;
     flex-direction: column;
     text-align: center;
-    gap: 20px;
     animation: ${({ isCurrent }) => isCurrent ? css`${textEnterAnimation} 1.2s ease-in-out` : css`${textExitAnimation} 1.2s ease-in-out`};
     & > :first-child {
         font-weight: 700;
@@ -87,21 +109,53 @@ const ShowCaseContainerLeft = styled.div<ShowCaseContainer>`
     & > :last-child > :last-child {
         margin-top: 20px;
     }
+        //TABLET
+    @media (max-width: 900px) {
+        width: 100%;
+        height: 100%;
+        padding-right: 80px;
+    }
+
+    //MOBILE
+    @media (max-width: 600px) {
+        width: 100%;
+        height: 60%;
+        padding: 0 30px;
+        justify-content: flex-start;
+        font-size: calc(14px + (24 - 14) * (100vmin - 280px) / (1200 - 280));
+    }
 `;
 
 const ShowCaseContainerRight = styled.div<ShowCaseContainer>`
+    //DEFAULT
     width: 50%;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 50px;
+    padding: 30px;
     flex-direction: column;
     text-align: center;
-    gap: 20px;
     animation: ${({ isCurrent }) => isCurrent ? css` ${enterBottomRight} 1200ms ease-in-out;` : css`${exitBottomRight} 1200ms ease-in-out;`};    
     & :first-child {
-        height: 70%;
-        width: auto ;
+        height: 60%;
+        width: auto;
+        max-height: 600px;
+        filter: drop-shadow(10px 10px 15px #000000b2);
+        -webkit-filter: drop-shadow(10px 10px 15px #000000b2);
+        transition: 1.2s ease-in-out;
+    }
+
+    
+    //MOBILE
+    @media (max-width: 600px) {
+        width: 100%;
+        height: 40%;
+        /* padding: 0 50px; */
+        & :first-child {
+            height: 100%;
+            width: 100%;
+        }
     }
 `;
 

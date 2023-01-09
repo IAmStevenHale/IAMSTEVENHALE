@@ -16,9 +16,9 @@ const AstronyxContent = ({ currentIndex, thisIndex }: ContentProps) => {
 
     return (
         <Wrapper>
-            <Gradient>
+            <Gradient/>
                 <ShowCaseContainerLeft isCurrent={isCurrent}>
-                    <Image src='/AstronyxLogo.png' alt='A landscape ipad showcasing the Dicefall app.' width={600} height={1430} style={{ height: '70%', width: 'auto' }} />
+                    <Image src='/AstronyxLogo.png' alt='A landscape ipad showcasing the Dicefall app.' width={600} height={1430} />
                 </ShowCaseContainerLeft>
                 <ShowCaseContainerRight isCurrent={isCurrent}>
                     <TextWrapper>
@@ -29,7 +29,6 @@ const AstronyxContent = ({ currentIndex, thisIndex }: ContentProps) => {
                         <a target={'_blank'} rel="noreferrer" href='https://www.astronyx.com.au/'>https://www.astronyx.com.au/</a>
                     </TextWrapper>
                 </ShowCaseContainerRight>
-            </Gradient>
         </Wrapper>
     );
 };
@@ -40,11 +39,18 @@ const Wrapper = styled.div`
     display: flex;
     background-color: #000213;
     overflow: hidden;
+    //MOBILE
+    @media (max-width: 600px) {
+        flex-direction: column;
+    }
+
 `;
 
 const Gradient = styled.div`
-      background: radial-gradient(ellipse 80% 50% at 50% -20%,rgba(120,119,198,0.3),var(--transparent));
-      display: flex;
+    background: radial-gradient(ellipse 80% 50% at 50% -20%,rgba(120,119,198,0.3),var(--transparent));
+    position: absolute;
+    height: 100%;
+    width: 100%;
 `;
 
 const TextWrapper = styled.div`
@@ -66,36 +72,64 @@ const TextWrapper = styled.div`
 
 const ShowCaseContainerRight = styled.div<ShowCaseContainer>`
     width: 50%;
-   display: flex;
+    display: flex;
     align-items: center;
     justify-content: center;
-    padding: 50px 100px 50px 50px;
-    color: rgb(180, 188, 208);
+    padding-right: 100px;
+    color: #b4bcd0;
     flex-direction: column;
     text-align: center;
-    gap: 20px;
     font-family: "Linear","SF Pro Display",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu, Cantarell,"Open Sans","Helvetica Neue",sans-serif;
     animation: ${({ isCurrent }) => isCurrent ? css`${textEnterAnimation} 1.2s ease-in-out` : css`${textExitAnimation} 1.2s ease-in-out`};
-   
+    
     & > :first-child{
         font-weight: 700;
         font-size: 50px;
     }
+
+    //TABLET
+    @media (max-width: 900px) {
+        width: 100%;
+        height: 100%;
+        padding-right: 80px;
+    }
+
+    //MOBILE
+    @media (max-width: 600px) {
+        width: 100%;
+        height: 60%;
+        padding: 0 30px;
+        justify-content: flex-start;
+        font-size: calc(14px + (24 - 14) * (100vmin - 280px) / (1200 - 280));
+    }
 `;
 const ShowCaseContainerLeft = styled.div<ShowCaseContainer>`
     width: 50%;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 50px;
+    padding: 100px;
     flex-direction: column;
     text-align: center;
-    gap: 20px;
     animation: ${({ isCurrent }) => isCurrent ? css` ${enterBottomLeft} 1200ms ease-in-out;` : css`${exitBottomLeft} 1200ms ease-in-out;`};
     
     & :first-child {
-        height: auto;
+        height: 60%;
+        width: auto;
+        max-height: 600px;
+        filter: drop-shadow(10px 10px 15px #000000b2);
+        -webkit-filter: drop-shadow(10px 10px 15px #000000b2);
+    }
+    //MOBILE
+    @media (max-width: 600px) {
         width: 100%;
+        height: 40%;
+        padding: 50px;
+        & :first-child {
+            height: 100%;
+            width: auto;
+        }
     }
 `;
 

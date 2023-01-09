@@ -31,10 +31,10 @@ const HomeContent: React.FC<ContentProps> = ({ currentIndex, thisIndex, setCurre
     return (
         <Wrapper>
             <Gradient/>
-            <Title>
+            {/* <Title>
                 <h2>I AM</h2>
                 <h2>{currentWord}</h2>
-            </Title>
+            </Title> */}
             <EmailContainer>
                 <ul>
                     <li>
@@ -176,12 +176,10 @@ const ScrollDownPrompt = styled.div`
     align-items: center;
     justify-content: center;
     height: fit-content;
-    width:  fit-content;
+    width:  100%;
     position: absolute;
     bottom: 10px;
-    left: 50%;
     color: white;
-    transform: translateX(-50%);
     animation: ${css`${bounce} 1.5s ease-in-out infinite`};
     cursor: pointer;    
 `;

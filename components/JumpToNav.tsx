@@ -32,10 +32,13 @@ const Wrapper = styled.div`
 `;
 
 const JumpToWrapper = styled.div`
-   display: flex; 
-   align-items: center; 
-   position: relative;
-   padding: 15px;
+    display: flex; 
+    align-items: center; 
+    position: relative;
+    padding: 15px;
+    @media (max-width: 850px) {
+        padding: 5px;
+    }
 ` ;
 
 const NavList = styled.ul<{ isOpen: boolean }>`
@@ -43,7 +46,7 @@ const NavList = styled.ul<{ isOpen: boolean }>`
     flex-direction: row; 
     list-style: none; 
     position: absolute; 
-    top: 30px; 
+    top: 20px; 
     left: 45px; 
     transform: ${ ({ isOpen }) => isOpen ? 'translateY(-50%) translateX(0)' : 'translateY(-50%) translateX(calc(-100% + -45px))' }; 
     transition: transform 200ms ease-in-out;

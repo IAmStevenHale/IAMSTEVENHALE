@@ -23,7 +23,7 @@ const DocAssistContent: React.FC<ContentProps> = ({ currentIndex, thisIndex }) =
     const text = "DocAssist is a web-based tool that helps Allied Health Professionals find relevant MBS rebates for their patients. The application utilizes a Rake Filtering algorithm to identify key terms in patient notes and generate a list of relevant MBS items. The application is built with a modern tech stack including React, TypeScript, and styled components. This allows for efficient and reliable performance, as well as a visually appealing user interface. DocAssist streamlines the process of finding MBS rebates, saving time and effort for Allied Health Professionals. Give it a try and see how it can benefit your practice.";
     return (
         <Wrapper>
-            <Gradient>
+            <Gradient/>
                 <ShowCaseContainerLeft isCurrent={isCurrent}>
                     <h2>DocAssist</h2>
                     <TextContainer>
@@ -40,7 +40,6 @@ const DocAssistContent: React.FC<ContentProps> = ({ currentIndex, thisIndex }) =
                 <ShowCaseContainerRight isCurrent={isCurrent}>
                     <Image src='/docAssist.png' alt='A landscape ipad showcasing the Dicefall app.' width={543} height={649} />
                 </ShowCaseContainerRight>
-            </Gradient>
         </Wrapper>
     );
 };
@@ -61,31 +60,50 @@ const Wrapper = styled.div`
     width: 100%;
     display: flex;
     overflow: hidden;
+    //MOBILE
+    @media (max-width: 600px) {
+        flex-direction: column-reverse;
+    }
 `;
 
 const Gradient = styled.div`
-  display: flex;
   background-image: 
     radial-gradient(ellipse 50% 30% at 0% 0%,#25bec32d,var(--transparent)),
     radial-gradient(ellipse 50% 30% at 100% 0%,#25bec32d,var(--transparent)),
     radial-gradient(ellipse 50% 30% at 0% 100%,#25bec32d,var(--transparent)),
     radial-gradient(ellipse 50% 30% at 100% 100%,#25bec32d,var(--transparent));
+        position: absolute;
+    height: 100%;
+    width: 100%;
 `;
 
 const ShowCaseContainerRight = styled.div<ShowCaseContainer>`
     width: 50%;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 50px;
+    padding: 30px;
     flex-direction: column;
-    text-align: center;
-    gap: 20px;    
+    text-align: center; 
     & :first-child {
         transform: ${({ isCurrent }) => isCurrent ? `scale(1)` : `scale(0)`};
+        height: 60%;
+        width: auto;
+        max-height: 600px;
+        filter: drop-shadow(10px 10px 15px #000000b2);
+        -webkit-filter: drop-shadow(10px 10px 15px #000000b2);
         transition: 1.2s ease-in-out;
-        height: auto;
-        width: 40%;
+    }
+    //MOBILE
+    @media (max-width: 600px) {
+        width: 100%;
+        height: 40%;
+        padding: 50px 100px;
+        & :first-child {
+            height: 100%;
+            width: auto;
+        }
     }
 `;
 
@@ -94,12 +112,29 @@ const ShowCaseContainerLeft = styled.div<ShowCaseContainer>`
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 50px 50px 50px 100px;
+    padding: 50px;
     color: #b4bcd0;
     flex-direction: column;
     text-align: center;
-    gap: 20px;
     animation: ${({ isCurrent }) => isCurrent ? css`${textEnterAnimation} 1.2s ease-in-out` : css`${textExitAnimation} 1.2s ease-in-out`};
+    & h2 {
+        font-size: 30px;
+    }
+
+        //TABLET
+    @media (max-width: 900px) {
+        width: 100%;
+        height: 100%;
+        padding-right: 80px;
+    }
+
+    //MOBILE
+    @media (max-width: 600px) {
+        width: 100%;
+        height: 60%;
+        padding: 0 30px;
+        justify-content: flex-start;
+    }
 `;
 
 const TextContainer = styled.div`
@@ -108,21 +143,27 @@ const TextContainer = styled.div`
 `;
 
 const NewFont = styled.p`
-    font-size: 22px;
+    font-size: 15px;
     font-family: "Linear","SF Pro Display",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu, Cantarell,"Open Sans","Helvetica Neue",sans-serif; 
     transition: font-family 0.5s ease-in-out;
     display: inline-block;
     line-height: 28px;
     overflow: hidden;
+     @media (max-width: 600px) {
+        font-size: calc(14px + (24 - 14) * (100vmin - 280px) / (1200 - 280));
+    }
 `;
 
 const OldFont = styled.p`
-    font-size: 14px;
+    font-size: 10px;
     font-family: 'Meddon', cursive !important;
     transition: font-family 0.5s ease-in-out;
     display: inline-block;
     line-height: 28px;
     overflow: hidden;
+     @media (max-width: 600px) {
+        font-size: calc(14px + (24 - 14) * (100vmin - 280px) / (1200 - 280));
+    }
 `;
 
 export default DocAssistContent;

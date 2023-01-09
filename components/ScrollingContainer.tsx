@@ -108,8 +108,9 @@ const JumpTo = styled.div<{ isHomeScreen: boolean}>`
     & span:last-of-type {
         margin-bottom: 0;
     }
-
-    
+    @media (max-width: 850px) {
+            right: 10px;
+    }
 `;
 
 const ChildWrapper = styled.div`
