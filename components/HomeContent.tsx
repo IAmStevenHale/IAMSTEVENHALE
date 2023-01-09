@@ -121,6 +121,7 @@ const SocialsContainer = styled.div`
     bottom: 0;
     right: 0;
     padding: 15px;
+      z-index: 99;
     & ul > li {
         margin-bottom: 30px;
         transition: 0.24s;
@@ -156,6 +157,7 @@ const EmailContainer = styled.div`
     left: 0;
     color: white;
     padding: 0 0 15px 30px;
+      z-index: 99;
     & ul::after {
         content: "";
         display: block;
@@ -186,7 +188,7 @@ const ScrollDownPrompt = styled.div`
     color: white;
     animation: ${css`${bounce} 1.5s ease-in-out infinite`};
     cursor: pointer;    
-    z-index: 3;
+     z-index: 99;
 `;
 
 
