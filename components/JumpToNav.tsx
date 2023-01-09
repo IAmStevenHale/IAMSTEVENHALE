@@ -46,13 +46,17 @@ const NavList = styled.ul<{ isOpen: boolean }>`
     flex-direction: row; 
     list-style: none; 
     position: absolute; 
-    top: 20px; 
+    top: 30px; 
     left: 45px; 
     transform: ${ ({ isOpen }) => isOpen ? 'translateY(-50%) translateX(0)' : 'translateY(-50%) translateX(calc(-100% + -45px))' }; 
     transition: transform 200ms ease-in-out;
     height: 30px;
     display: flex;
     align-items: center;
+        @media (max-width: 850px) {
+        top: 15px;
+        transform: ${ ({ isOpen }) => isOpen ? 'translateY(-12.5px) translateX(0)' : 'translateY(-50%) translateX(calc(-100% + -45px))' }; 
+    }
     ` ;
 
 const NavItem = styled.li`
