@@ -31,10 +31,10 @@ const HomeContent: React.FC<ContentProps> = ({ currentIndex, thisIndex, setCurre
     return (
         <Wrapper>
             <Gradient/>
-            {/* <Title>
+            <Title>
                 <h2>I AM</h2>
                 <h2>{currentWord}</h2>
-            </Title> */}
+            </Title>
             <EmailContainer>
                 <ul>
                     <li>
@@ -89,6 +89,7 @@ const Gradient = styled.div`
     position: absolute;
     height: 100%;
     width: 100%;
+    z-index: 0;
 `;
 
 const Title = styled.div`
@@ -98,11 +99,14 @@ const Title = styled.div`
     text-align: left;
     justify-content: center;
     font-size: 40px;
-    width: 50%;
+    width: 100%;
     height: 50%;
     transform: translateX(25%);
     & > * {
         white-space: nowrap;
+    }
+    @media (max-width: 950px) {
+        font-size: 4vw;
     }
 `;
 
@@ -182,6 +186,7 @@ const ScrollDownPrompt = styled.div`
     color: white;
     animation: ${css`${bounce} 1.5s ease-in-out infinite`};
     cursor: pointer;    
+    z-index: 3;
 `;
 
 

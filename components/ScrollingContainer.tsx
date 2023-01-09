@@ -48,18 +48,15 @@ const ScrollingContainer = ({ children, currentIndex, setCurrentIndex }: Props) 
         let previousTouchPositionY = 0;
 
         const handleTouchMove = (event: TouchEvent) => {
+            event.preventDefault();
+            if (isScrolling) return;
             if (event.touches.length > 0) {
-
-                event.preventDefault();
-                if (isScrolling) return;
-
                 startScrolling();
                 }
                 const touch = event.touches[0];
                 const touchPositionY = touch.clientY;
                 const touchDirection = touchPositionY > previousTouchPositionY ? 'down' : 'up';
                 previousTouchPositionY = touchPositionY;
-
             if (touchDirection === 'down' && currentIndex > 0) {
                 setCurrentIndex(currentIndex - 1);
             } else if (touchDirection === 'up' && currentIndex < children.length - 1) {
@@ -69,6 +66,12 @@ const ScrollingContainer = ({ children, currentIndex, setCurrentIndex }: Props) 
 
         window.addEventListener('wheel', handleScroll, { passive: false });
         window.addEventListener('touchmove', handleTouchMove, { passive: false });
+        window.addEventListener("load", function () {
+            setTimeout(function () {
+                // This hides the address bar:
+                window.scrollTo(0, 1);
+            }, 0);
+        });
         return () =>{
             window.removeEventListener('wheel', handleScroll);
             window.removeEventListener('touchmove', handleTouchMove);
@@ -80,7 +83,7 @@ const ScrollingContainer = ({ children, currentIndex, setCurrentIndex }: Props) 
             <JumpToNav setCurrentIndex={setCurrentIndex} />
             <JumpTo isHomeScreen={isHomeScreen}>
                 {children.map((_, i) => (
-                        <JumpToCircle onClick={() => handleJumpTo(i)} key={i} isCurrent={i === currentIndex}/>
+                        <JumpToCircle onClick={() => handleJumpTo(i)} key={i} isCurrent={!isScrolling && i === currentIndex}/>
                 ))}
             </JumpTo>
             <InnerContainer ref={innerContainerRef} currentIndex={currentIndex} animationDuration={animationDuration}>
