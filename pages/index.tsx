@@ -18,7 +18,6 @@ const Home: React.FC = () => {
         <Wrapper>
             <Head>
                 <link rel="preconnect" href="https://iamstevenhale.io" />
-                <link rel="manifest" href="/manifest.json"></link>
             </Head>
             <ScrollingContainer currentIndex={currentIndex} setCurrentIndex={setCurrentIndex}>
                 <HomeContent thisIndex={0} currentIndex={currentIndex} setCurrentIndex={setCurrentIndex} />
