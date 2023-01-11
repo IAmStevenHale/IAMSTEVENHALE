@@ -1,6 +1,5 @@
 import Image from 'next/image';
-import styled, { css, keyframes } from 'styled-components';
-import { enterBottomLeft, exitBottomLeft, textEnterAnimation, textExitAnimation } from '../animations';
+import styled from 'styled-components';
 import ContentProps, { ShowCaseContainer } from '../Interfaces';
 
 /**
@@ -36,11 +35,12 @@ const AstronyxContent = ({ currentIndex, thisIndex }: ContentProps) => {
 };
 
 const Wrapper = styled.div`
-    height: 100%;
-    width: 100%;
+    height: 100vh;
+    width: 100vw;
     display: flex;
     background-color: #000213;
     overflow: hidden;
+    position: relative;
     //MOBILE
     @media (max-width: 600px) {
         flex-direction: column;
@@ -79,8 +79,8 @@ const ShowCaseContainerRight = styled.div<ShowCaseContainer>`
     flex-direction: column;
     text-align: center;
     font-family: "Linear","SF Pro Display",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu, Cantarell,"Open Sans","Helvetica Neue",sans-serif;
-    animation: ${({ isCurrent }) => isCurrent ? css`${textEnterAnimation} 1.2s ease-in-out` : css`${textExitAnimation} 1.2s ease-in-out`};
-    
+    transition: 800ms ease-in-out;
+    ${({ isCurrent }) => isCurrent ? `opacity: 1; transform: translateY(0);` : `opacity: 0; transform: translateY(25vh);`};
     & > :first-child{
         font-weight: 700;
         font-size: 50px;
@@ -110,8 +110,8 @@ const ShowCaseContainerLeft = styled.div<ShowCaseContainer>`
     justify-content: center;
     padding: 100px;
     flex-direction: column;
-    text-align: center;
-    animation: ${({ isCurrent }) => isCurrent ? css` ${enterBottomLeft} 1200ms ease-in-out;` : css`${exitBottomLeft} 1200ms ease-in-out;`};
+    transition: 800ms ease-in-out;
+    ${({ isCurrent }) => isCurrent ? `opacity: 1; transform: translate(0, 0);` : `opacity: 0; transform: translate(-25vw, 25vh);`};
     
     & :first-child {
         height: 60%;

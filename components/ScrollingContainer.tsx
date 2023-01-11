@@ -20,6 +20,7 @@ const ScrollingContainer = ({ children, currentIndex, setCurrentIndex }: Props) 
     const isHomeScreen = currentIndex === 0;
     const animationDuration = 1000;
     const [isScrolling, setScrolling] = useState(false);
+    const [prevScrollPos, setPrevScrollPos] = useState(0);
 
     const handleJumpTo = (key: number) => {
         setCurrentIndex(key);
@@ -45,18 +46,18 @@ const ScrollingContainer = ({ children, currentIndex, setCurrentIndex }: Props) 
             }
         };
 
-        let previousTouchPositionY = 0;
-
-        const handleTouchMove = (event: TouchEvent) => {
+        const handleTouchMove = (event: any) => {
+            console.log("first")
             event.preventDefault();
             if (isScrolling) return;
-            if (event.touches.length > 0) {
-                startScrolling();
-                }
+            
+            
+            startScrolling();
+               
                 const touch = event.touches[0];
                 const touchPositionY = touch.clientY;
-                const touchDirection = touchPositionY > previousTouchPositionY ? 'down' : 'up';
-                previousTouchPositionY = touchPositionY;
+                const touchDirection = touchPositionY > prevScrollPos ? 'down' : 'up';
+                setPrevScrollPos(touchPositionY);
             if (touchDirection === 'down' && currentIndex > 0) {
                 setCurrentIndex(currentIndex - 1);
             } else if (touchDirection === 'up' && currentIndex < children.length - 1) {
@@ -70,7 +71,7 @@ const ScrollingContainer = ({ children, currentIndex, setCurrentIndex }: Props) 
             window.removeEventListener('wheel', handleScroll);
             window.removeEventListener('touchmove', handleTouchMove);
         };
-    }, [currentIndex, setCurrentIndex, children, isScrolling]);
+    }, [currentIndex, setCurrentIndex, children, isScrolling, prevScrollPos]);
 
     return (
         <Container>
@@ -93,13 +94,14 @@ const ScrollingContainer = ({ children, currentIndex, setCurrentIndex }: Props) 
 
 const Container = styled.div`
     overflow: hidden;
-    height: 100svh;
+    height: 100vh;
+    position: absolute;
 `;
 
 const InnerContainer = styled.div<{ children: React.ReactNode[]; currentIndex: number; animationDuration: number }>`
-    height: ${props => props.children && props.children.length * 100}svh;
+    height: ${props => props.children && props.children.length * 100}vh;
     transition: transform ${props => props.animationDuration}ms ease-in-out;
-    transform: translateY(${props => -props.currentIndex * 100}svh);
+    transform: translateY(${props => -props.currentIndex * 100}vh);
     position: initial;
 `;
 
@@ -137,7 +139,7 @@ const JumpTo = styled.div<{ isHomeScreen: boolean}>`
 `;
 
 const ChildWrapper = styled.div`
-    height: 100svh;
+    height: 100vh;
 `;
 
 export default ScrollingContainer;

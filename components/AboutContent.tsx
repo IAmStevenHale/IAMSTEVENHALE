@@ -93,11 +93,13 @@ const AboutContent: React.FC<ContentProps> = ({ currentIndex, thisIndex }) => {
 };
 
 const Wrapper = styled.div`
-    height: 100%;
-    width: 100%;
+    height: 100vh;
+    width: 100vw;
+    background-color: black;
     overflow: hidden;
     position: relative;
     display: flex;
+
     @media (max-width: 600px) {
         flex-direction: column;
     }

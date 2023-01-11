@@ -1,6 +1,5 @@
 import Image from 'next/image';
-import styled, { css } from 'styled-components';
-import { enterBottomRight, exitBottomRight, textEnterAnimation, textExitAnimation } from '../animations';
+import styled from 'styled-components';
 import ContentProps, { ShowCaseContainer } from '../Interfaces';
 
 /*
@@ -37,8 +36,8 @@ const GHCContent: React.FC<ContentProps> = ({ currentIndex, thisIndex }) => {
 };
 
 const Wrapper = styled.div`
-    height: 100%;
-    width: 100%;
+    height: 100vh;
+    width: 100vw;
     display: flex;
     background-color: #130000;
     overflow: hidden;
@@ -103,7 +102,8 @@ const ShowCaseContainerLeft = styled.div<ShowCaseContainer>`
     color: #b4bcd0;
     flex-direction: column;
     text-align: center;
-    animation: ${({ isCurrent }) => isCurrent ? css`${textEnterAnimation} 1.2s ease-in-out` : css`${textExitAnimation} 1.2s ease-in-out`};
+    transition: 800ms ease-in-out;
+    ${({ isCurrent }) => isCurrent ? `opacity: 1; transform: translateY(0);` : `opacity: 0; transform: translateY(25vh);`};
     & > :first-child {
         font-weight: 700;
         font-size: 50px;
@@ -135,7 +135,8 @@ const ShowCaseContainerRight = styled.div<ShowCaseContainer>`
     padding: 30px;
     flex-direction: column;
     text-align: center;
-    animation: ${({ isCurrent }) => isCurrent ? css` ${enterBottomRight} 1200ms ease-in-out;` : css`${exitBottomRight} 1200ms ease-in-out;`};    
+    transition: 800ms ease-in-out;
+    ${({ isCurrent }) => isCurrent ? `opacity: 1; transform: translate(0, 0);` : `opacity: 0; transform: translate(0, 25vw);`};
     & :first-child {
         height: 60%;
         width: auto;

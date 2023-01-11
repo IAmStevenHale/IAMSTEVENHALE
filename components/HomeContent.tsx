@@ -8,8 +8,39 @@ import CopyToClipboard from './CopyButton';
 import MailIcon from '@mui/icons-material/Mail';
 import { bounce } from '../animations';
 
+const iAmArray = [
+    "steven hale.",
+    "a software developer.",
+    "a fullstack developer.",
+    "steven hale.",
+    "a front-end developer.",
+    "a back-end developer.",
+    "steven hale.",
+    "a web developer.",
+    "a pizza connoisseur."
+];
+
+const socialsIcons = [
+    {
+        href: "https://github.com/IAmStevenHale",
+        icon: <GitHubIcon />
+    },
+    {
+        href: "https://www.linkedin.com/in/steven-hale/",
+        icon: <LinkedInIcon />
+    },
+    {
+        href: "https://www.instagram.com/iamsteviehale/",
+        icon: <InstagramIcon />
+    },
+    {
+        href: "mailto:iamstevenhale@gmail.com",
+        icon: <MailIcon />
+    }
+];
+
+
 const HomeContent: React.FC<ContentProps> = ({ currentIndex, thisIndex, setCurrentIndex }) => {
-    const iAmArray = useMemo(() => ["steven hale.", "a software developer.", "a fullstack developer.", "steven hale.", "a front-end developer.", "a back-end developer.", "steven hale.", "a web developer.", "a pizza connoisseur."], []);
     const [currentWord, setCurrentWord] = useState(iAmArray[0]);
     const [currentWordIndex, setCurrentWordIndex] = useState(0);
 
@@ -22,18 +53,17 @@ const HomeContent: React.FC<ContentProps> = ({ currentIndex, thisIndex, setCurre
             }
         }, 2000);
         return () => clearInterval(interval);
-    }, [currentWordIndex, iAmArray.length,]);
+    }, [currentWordIndex]);
 
     useEffect(() => {
         setCurrentWord(iAmArray[currentWordIndex]);
-    }, [currentWordIndex, iAmArray]);
+    }, [currentWordIndex]);
 
     return (
         <Wrapper>
-            <Gradient/>
+            <Gradient />
             <Title>
-                <h2>I AM</h2>
-                <h2>{currentWord}</h2>
+                <h1>I AM<br/>{currentWord}</h1>
             </Title>
             <EmailContainer>
                 <ul>
@@ -44,29 +74,18 @@ const HomeContent: React.FC<ContentProps> = ({ currentIndex, thisIndex, setCurre
             </EmailContainer>
             <SocialsContainer>
                 <ul>
-                    <li>
-                        <a target={"_blank"} rel={"noreferrer"} href='https://github.com/IAmStevenHale'>
-                            <GitHubIcon style={{ color: "white", height: "30px", width: "auto" }} />
-                        </a>
-                    </li>
-                    <li>
-                        <a target={"_blank"} rel={"noreferrer"} href='https://www.linkedin.com/in/steven-hale/'>
-                            <LinkedInIcon style={{ color: "white", height: "30px", width: "auto" }} />
-                        </a>
-                    </li>
-                    <li>
-                        <a target={"_blank"} rel={"noreferrer"} href='https://www.instagram.com/iamsteviehale/'>
-                            <InstagramIcon style={{ color: "white", height: "30px", width: "auto" }} />
-                        </a>
-                    </li>
-                    <li>
-                        <a target={"_blank"} rel={"noreferrer"} href='mailto:iamstevenhale@gmail.com'>
-                            <MailIcon style={{ color: "white", height: "30px", width: "auto" }} />
-                        </a>
-                    </li>
+                    {
+                        socialsIcons.map((social, i) => (
+                            <li key={i}>
+                                <a target={"_blank"} rel={"noreferrer"} href={`${social.href}`}>
+                                    {social.icon}
+                                </a>
+                            </li>
+                        ))
+                    }
                 </ul>
             </SocialsContainer>
-            <ScrollDownPrompt onClick={()=> setCurrentIndex(1)}>
+            <ScrollDownPrompt onClick={() => setCurrentIndex(1)}>
                 Scroll down for projects
             </ScrollDownPrompt>
         </Wrapper>
@@ -74,8 +93,8 @@ const HomeContent: React.FC<ContentProps> = ({ currentIndex, thisIndex, setCurre
 };
 
 const Wrapper = styled.div`
-    height: 100%;
-    width: 100%;
+    height: 100vh;
+    width: 100vw;
     overflow: hidden;
     position: relative;
     display: flex;
@@ -116,22 +135,13 @@ const SocialsContainer = styled.div`
     align-items: center;
     justify-content: center;
     height: fit-content;
-    width: fit-content;
+    width: 30px;
     position: absolute;
     bottom: 0;
     right: 0;
-    padding: 15px;
-      z-index: 99;
-    & ul > li {
-        margin-bottom: 30px;
-        transition: 0.24s;
-        &:hover{
-            transform: translateY(-6px);
-        }
-    }
-    & ul > :last-child {
-        margin-bottom: 10px;
-    }
+    color: white;
+    padding: 0 51px 15px 0;
+    z-index: 99;
     & ul::after {
         content: "";
         display: block;
@@ -142,6 +152,16 @@ const SocialsContainer = styled.div`
     }
     & li {
         list-style: none;
+        transition: 0.24s;
+        margin-bottom: 20px;
+        &:hover{
+            transform: translateY(-6px);
+        }
+        & a {
+            color: white;
+            height: 30px;
+            width: auto;
+        }
     }
 `;
 
