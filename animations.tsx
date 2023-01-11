@@ -37,3 +37,12 @@ export const shadowAnimation = keyframes`
     transform: scaleX(1);
   }
 `;
+
+export const moveLeft = keyframes`
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-1950px);
+    }
+`;

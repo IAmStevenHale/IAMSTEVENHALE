@@ -4,7 +4,6 @@ import DoubleArrowIcon from '@mui/icons-material/DoubleArrow';
 
 const JumpToNav: React.FC<{setCurrentIndex: any}> = ({setCurrentIndex}) => {
     const [isNavOpen, setIsNavOpen] = useState(false);
-
     const handleMouseEnter = () => setIsNavOpen(true);
     const handleMouseLeave = () => setIsNavOpen(false);
 
@@ -19,16 +18,15 @@ const JumpToNav: React.FC<{setCurrentIndex: any}> = ({setCurrentIndex}) => {
                 </NavList>
             </JumpToWrapper>
         </Wrapper>
-
     );
 };
 
 const Wrapper = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  color: white;
-  z-index: 99;
+    position: fixed;
+    top: 0;
+    left: 0;
+    color: white;
+    z-index: 99;
 `;
 
 const JumpToWrapper = styled.div`
@@ -53,19 +51,21 @@ const NavList = styled.ul<{ isOpen: boolean }>`
     height: 30px;
     display: flex;
     align-items: center;
-        @media (max-width: 850px) {
+    @media (max-width: 850px) {
         top: 15px;
         transform: ${ ({ isOpen }) => isOpen ? 'translateY(-12.5px) translateX(0)' : 'translateY(-50%) translateX(calc(-100% + -45px))' }; 
     }
-    ` ;
+`;
 
 const NavItem = styled.li`
-     margin-left: 10px; 
-     font-size: 12px; 
-     color: white; 
-     cursor: pointer; 
-     font-weight: 600;
-     &:hover { color: #fd9814;  }
-     `;
+    margin-left: 10px; 
+    font-size: 12px; 
+    color: white; 
+    cursor: pointer; 
+    font-weight: 600;
+    &:hover {
+        color: #fd9814;
+    }
+`;
 
 export default JumpToNav;

@@ -1,6 +1,7 @@
 import Image from 'next/image';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import ContentProps, { ShowCaseContainer } from '../Interfaces';
+import Container from './Container';
 
 /**
  * This is a functional component that displays information and an image for a project called Dicefall.
@@ -11,35 +12,32 @@ import ContentProps, { ShowCaseContainer } from '../Interfaces';
  * animation that is triggered based on the value of isCurrent.
  */
 
-const DicefallContent: React.FC<ContentProps> = ({currentIndex, thisIndex}) => {
+const DicefallContent: React.FC<ContentProps> = ({ currentIndex, thisIndex }) => {
 
     const isCurrent = currentIndex === thisIndex;
 
     return (
-        <Wrapper>
-            <Gradient/>
+        <Container bgColour='#130000' gradient={<Gradient />}>
+            <Wrapper>
                 <ShowCaseContainerRight isCurrent={isCurrent}>
                     <Image src='/DiceFall.png' alt='A landscape ipad showcasing the Dicefall app.' width={1585} height={2243} />
                 </ShowCaseContainerRight>
                 <ShowCaseContainerLeft isCurrent={isCurrent}>
                     <h2>Dicefall</h2>
-                <br />
+                    <br />
                     <p>DiceFall is the perfect tool for managing and running in-person Dungeons and Dragons campaigns. With a focus on collaboration and real-time interactivity, DiceFall makes it easy to plan epic tabletop adventures with your friends. Its intuitive interface allows players and Dungeon Masters to stay connected and engaged in their campaigns. Whether you&rsquo;re a seasoned DM or a newcomer to tabletop gaming, DiceFall has something for everyone. Start your next adventure today with DiceFall!</p>
-                    <br/>
+                    <br />
                     <p><strong>Currently in Development</strong></p>
                 </ShowCaseContainerLeft>
-        </Wrapper>
+            </Wrapper>
+        </Container>
     );
 };
 
 const Wrapper = styled.div`
-    height: 100vh;
-    width: 100vw;
     display: flex;
-    background-color: #130000;
     overflow: hidden;
     position: relative;
-    //MOBILE
     @media (max-width: 600px) {
         flex-direction: column;
     }
@@ -50,14 +48,12 @@ const Gradient = styled.div`
     position: absolute;
     height: 100%;
     width: 100%;
-    //MOBILE
     @media (max-width: 600px) {
         /* background: radial-gradient(ellipse 60% 30% at 50% 20%,#c6be774c,var(--transparent)); */
     }
 `;
 
 const ShowCaseContainerLeft = styled.div<ShowCaseContainer>`
-    //DEFAULT
     width: 50%;
     display: flex;
     align-items: center;
@@ -72,15 +68,11 @@ const ShowCaseContainerLeft = styled.div<ShowCaseContainer>`
         font-weight: 700;
         font-size: 50px;
     }
-    
-    //TABLET
     @media (max-width: 900px) {
         width: 100%;
         height: 100%;
         padding-right: 80px;
     }
-
-    //MOBILE
     @media (max-width: 600px) {
         width: 100%;
         height: 60%;
@@ -91,7 +83,6 @@ const ShowCaseContainerLeft = styled.div<ShowCaseContainer>`
 `;
 
 const ShowCaseContainerRight = styled.div<ShowCaseContainer>`
-    //DEFAULT
     width: 50%;
     height: 100%;
     display: flex;
@@ -110,13 +101,9 @@ const ShowCaseContainerRight = styled.div<ShowCaseContainer>`
         -webkit-filter: drop-shadow(10px 10px 15px #000000b2);
         transition: 1.2s ease-in-out;
     }
-
-    
-    //MOBILE
     @media (max-width: 600px) {
         width: 100%;
         height: 40%;
-        /* padding: 0 50px; */
         & :first-child {
             height: 100%;
             width: 100%;

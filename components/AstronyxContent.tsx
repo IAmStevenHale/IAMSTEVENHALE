@@ -1,21 +1,14 @@
 import Image from 'next/image';
 import styled from 'styled-components';
 import ContentProps, { ShowCaseContainer } from '../Interfaces';
+import Container from './Container';
 
-/**
- * This is a component that displays content for a company called Astronyx. It includes a logo, text describing the company's focus 
- * and a link to the company's website. The component has an animation that plays when the component is set to be the current one 
- * being displayed. It is made up of two subcomponents, ShowCaseContainerLeft and ShowCaseContainerRight, which are responsible for 
- * displaying the logo and text respectively. The component is responsive and adjusts its layout depending on the size of the screen 
- * it is being displayed on.
- */
 const AstronyxContent = ({ currentIndex, thisIndex }: ContentProps) => {
-
     const isCurrent = currentIndex === thisIndex;
 
     return (
-        <Wrapper>
-            <Gradient/>
+        <Container bgColour={"#000213"} gradient={<Gradient/>}>
+            <Wrapper>
                 <ShowCaseContainerLeft isCurrent={isCurrent}>
                     <Image src='/AstronyxLogo.png' alt='A landscape ipad showcasing the Dicefall app.' width={600} height={1430} />
                 </ShowCaseContainerLeft>
@@ -23,29 +16,24 @@ const AstronyxContent = ({ currentIndex, thisIndex }: ContentProps) => {
                     <TextWrapper>
                         ASTRONYX
                     </TextWrapper>
-                    <br/>
+                    <br />
                     <TextWrapper>
                         <p>Astronyx is a software development company that specializes in creating visually stunning websites and intuitive applications. Our team of experienced developers and designers work together to create innovative digital solutions that exceed our clients&rsquo; expectations. We pride ourselves on combining cosmic wonder with practical functionality, combining astral beauty and the durable nature of onyx to create products that are both aesthetically pleasing and sturdy. At Astronyx, we strive to bring the convergence of cosmic marvel and functional reliability to every project we work on. With a strong focus on customer satisfaction and delivering top-quality results, Astronyx is the perfect partner for your next web or app development project.</p>
-                        <br/>
-                    <p><a target={'_blank'} rel="noreferrer" href='https://www.astronyx.com.au/'>https://www.astronyx.com.au/</a></p>
+                        <br />
+                        <p><a target={'_blank'} rel="noreferrer" href='https://www.astronyx.com.au/'>https://www.astronyx.com.au/</a></p>
                     </TextWrapper>
                 </ShowCaseContainerRight>
-        </Wrapper>
+            </Wrapper>
+        </Container>
     );
 };
 
 const Wrapper = styled.div`
-    height: 100vh;
-    width: 100vw;
     display: flex;
-    background-color: #000213;
-    overflow: hidden;
     position: relative;
-    //MOBILE
     @media (max-width: 600px) {
         flex-direction: column;
     }
-
 `;
 
 const Gradient = styled.div`
@@ -85,15 +73,11 @@ const ShowCaseContainerRight = styled.div<ShowCaseContainer>`
         font-weight: 700;
         font-size: 50px;
     }
-
-    //TABLET
     @media (max-width: 900px) {
         width: 100%;
         height: 100%;
         padding-right: 80px;
     }
-
-    //MOBILE
     @media (max-width: 600px) {
         width: 100%;
         height: 60%;
@@ -102,6 +86,7 @@ const ShowCaseContainerRight = styled.div<ShowCaseContainer>`
         font-size: calc(14px + (24 - 14) * (100vmin - 280px) / (1200 - 280));
     }
 `;
+
 const ShowCaseContainerLeft = styled.div<ShowCaseContainer>`
     width: 50%;
     height: 100%;
@@ -120,7 +105,6 @@ const ShowCaseContainerLeft = styled.div<ShowCaseContainer>`
         filter: drop-shadow(10px 10px 15px #000000b2);
         -webkit-filter: drop-shadow(10px 10px 15px #000000b2);
     }
-    //MOBILE
     @media (max-width: 600px) {
         width: 100%;
         height: 40%;
@@ -131,8 +115,5 @@ const ShowCaseContainerLeft = styled.div<ShowCaseContainer>`
         }
     }
 `;
-
-
-
 
 export default AstronyxContent;

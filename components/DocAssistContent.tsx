@@ -1,14 +1,15 @@
 import Image from 'next/image';
 import React from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import ContentProps, { ShowCaseContainer } from '../Interfaces';
+import Container from './Container';
 
 const DocAssistContent: React.FC<ContentProps> = ({ currentIndex, thisIndex }) => {
     const isCurrent = currentIndex === thisIndex;
 
     return (
+        <Container bgColour='#130000;' gradient={<Gradient/>}>
         <Wrapper>
-            <Gradient />
             <ShowCaseContainerLeft isCurrent={isCurrent}>
                 <h2>DocAssist</h2>
                 <br />
@@ -27,15 +28,13 @@ const DocAssistContent: React.FC<ContentProps> = ({ currentIndex, thisIndex }) =
                 <Image src='/docAssist.png' alt='A landscape ipad showcasing the Dicefall app.' width={543} height={649} />
             </ShowCaseContainerRight>
         </Wrapper>
+        </Container>
+
     );
 };
 
 const Wrapper = styled.div`
-    height: 100vh;
-    width: 100vw;
     display: flex;
-    background-color: #130000;
-    overflow: hidden;
     position: relative;
     @media (max-width: 600px) {
         flex-direction: column-reverse;
@@ -44,16 +43,13 @@ const Wrapper = styled.div`
 
 const Gradient = styled.div`
     background-image: 
-    radial-gradient(ellipse 50% 30% at 0% 0%,#25bec32d,var(--transparent)),
-    radial-gradient(ellipse 50% 30% at 100% 0%,#25bec32d,var(--transparent)),
-    radial-gradient(ellipse 50% 30% at 0% 100%,#25bec32d,var(--transparent)),
-    radial-gradient(ellipse 50% 30% at 100% 100%,#25bec32d,var(--transparent));
+    radial-gradient(ellipse 70% 50% at 0% 0%,#25bec367,var(--transparent)),
+    radial-gradient(ellipse 70% 50% at 100% 0%,#25bec367,var(--transparent)),
+    radial-gradient(ellipse 70% 50% at 0% 100%,#25bec367,var(--transparent)),
+    radial-gradient(ellipse 70% 50% at 100% 100%,#25bec367,var(--transparent));
     position: absolute;
     height: 100%;
     width: 100%;
-    @media (max-width: 600px) {
-        /* background: radial-gradient(ellipse 60% 30% at 50% 20%,#c6be774c,var(--transparent)); */
-    }
 `;
 
 const ShowCaseContainerLeft = styled.div<ShowCaseContainer>`

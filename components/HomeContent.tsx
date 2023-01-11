@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useMemo } from 'react';
-import styled, { css, keyframes } from 'styled-components';
+import React, { useState, useEffect } from 'react';
+import styled, { css } from 'styled-components';
 import ContentProps from '../Interfaces';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
@@ -7,6 +7,7 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import CopyToClipboard from './CopyButton';
 import MailIcon from '@mui/icons-material/Mail';
 import { bounce } from '../animations';
+import Container from './Container';
 
 const iAmArray = [
     "steven hale.",
@@ -39,7 +40,6 @@ const socialsIcons = [
     }
 ];
 
-
 const HomeContent: React.FC<ContentProps> = ({ currentIndex, thisIndex, setCurrentIndex }) => {
     const [currentWord, setCurrentWord] = useState(iAmArray[0]);
     const [currentWordIndex, setCurrentWordIndex] = useState(0);
@@ -60,47 +60,42 @@ const HomeContent: React.FC<ContentProps> = ({ currentIndex, thisIndex, setCurre
     }, [currentWordIndex]);
 
     return (
-        <Wrapper>
-            <Gradient />
-            <Title>
-                <h1>I AM<br/>{currentWord}</h1>
-            </Title>
-            <EmailContainer>
-                <ul>
-                    <li>
-                        <CopyToClipboard />
-                    </li>
-                </ul>
-            </EmailContainer>
-            <SocialsContainer>
-                <ul>
-                    {
-                        socialsIcons.map((social, i) => (
+        <Container bgColour='#000425' gradient={<Gradient />}>
+            <Wrapper>
+                <Title>
+                    <h1>I AM<br />{currentWord}</h1>
+                </Title>
+                <EmailContainer>
+                    <ul>
+                        <li>
+                            <CopyToClipboard />
+                        </li>
+                    </ul>
+                </EmailContainer>
+                <SocialsContainer>
+                    <ul>
+                        {socialsIcons.map((social, i) => (
                             <li key={i}>
                                 <a target={"_blank"} rel={"noreferrer"} href={`${social.href}`}>
                                     {social.icon}
                                 </a>
                             </li>
-                        ))
-                    }
-                </ul>
-            </SocialsContainer>
-            <ScrollDownPrompt onClick={() => setCurrentIndex(1)}>
-                Scroll down for projects
-            </ScrollDownPrompt>
-        </Wrapper>
+                        ))}
+                    </ul>
+                </SocialsContainer>
+                <ScrollDownPrompt onClick={() => setCurrentIndex(1)}>
+                    Scroll down for projects
+                </ScrollDownPrompt>
+            </Wrapper>
+        </Container>
     );
 };
 
 const Wrapper = styled.div`
-    height: 100vh;
-    width: 100vw;
-    overflow: hidden;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #000425;
 `;
 
 const Gradient = styled.div`
@@ -117,7 +112,7 @@ const Title = styled.div`
     flex-direction: column;
     text-align: left;
     justify-content: center;
-    font-size: 40px;
+    font-size: 10px;
     width: 100%;
     height: 50%;
     transform: translateX(25%);
@@ -177,7 +172,7 @@ const EmailContainer = styled.div`
     left: 0;
     color: white;
     padding: 0 0 15px 30px;
-      z-index: 99;
+    z-index: 99;
     & ul::after {
         content: "";
         display: block;
@@ -208,8 +203,7 @@ const ScrollDownPrompt = styled.div`
     color: white;
     animation: ${css`${bounce} 1.5s ease-in-out infinite`};
     cursor: pointer;    
-     z-index: 99;
+    z-index: 99;
 `;
-
 
 export default HomeContent;

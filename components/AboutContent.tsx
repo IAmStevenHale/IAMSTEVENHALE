@@ -2,7 +2,7 @@ import Image from 'next/image';
 import styled, { css } from 'styled-components';
 import { useState, useEffect } from 'react';
 import ContentProps from '../Interfaces';
-import { bounce, hover, shadowAnimation } from '../animations';
+import { hover, shadowAnimation } from '../animations';
 import Carousel from './Carousel';
 
 //
@@ -56,7 +56,7 @@ const AboutContent: React.FC<ContentProps> = ({ currentIndex, thisIndex }) => {
     }, [currentImageIndex]);
 
     return (
-        <Wrapper>
+       <Wrapper>
             <Gradient/>
             <ShowCaseContainerLeft>
                 <ImageContainer>
@@ -72,7 +72,6 @@ const AboutContent: React.FC<ContentProps> = ({ currentIndex, thisIndex }) => {
                 </ImageContainer>
             </ShowCaseContainerLeft>
             <ShowCaseContainerRight>
-                {/* <h1>I am Steven Hale.</h1> */}
                 <p>
                     Hi, <a rel='noreferrer' target={'_blank'} href='https://www.youtube.com/watch?v=ouA-U4x17KY'>Stevie here.</a>
                 </p>
@@ -85,7 +84,6 @@ const AboutContent: React.FC<ContentProps> = ({ currentIndex, thisIndex }) => {
                 </p>
                 <br/>
                 <p style={{ fontFamily: "'Gloria Hallelujah', cursive"}}>Steven Hale</p>
-                
                 <Carousel items={items}/>
             </ShowCaseContainerRight>
         </Wrapper>
@@ -99,7 +97,6 @@ const Wrapper = styled.div`
     overflow: hidden;
     position: relative;
     display: flex;
-
     @media (max-width: 600px) {
         flex-direction: column;
     }
@@ -178,7 +175,7 @@ const ImagesWrapper = styled.div`
     align-items: center;
     border-radius: 50%;
     animation: ${css`${hover} 5s ease-in-out infinite`};
-        @media (max-width: 600px) {
+    @media (max-width: 600px) {
         height: 230px;
         width: 230px;
     }
@@ -194,7 +191,7 @@ const ImageWrapper = styled.div<{ isCurrent: boolean }>`
         height: 100%;
         width: auto;
     }
-        @media (max-width: 600px) {
+    @media (max-width: 600px) {
         height: 230px;
         width: 230px;
     }

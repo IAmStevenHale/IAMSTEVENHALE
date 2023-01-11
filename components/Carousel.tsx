@@ -1,11 +1,10 @@
 import Image from 'next/image';
-import styled, { css, keyframes } from 'styled-components';
+import styled, { css } from 'styled-components';
+import { moveLeft } from '../animations';
 
 interface CarouselProps {
     items: string[];
 }
-
-//items[] should be an array of relative image paths from the public folder
 
 const Carousel: React.FC<CarouselProps> = ({ items }) => {
     return (
@@ -39,23 +38,14 @@ const Wrapper = styled.div`
     }
 `;
 
-const moveLeft = keyframes`
-    from {
-        transform: translateX(0);
-    }
-    to {
-        transform: translateX(-1950px);
-    }
-`;
-
 const Slider = styled.div`
-  left: 0;
-  position: absolute;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  width: 2550px;
-  animation: ${css`${moveLeft} 34s linear infinite`};
+    left: 0;
+    position: absolute;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 2550px;
+    animation: ${css`${moveLeft} 34s linear infinite`};
 `;
 
 interface CarouselItemWrapperProps {
@@ -63,8 +53,8 @@ interface CarouselItemWrapperProps {
 }
 
 const CarouselItemWrapper = styled.div<CarouselItemWrapperProps>`
-  width: ${(props) => `${props.width}px`};
-  object-fit: contain;
+    width: ${(props) => `${props.width}px`};
+    object-fit: contain;
 `;
 
 export default Carousel;
