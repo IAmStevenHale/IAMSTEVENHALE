@@ -1,36 +1,15 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Welcome to my GitHub repository!
 
-## Getting Started
+I'm a Full-stack software developer with over 3 years of experience in the field. I'm proficient in a variety of technologies including React, Typescript, CSS3/SCSS/LESS, Git, JavaScript ES6, Node.js, and Next.js.
 
-First, run the development server:
+I'm a pro at both front-end and back-end development and I'm comfortable working on both sides of the stack. My experience with React, Typescript, and Next.js has given me the ability to build high-performance, scalable web applications that provide a seamless user experience. Plus, I'm also skilled in CSS3/SCSS/LESS and Styled-Components which helps me create visually appealing designs that adapt to different screens and devices.
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+I'm a big fan of Git and I use it to collaborate with other developers on projects. I am also familiar with JavaScript ES6 and Node.js, which allows me to write server-side code and build APIs that can be easily consumed by front-end applications.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+I'm always looking for ways to improve my skills and stay up-to-date with the latest technologies. I'm a proactive and detail-oriented developer who enjoys working on challenging projects and collaborating with a team. And let's not forget, I'm a huge pizza connoisseur.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+Take a look around my repository, and if you like what you see, give me a follow!
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+Cheers,
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Stevie.
