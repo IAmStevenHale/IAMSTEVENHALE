@@ -7,7 +7,7 @@ import ImageSphere from './ImageSphere';
 //
 const AboutContent: React.FC<ContentProps> = ({ currentIndex, thisIndex, setCurrentIndex }) => {
 
-    const text = "I started out as a Software Developer in 2019, chasing a new and challenging career."
+    const text = "I started out as a Full-stack Developer back in 2019. I have a strong understanding of both front-end and back-end development using the JavaScript eco-system. I've used React, Typescript, and Next.js to build high-performance, scalable web applications that provide a seamless user experience. Thanks for checking out my portfolio."
 
     return (
         <Container bgColour='black'>
