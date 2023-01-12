@@ -61,10 +61,10 @@ const ScrollableContainer: React.FC<ScrollableProps> = ({ currentIndex, setCurre
         };
         
         currentRef && currentRef.addEventListener('scroll', handleIndex);
-        window.addEventListener('touchmove', handleTouchMove, { passive: false });
+        currentRef && currentRef.addEventListener('touchmove', handleTouchMove, { passive: false });
         return () => {
             currentRef && currentRef.removeEventListener('scroll', handleIndex);
-            window.removeEventListener('touchmove', handleTouchMove);
+            currentRef && currentRef.removeEventListener('touchmove', handleTouchMove);
         };
     }, [children.length, currentIndex, ref, setCurrentIndex]);
 
