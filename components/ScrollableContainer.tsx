@@ -47,9 +47,9 @@ const ScrollableContainer: React.FC<ScrollableProps> = ({ currentIndex, setCurre
                 previousTouchPositionY = touchPositionY;
                 
                 if (touchDirection === 'down' && currentIndex > 0) {
-                    setCurrentIndex(prevIndex => prevIndex -1);
+                    setCurrentIndex((prevIndex: any) => prevIndex -1);
                 } else if (touchDirection === 'up' && currentIndex < children.length - 1) {
-                    setCurrentIndex(prevIndex => prevIndex +1);
+                    setCurrentIndex((prevIndex: any) => prevIndex +1);
                 }
             }
         };
