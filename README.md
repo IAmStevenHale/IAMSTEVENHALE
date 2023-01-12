@@ -1,6 +1,6 @@
 Welcome to my GitHub repository!
 
-I'm a Full-stack software developer with over 3 years of experience in the field. I'm proficient in a variety of technologies including React, Typescript, CSS3/SCSS/LESS, Git, JavaScript ES6, Node.js, and Next.js.
+I'm a Full-stack software developer, I started out back in 2019. I'm proficient in a variety of technologies including React, Typescript, CSS3/SCSS/LESS, Git, JavaScript ES6, Node.js, and Next.js.
 
 I'm a pro at both front-end and back-end development and I'm comfortable working on both sides of the stack. My experience with React, Typescript, and Next.js has given me the ability to build high-performance, scalable web applications that provide a seamless user experience. Plus, I'm also skilled in CSS3/SCSS/LESS and Styled-Components which helps me create visually appealing designs that adapt to different screens and devices.
 
