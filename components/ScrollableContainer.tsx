@@ -27,9 +27,10 @@ const ScrollableContainer: React.FC<ScrollableProps> = ({ currentIndex, setCurre
         const checkAgainst = Array.from({length: children.length}, (_, i) => i);
 
         const handleIndex = () => {
-            const indexPlaceholder = currentFirstChildRef && Math.abs(currentFirstChildRef.getBoundingClientRect().top / currentFirstChildRef.clientHeight); 
-            if (checkAgainst.some((el) => el === indexPlaceholder)) {
-                setCurrentIndex(indexPlaceholder)
+            
+            const indexPlaceholder = currentFirstChildRef && Math.abs(currentFirstChildRef.getBoundingClientRect().top / currentFirstChildRef.clientHeight) || 0; 
+            if (checkAgainst.some((el) => el === Math.round(indexPlaceholder))) {
+                setCurrentIndex(Math.round(indexPlaceholder))
             }
         };
         currentRef && currentRef.addEventListener('scroll', handleIndex);
