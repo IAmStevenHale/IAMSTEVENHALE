@@ -13,23 +13,6 @@ const ScrollableContainer: React.FC<ScrollableProps> = ({ currentIndex, setCurre
     const isHomeScreen = currentIndex === 0;
     const ref = useRef<HTMLDivElement>(null);
     const firstChildRef = useRef<HTMLDivElement>(null);
-    const [contentHeight, setContentHeight]:any = useState();
-    const [isVisible, setIsVisible] = useState(false);
-
-
-    useEffect(() => {
-        
-        if(typeof window === undefined) return;
-        if(navigator.userAgent.includes("iPhone")){
-            setContentHeight("100vh");
-        }else{
-            const innerHeight = window.innerHeight;
-            const addressBarHeight = window.outerHeight - innerHeight;
-            setContentHeight(innerHeight - addressBarHeight + "px");
-        }
-
-        setIsVisible(true);
-    }, [])
 
     const handleJumpTo = (key: number) => {
         setCurrentIndex(key);
@@ -58,7 +41,7 @@ const ScrollableContainer: React.FC<ScrollableProps> = ({ currentIndex, setCurre
     }, [children.length, currentIndex, ref, setCurrentIndex]);
 
     return (
-        <Wrapper isVisible={isVisible}>
+        <Wrapper>
             <JumpToNav handleJumpTo={handleJumpTo} />
             <JumpTo isHomeScreen={isHomeScreen}>
                 {children.map((_, i) => (
@@ -68,7 +51,7 @@ const ScrollableContainer: React.FC<ScrollableProps> = ({ currentIndex, setCurre
             <ScrollDownPrompt onClick={() => handleJumpTo(1)} currentIndex={currentIndex}>
                     Scroll down for projects
                 </ScrollDownPrompt>
-            <InnerContainer ref={ref} height={contentHeight}>
+            <InnerContainer ref={ref}>
                 {children.map((child, i) => (
                     <React.Fragment key={i}>
                         {i === 0 && <div ref={firstChildRef}>{child}</div>}
@@ -80,13 +63,12 @@ const ScrollableContainer: React.FC<ScrollableProps> = ({ currentIndex, setCurre
     )
 };
 
-const Wrapper = styled.div<{ isVisible: boolean}>`
+const Wrapper = styled.div`
     width: 100vw;
     overflow: hidden;
-    display: ${props => props.isVisible ? `block` : 'none'};
 `;
 
-const InnerContainer = styled.div<{ ref: any; height: string; }>`
+const InnerContainer = styled.div<{ ref: any }>`
     height: 100vh;
     scroll-snap-type: y mandatory;
     -webkit-scroll-snap-type: y mandatory;
@@ -99,12 +81,6 @@ const InnerContainer = styled.div<{ ref: any; height: string; }>`
         scroll-snap-stop: always;
         -webkit-scroll-snap-stop: always;
         position: relative;
-    }
-    @media (max-width: 700px) {
-        height: ${props => `${props.height}`};
-        & > * {
-            height: ${props => `${props.height}`};
-        }
     }
 `;
 

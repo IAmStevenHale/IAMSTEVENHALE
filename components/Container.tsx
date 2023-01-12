@@ -27,6 +27,9 @@ const FullScreenContainer = styled.div<{ bgColour: string}>`
     justify-content: center;
     padding: 20px;
     overflow: hidden;
+    @media (max-width: 700px) {
+      padding: 50px 20px;
+    }
 `;
 
 const MaxWidthContainer = styled.div`

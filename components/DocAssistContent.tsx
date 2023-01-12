@@ -78,7 +78,7 @@ const ShowCaseContainerLeft = styled.div<ShowCaseContainer>`
 
 const ShowCaseContainerRight = styled.div<ShowCaseContainer>`
     width: 40%;
-    height: 100%;
+    height: auto;
     display: flex;
     align-items: center;
     justify-content: center;

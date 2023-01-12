@@ -67,11 +67,12 @@ const ImagesWrapper = styled.div`
     object-fit: contain;
     display: flex;
     align-items: center;
+    margin: 0 auto;
     border-radius: 50%;
     animation: ${css`${hover} 5s ease-in-out infinite`};
     @media (max-width: 700px) {
-        height: 230px;
-        width: 230px;
+        height: 200px;
+        width: 200px;
     }
 `;
 
@@ -86,8 +87,8 @@ const ImageWrapper = styled.div<{ isCurrent: boolean }>`
         width: auto;
     }
     @media (max-width: 700px) {
-        height: 230px;
-        width: 230px;
+        height: 200px;
+        width: 200px;
         
     }
 `;
@@ -124,8 +125,8 @@ const Sphere = styled.div`
     background: radial-gradient(circle at 150px 100px, var(--transparent) 30%,  #000 75%),
     radial-gradient(circle at 30% 20%,  rgb(255, 255, 255, 0.5), rgba(255, 255, 255, 0) 30%);
     @media (max-width: 700px) {
-        height: 230px;
-        width: 230px;
+        height: 200px;
+        width: 200px;
     }
 `;
 

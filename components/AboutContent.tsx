@@ -17,13 +17,10 @@ const AboutContent: React.FC<ContentProps> = ({currentIndex, thisIndex, setCurre
                     <ImageSphere/>
                 </ShowCaseContainerLeft>
                 <ShowCaseContainerRight>
-                    <p>
-                        Hi, <a rel='noreferrer' target={'_blank'} href='https://www.youtube.com/watch?v=ouA-U4x17KY'>Stevie here.</a>
-                    </p>
+                    <p>Hi, <a rel='noreferrer' target={'_blank'} href='https://www.youtube.com/watch?v=ouA-U4x17KY'>Stevie here.</a></p>
                     <p>{text}</p>
                     <br />
                     <p style={{ fontFamily: "'Gloria Hallelujah', cursive" }}>Steven Hale</p>
-                    
                 </ShowCaseContainerRight>
                 <Carousel />
             </Wrapper>
@@ -62,13 +59,13 @@ const ShowCaseContainerLeft = styled.div`
     color: rgb(180, 188, 208);
     flex-direction: column;
     text-align: center;
-    gap: 20px;
     font-family: "Linear","SF Pro Display",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu, Cantarell,"Open Sans","Helvetica Neue",sans-serif;
     @media (max-width: 700px) {
         width: 100%;
         height: 30%;
     }
 `;
+
 const ShowCaseContainerRight = styled.div`
     width: 50%;
     display: flex;
