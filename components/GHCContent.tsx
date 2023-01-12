@@ -32,11 +32,9 @@ const GHCContent: React.FC<ContentProps> = ({ currentIndex, thisIndex }) => {
 const Wrapper = styled.div`
     display: flex;
     position: relative;
-    height: fit-content;
+    height: 100%;
     width: 100%;
     padding-right: 20px;
-    justify-content: center;
-    align-items: center;
     @media (max-width: 700px) {
         flex-direction: column-reverse;
     }
@@ -99,7 +97,7 @@ const ShowCaseContainerLeft = styled.div<ShowCaseContainer>`
 
     @media (max-width: 700px) {
         width: 100%;
-        height: fit-content;
+        height: 60%;
         justify-content: flex-start;
         font-size: calc(16px + (24 - 16) * (100vmin - 280px) / (1200 - 280));
         & h2 {
@@ -134,8 +132,8 @@ const ShowCaseContainerRight = styled.div<ShowCaseContainer>`
         height: 40%;
         & :first-child {
             height: 100%;
-            /* width: auto; */
-            max-width: 300px;
+            width: auto;
+            max-width: unset;
             min-width: unset;
             padding: 20px;
         }
