@@ -20,12 +20,7 @@ const ScrollableContainer: React.FC<ScrollableProps> = ({ currentIndex, setCurre
             behavior: 'smooth'
         });
     };
-
-
-    let previousTouchPositionY = 0;
-
-
-
+    
     useEffect(() => {
         const currentRef = ref.current;
         const currentFirstChildRef = firstChildRef.current;
@@ -37,28 +32,9 @@ const ScrollableContainer: React.FC<ScrollableProps> = ({ currentIndex, setCurre
                 setCurrentIndex(indexPlaceholder)
             }
         };
-
-        const handleTouchMove = (event: TouchEvent) => {
-            if (event.touches.length > 0) {
-                event.preventDefault();
-                const touch = event.touches[0];
-                const touchPositionY = touch.clientY;
-                const touchDirection = touchPositionY > previousTouchPositionY ? 'down' : 'up';
-                previousTouchPositionY = touchPositionY;
-                
-                if (touchDirection === 'down' && currentIndex > 0) {
-                    setCurrentIndex((prevIndex: any) => prevIndex -1);
-                } else if (touchDirection === 'up' && currentIndex < children.length - 1) {
-                    setCurrentIndex((prevIndex: any) => prevIndex +1);
-                }
-            }
-        };
-        
         currentRef && currentRef.addEventListener('scroll', handleIndex);
-        currentRef && currentRef.addEventListener('touchmove', handleTouchMove);
         return () => {
             currentRef && currentRef.removeEventListener('scroll', handleIndex);
-            currentRef && currentRef.removeEventListener('touchmove', handleTouchMove);
         };
     }, [children.length, currentIndex, ref, setCurrentIndex]);
 
