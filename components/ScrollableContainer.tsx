@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import JumpToNav from './JumpToNav';
 import { bounce } from '../animations';
 
@@ -13,6 +13,14 @@ const ScrollableContainer: React.FC<ScrollableProps> = ({ currentIndex, setCurre
     const isHomeScreen = currentIndex === 0;
     const ref = useRef<HTMLDivElement>(null);
     const firstChildRef = useRef<HTMLDivElement>(null);
+    const [contentHeight, setContentHeight]:any = useState();
+
+    useEffect(() => {
+        if(typeof window === undefined) return;
+        const innerHeight = window.innerHeight;
+        const addressBarHeight = window.outerHeight - innerHeight;
+        setContentHeight(innerHeight - addressBarHeight) 
+    }, [])
 
     const handleJumpTo = (key: number) => {
         setCurrentIndex(key);
@@ -51,7 +59,7 @@ const ScrollableContainer: React.FC<ScrollableProps> = ({ currentIndex, setCurre
             <ScrollDownPrompt onClick={() => handleJumpTo(1)} currentIndex={currentIndex}>
                     Scroll down for projects
                 </ScrollDownPrompt>
-            <InnerContainer ref={ref}>
+            <InnerContainer ref={ref} height={contentHeight}>
                 {children.map((child, i) => (
                     <React.Fragment key={i}>
                         {i === 0 && <div ref={firstChildRef}>{child}</div>}
@@ -68,12 +76,12 @@ const Wrapper = styled.div`
     overflow: hidden;
 `;
 
-const InnerContainer = styled.div<{ ref: any }>`
-    height: 100vh;
+const InnerContainer = styled.div<{ ref: any; height: number; }>`
+    height: ${props => `${props.height}px`};
     scroll-snap-type: y mandatory;
     overflow: hidden scroll;
     & > * {
-        height: 100vh;
+        height: ${props => `${props.height}px`};
         width: 100vw;
         scroll-snap-align: start;
         scroll-snap-stop: always;
