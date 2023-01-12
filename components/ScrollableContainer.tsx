@@ -18,7 +18,7 @@ const ScrollableContainer: React.FC<ScrollableProps> = ({ currentIndex, setCurre
 
     useEffect(() => {
         if(typeof window === undefined) return;
-        const innerHeight = window.innerHeight;
+        const innerHeight = window.screen.availHeight;
         const addressBarHeight = window.outerHeight - innerHeight;
         setContentHeight(innerHeight - addressBarHeight);
         setIsVisible(true);
