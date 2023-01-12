@@ -1,10 +1,11 @@
 import styled, { css } from 'styled-components';
+import ContentProps from '../Interfaces';
 import Carousel from './Carousel';
 import Container from './Container';
 import ImageSphere from './ImageSphere';
 
 //
-const AboutContent: React.FC = () => {
+const AboutContent: React.FC<ContentProps> = ({currentIndex, thisIndex, setCurrentIndex}) => {
 
     return (
         <Container bgColour='black'>
