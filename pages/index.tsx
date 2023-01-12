@@ -20,10 +20,10 @@ const Home: React.FC = () => {
         <AboutContent key={5} thisIndex={5} currentIndex={currentIndex} setCurrentIndex={setCurrentIndex} />
     ];
 
-    useEffect(() => {
-        if(typeof window === undefined) return;
-        window.scrollTo(0,1);
-    }, [])
+    // useEffect(() => {
+    //     if(typeof window === undefined) return;
+
+    // }, [])
     
 
     
