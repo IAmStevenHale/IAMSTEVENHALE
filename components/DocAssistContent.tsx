@@ -13,10 +13,8 @@ const DocAssistContent: React.FC<ContentProps> = ({ currentIndex, thisIndex }) =
         <Wrapper>
             <ShowCaseContainerLeft isCurrent={isCurrent}>
                 <h2>DocAssist</h2>
-                <br />
                 <p>{text}</p>
-                <br />
-                <p><a target={'_blank'} rel="noreferrer" href='https://www.docassist.org/'>https://www.docassist.org/</a></p>
+                <p><strong><a target={'_blank'} rel="noreferrer" href='https://www.docassist.org/'>https://www.docassist.org/</a></strong></p>
             </ShowCaseContainerLeft>
             <ShowCaseContainerRight isCurrent={isCurrent}>
                 <Image src='/docAssist.png' alt='A landscape ipad showcasing the Dicefall app.' width={543} height={649} />
@@ -64,7 +62,7 @@ const ShowCaseContainerLeft = styled.div<ShowCaseContainer>`
     text-align: center; 
     transition: 800ms ease-in-out;
     ${({ isCurrent }) => isCurrent ? `opacity: 1; transform: translateY(0);` : `opacity: 0; transform: translateY(25vh);`};
-    & > :first-child {
+    & h2 {
         font-weight: 700;
         font-size: 50px;
     }
@@ -73,6 +71,10 @@ const ShowCaseContainerLeft = styled.div<ShowCaseContainer>`
         height: 60%;
         justify-content: flex-start;
         font-size: calc(16px + (24 - 16) * (100vmin - 280px) / (1200 - 280));
+        & h2 {
+            font-weight: 700;
+            font-size: 30px;
+        }
     }
 `;
 
@@ -85,8 +87,8 @@ const ShowCaseContainerRight = styled.div<ShowCaseContainer>`
     flex-direction: column;
     text-align: center;
     transition: 800ms ease-in-out;
-    margin: auto 0;
-    ${({ isCurrent }) => isCurrent ? `opacity: 1; transform: translate(0, 0);` : `opacity: 0; transform: translate(0, -25vh);`};
+    margin: auto;
+    ${({ isCurrent }) => isCurrent ? `opacity: 1; transform: scale(1);` : `opacity: 0; transform: scale(0);`};
     & :first-child {
         height: auto;
         width: 100%;
@@ -101,8 +103,11 @@ const ShowCaseContainerRight = styled.div<ShowCaseContainer>`
         width: 100%;
         height: 40%;
         & :first-child {
-            width: auto;
             height: 100%;
+            width: auto;
+            max-width: unset;
+            min-width: unset;
+            padding: 20px;
         }
     }
 `;

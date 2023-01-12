@@ -15,9 +15,7 @@ const DicefallContent: React.FC<ContentProps> = ({ currentIndex, thisIndex }) =>
                 </ShowCaseContainerLeft>
                 <ShowCaseContainerRight isCurrent={isCurrent}>
                     <h2>Dicefall</h2>
-                    <br />
                     <p>DiceFall is the perfect tool for managing and running in-person Dungeons and Dragons campaigns. With a focus on collaboration and real-time interactivity, DiceFall makes it easy to plan epic tabletop adventures with your friends. Its intuitive interface allows players and Dungeon Masters to stay connected and engaged in their campaigns. Whether you&rsquo;re a seasoned DM or a newcomer to tabletop gaming, DiceFall has something for everyone. Start your next adventure today with DiceFall!</p>
-                    <br />
                     <p><strong>Currently in Development</strong></p>
                 </ShowCaseContainerRight>
             </Wrapper>
@@ -57,7 +55,7 @@ const ShowCaseContainerLeft = styled.div<ShowCaseContainer>`
     flex-direction: column;
     text-align: center;
     transition: 800ms ease-in-out;
-    margin: auto 0;
+    margin: auto;
     ${({ isCurrent }) => isCurrent ? `opacity: 1; transform: translate(0, 0);` : `opacity: 0; transform: translate(0, -25vh);`};
     & :first-child {
         height: auto;
@@ -69,11 +67,14 @@ const ShowCaseContainerLeft = styled.div<ShowCaseContainer>`
         transition: 1.2s ease-in-out;
     }
     @media (max-width: 700px) {
-        width: auto;
-        height: 100%;
+        width: 100%;
+        height: 40%;
         & :first-child {
             height: 100%;
             width: auto;
+            max-width: unset;
+            min-width: unset;
+            padding: 20px;
         }
     }
 `;
@@ -90,16 +91,18 @@ const ShowCaseContainerRight = styled.div<ShowCaseContainer>`
     text-align: center; 
     transition: 800ms ease-in-out;
     ${({ isCurrent }) => isCurrent ? `opacity: 1; transform: translateY(0);` : `opacity: 0; transform: translateY(25vh);`};
-    & > :first-child {
+    & > h2 {
         font-weight: 700;
         font-size: 50px;
     }
-
     @media (max-width: 700px) {
         width: 100%;
         height: 60%;
         justify-content: flex-start;
         font-size: calc(16px + (24 - 16) * (100vmin - 280px) / (1200 - 280));
+        & > h2 {
+            font-size: 30px;
+        }
     }
 `;
 

@@ -7,7 +7,7 @@ import ImageSphere from './ImageSphere';
 //
 const AboutContent: React.FC<ContentProps> = ({ currentIndex, thisIndex, setCurrentIndex }) => {
 
-    const text = "I started out as a Software Developer in 2019, chasing a new and challenging career after moving on from being a S&C Coach. I have a strong understanding of front-end and back-end development, and I am comfortable working on both sides of the stack. My experience with React, Typescript, and Next.js has given me the ability to build high-performance, scalable web applications that provide a seamless user experience."
+    const text = "I started out as a Software Developer in 2019, chasing a new and challenging career."
 
     return (
         <Container bgColour='black'>
@@ -20,7 +20,6 @@ const AboutContent: React.FC<ContentProps> = ({ currentIndex, thisIndex, setCurr
                     <ShowCaseContainerRight>
                         <p>Hi, <a rel='noreferrer' target={'_blank'} href='https://www.youtube.com/watch?v=ouA-U4x17KY'>Stevie here.</a></p>
                         <p>{text}</p>
-                        <br />
                         <p style={{ fontFamily: "'Gloria Hallelujah', cursive" }}>Steven Hale</p>
                     </ShowCaseContainerRight>
                 </InnerWrapper>

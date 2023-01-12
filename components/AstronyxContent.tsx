@@ -15,13 +15,13 @@ const AstronyxContent = ({ currentIndex, thisIndex }: ContentProps) => {
                 </ShowCaseContainerLeft>
                 <ShowCaseContainerRight isCurrent={isCurrent}>
                     <TextWrapper>
+                        <h2>
                         ASTRONYX
+                        </h2>
                     </TextWrapper>
-                    <br />
                     <TextWrapper>
                         <p>{text}</p>
-                        <br />
-                        <p><a target={'_blank'} rel="noreferrer" href='https://www.astronyx.com.au/'>https://www.astronyx.com.au/</a></p>
+                        <p><strong><a target={'_blank'} rel="noreferrer" href='https://www.astronyx.com.au/'>https://www.astronyx.com.au/</a></strong></p>
                     </TextWrapper>
                 </ShowCaseContainerRight>
             </Wrapper>
@@ -71,7 +71,7 @@ const ShowCaseContainerRight = styled.div<ShowCaseContainer>`
     text-align: center; 
     transition: 800ms ease-in-out;
     ${({ isCurrent }) => isCurrent ? `opacity: 1; transform: translateY(0);` : `opacity: 0; transform: translateY(25vh);`};
-    & > :first-child {
+    & h2 {
         font-weight: 700;
         font-size: 50px;
     }
@@ -81,6 +81,9 @@ const ShowCaseContainerRight = styled.div<ShowCaseContainer>`
         height: 60%;
         justify-content: flex-start;
         font-size: calc(16px + (24 - 16) * (100vmin - 280px) / (1200 - 280));
+        & h2 {
+            font-size: 30px;
+        }
     }
 `;
 
@@ -92,13 +95,13 @@ const ShowCaseContainerLeft = styled.div<ShowCaseContainer>`
     justify-content: center;
     flex-direction: column;
     text-align: center;
-    margin: auto 0;
+    margin: auto;
     transition: 800ms ease-in-out;
     ${({ isCurrent }) => isCurrent ? `opacity: 1; transform: translate(0, 0);` : `opacity: 0; transform: translate(-25vw, 25vh);`};
     & :first-child {
         height: auto;
         width: 100%;
-        max-width: 500px;
+        max-width: 400px;
         min-width: 300px;
         filter: drop-shadow(10px 10px 15px #000000b2);
         -webkit-filter: drop-shadow(10px 10px 15px #000000b2);
@@ -106,11 +109,14 @@ const ShowCaseContainerLeft = styled.div<ShowCaseContainer>`
         padding: 20px;
     }
     @media (max-width: 700px) {
-        width: auto;
-        height: 100%;
+        width: 100%;
+        height: 40%;
         & :first-child {
             height: 100%;
             width: auto;
+            max-width: unset;
+            min-width: unset;
+            padding: 20px;
         }
     }
 `;

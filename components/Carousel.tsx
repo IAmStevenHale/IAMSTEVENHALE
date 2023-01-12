@@ -46,11 +46,11 @@ const Wrapper = styled.div`
     bottom: 0;
     left: 0;
     display: flex;
-    overflow: hidden;
+    /* overflow: hidden; */
     width: 100%;
     background: radial-gradient(ellipse 100% 50% at 50% 50%,#7e7e7eb0,var(--transparent));
     @media (max-width: 700px) {
-        margin-bottom: 50px;
+        /* margin-bottom: 50px; */
     }
 `;
 
