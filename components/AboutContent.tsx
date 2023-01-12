@@ -5,23 +5,25 @@ import Container from './Container';
 import ImageSphere from './ImageSphere';
 
 //
-const AboutContent: React.FC<ContentProps> = ({currentIndex, thisIndex, setCurrentIndex}) => {
+const AboutContent: React.FC<ContentProps> = ({ currentIndex, thisIndex, setCurrentIndex }) => {
 
     const text = "I started out as a Software Developer in 2019, chasing a new and challenging career after moving on from being a S&C Coach. I have a strong understanding of front-end and back-end development, and I am comfortable working on both sides of the stack. My experience with React, Typescript, and Next.js has given me the ability to build high-performance, scalable web applications that provide a seamless user experience."
 
     return (
         <Container bgColour='black'>
             <Wrapper>
-            <Gradient />
-                <ShowCaseContainerLeft>
-                    <ImageSphere/>
-                </ShowCaseContainerLeft>
-                <ShowCaseContainerRight>
-                    <p>Hi, <a rel='noreferrer' target={'_blank'} href='https://www.youtube.com/watch?v=ouA-U4x17KY'>Stevie here.</a></p>
-                    <p>{text}</p>
-                    <br />
-                    <p style={{ fontFamily: "'Gloria Hallelujah', cursive" }}>Steven Hale</p>
-                </ShowCaseContainerRight>
+                <Gradient />
+                <InnerWrapper>
+                    <ShowCaseContainerLeft>
+                        <ImageSphere />
+                    </ShowCaseContainerLeft>
+                    <ShowCaseContainerRight>
+                        <p>Hi, <a rel='noreferrer' target={'_blank'} href='https://www.youtube.com/watch?v=ouA-U4x17KY'>Stevie here.</a></p>
+                        <p>{text}</p>
+                        <br />
+                        <p style={{ fontFamily: "'Gloria Hallelujah', cursive" }}>Steven Hale</p>
+                    </ShowCaseContainerRight>
+                </InnerWrapper>
                 <Carousel />
             </Wrapper>
         </Container>
@@ -33,8 +35,18 @@ const Wrapper = styled.div`
     width: 100vw;
     position: relative;
     display: flex;
+    flex-direction: column;
+`;
+
+const InnerWrapper = styled.div`
+    height: 100%;
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: row;
     @media (max-width: 700px) {
         flex-direction: column;
+        height: fit-content;
     }
 `;
 
@@ -62,7 +74,8 @@ const ShowCaseContainerLeft = styled.div`
     font-family: "Linear","SF Pro Display",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu, Cantarell,"Open Sans","Helvetica Neue",sans-serif;
     @media (max-width: 700px) {
         width: 100%;
-        height: 30%;
+        height: fit-content;
+        margin-bottom: 80px;
     }
 `;
 
@@ -86,8 +99,8 @@ const ShowCaseContainerRight = styled.div`
     }
     @media (max-width: 700px) {
         width: 100%;
-        height: 70%;
-        padding: 0 20px;
+        height: fit-content;
+        padding: 0 40px 0 20px;
     }
 `;
 

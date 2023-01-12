@@ -42,7 +42,7 @@ const Carousel: React.FC = () => {
 const Wrapper = styled.div`
     height: 100px;
     width: 100%;
-    position: absolute;
+    position: relative;
     bottom: 0;
     left: 0;
     display: flex;
