@@ -33,8 +33,10 @@ const ScrollableContainer: React.FC<ScrollableProps> = ({ currentIndex, setCurre
             }
         };
         
+        window && window.addEventListener('scroll', handleIndex);
         currentRef && currentRef.addEventListener('scroll', handleIndex);
         return () => {
+            window && window.addEventListener('scroll', handleIndex);
             currentRef && currentRef.removeEventListener('scroll', handleIndex);
         };
     }, [children.length, currentIndex, ref, setCurrentIndex]);
