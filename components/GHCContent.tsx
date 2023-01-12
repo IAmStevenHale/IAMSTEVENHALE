@@ -127,8 +127,8 @@ const ShowCaseContainerRight = styled.div<ShowCaseContainer>`
         transition: 1.2s ease-in-out;
     }
     @media (max-width: 700px) {
-        width: 100%;
-        height: 40%;
+        width: auto;
+        height: 100%;
         & :first-child {
             height: 100%;
             width: auto;

@@ -4,17 +4,17 @@ import styled, { css } from 'styled-components';
 import { hover, shadowAnimation } from '../animations';
 
 const profileUrls = [
-    "1d62d29067f8824bcc22c1dbaf922bfc.jpg",
-    "4a8861c2be55787c4450d90a9a8baab1.jpg",
-    "6f690e4c4f39dc1a96496bb62738159a.jpg",
-    "8f571ef315c0346d749bcee6170c71f0.jpg",
-    "22ada7249943f29418eed29f2e8f9fa4.jpg",
-    "50ec4af07690f0f8729efc9e6118bcb7.jpg",
-    "9606631f93e4a80bfb80c4f414016371.jpg",
-    "934858926a3da6e5f4b05927579cc3d4.jpg",
-    "a0274b258023688e60bdfd527020b993.jpg",
-    "df65ad6e7e74f9ccd30d977cf1cf5f3f.jpg",
-    "e578e6d03c3b11e4026467865bf02f11.jpg",
+    "1d62d29067f8824bcc22c1dbaf922bfc-min.jpg",
+    "4a8861c2be55787c4450d90a9a8baab1-min.jpg",
+    "6f690e4c4f39dc1a96496bb62738159a-min.jpg",
+    "8f571ef315c0346d749bcee6170c71f0-min.jpg",
+    "22ada7249943f29418eed29f2e8f9fa4-min.jpg",
+    "50ec4af07690f0f8729efc9e6118bcb7-min.jpg",
+    "9606631f93e4a80bfb80c4f414016371-min.jpg",
+    "934858926a3da6e5f4b05927579cc3d4-min.jpg",
+    "a0274b258023688e60bdfd527020b993-min.jpg",
+    "df65ad6e7e74f9ccd30d977cf1cf5f3f-min.jpg",
+    "e578e6d03c3b11e4026467865bf02f11-min.jpg",
 ]
 
 

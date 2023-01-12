@@ -106,8 +106,8 @@ const ShowCaseContainerLeft = styled.div<ShowCaseContainer>`
         padding: 20px;
     }
     @media (max-width: 700px) {
-        width: 100%;
-        height: 40%;
+        width: auto;
+        height: 100%;
         & :first-child {
             height: 100%;
             width: auto;

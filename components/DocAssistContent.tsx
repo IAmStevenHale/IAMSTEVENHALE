@@ -101,8 +101,8 @@ const ShowCaseContainerRight = styled.div<ShowCaseContainer>`
         width: 100%;
         height: 40%;
         & :first-child {
-            height: 100%;
             width: auto;
+            height: 100%;
         }
     }
 `;
