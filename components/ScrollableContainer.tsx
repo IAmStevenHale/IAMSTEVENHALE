@@ -24,13 +24,15 @@ const ScrollableContainer: React.FC<ScrollableProps> = ({ currentIndex, setCurre
     useEffect(() => {
         const currentRef = ref.current;
         const currentFirstChildRef = firstChildRef.current;
-        const checkAgainst = Array.from({length: children.length}, (_, i) => -i);
+        const checkAgainst = Array.from({length: children.length}, (_, i) => i);
+
         const handleIndex = () => {
-            const indexPlaceholder = currentFirstChildRef && currentFirstChildRef.getBoundingClientRect().top / currentFirstChildRef.clientHeight;
-            if (indexPlaceholder && checkAgainst.some((el) => el === indexPlaceholder)) {
-                setCurrentIndex(Math.abs(indexPlaceholder))
+            const indexPlaceholder = currentFirstChildRef && Math.abs(currentFirstChildRef.getBoundingClientRect().top / currentFirstChildRef.clientHeight); 
+            if (checkAgainst.some((el) => el === indexPlaceholder)) {
+                setCurrentIndex(indexPlaceholder)
             }
         };
+        
         currentRef && currentRef.addEventListener('scroll', handleIndex);
         return () => {
             currentRef && currentRef.removeEventListener('scroll', handleIndex);
@@ -39,7 +41,7 @@ const ScrollableContainer: React.FC<ScrollableProps> = ({ currentIndex, setCurre
 
     return (
         <Wrapper>
-            <JumpToNav setCurrentIndex={setCurrentIndex} />
+            <JumpToNav handleJumpTo={handleJumpTo} />
             <JumpTo isHomeScreen={isHomeScreen}>
                 {children.map((_, i) => (
                     <JumpToCircle onClick={() => handleJumpTo(i)} key={i} isCurrent={i === currentIndex} />

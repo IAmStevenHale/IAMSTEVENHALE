@@ -36,7 +36,10 @@ const DocAssistContent: React.FC<ContentProps> = ({ currentIndex, thisIndex }) =
 const Wrapper = styled.div`
     display: flex;
     position: relative;
-    @media (max-width: 600px) {
+    height: 100%;
+    width: 100%;
+    padding-right: 20px;
+    @media (max-width: 700px) {
         flex-direction: column-reverse;
     }
 `;
@@ -50,62 +53,63 @@ const Gradient = styled.div`
     position: absolute;
     height: 100%;
     width: 100%;
+        position: absolute;
+    top: 0;
+    left: 0;
 `;
 
 const ShowCaseContainerLeft = styled.div<ShowCaseContainer>`
-    width: 50%;
+    width: 60%;
+    height: 100%;
+    margin: auto;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 50px;
     color: #b4bcd0;
     flex-direction: column;
-    text-align: center;
+    text-align: center; 
     transition: 800ms ease-in-out;
+    padding-right: 20px;
     ${({ isCurrent }) => isCurrent ? `opacity: 1; transform: translateY(0);` : `opacity: 0; transform: translateY(25vh);`};
     & > :first-child {
         font-weight: 700;
         font-size: 50px;
     }
-    @media (max-width: 900px) {
-        width: 100%;
-        height: 100%;
-        padding-right: 80px;
-    }
-    @media (max-width: 600px) {
+
+    @media (max-width: 700px) {
         width: 100%;
         height: 60%;
-        padding: 0 30px;
         justify-content: flex-start;
-        font-size: calc(14px + (24 - 14) * (100vmin - 280px) / (1200 - 280));
+        font-size: calc(16px + (24 - 16) * (100vmin - 280px) / (1200 - 280));
     }
 `;
 
 const ShowCaseContainerRight = styled.div<ShowCaseContainer>`
-    width: 50%;
+    width: 40%;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 30px;
     flex-direction: column;
     text-align: center;
     transition: 800ms ease-in-out;
-    ${({ isCurrent }) => isCurrent ? `opacity: 1; transform: scale(1)` : `opacity: 0; transform: scale(0);`};
+    margin: auto 0;
+    ${({ isCurrent }) => isCurrent ? `opacity: 1; transform: translate(0, 0);` : `opacity: 0; transform: translate(0, -25vh);`};
     & :first-child {
-        height: 60%;
-        width: auto;
-        max-height: 600px;
+        height: auto;
+        width: 100%;
+        max-width: 300px;
+        min-width: 300px;
         filter: drop-shadow(10px 10px 15px #000000b2);
         -webkit-filter: drop-shadow(10px 10px 15px #000000b2);
         transition: 1.2s ease-in-out;
     }
-    @media (max-width: 600px) {
+    @media (max-width: 700px) {
         width: 100%;
         height: 40%;
         & :first-child {
             height: 100%;
-            width: 100%;
+            width: auto;
         }
     }
 `;

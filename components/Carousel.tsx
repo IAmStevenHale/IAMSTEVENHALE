@@ -2,11 +2,27 @@ import Image from 'next/image';
 import styled, { css } from 'styled-components';
 import { moveLeft } from '../animations';
 
-interface CarouselProps {
-    items: string[];
-}
+const items = [
+    "api.png",
+    "git.png",
+    "github.png",
+    "html_logo.png",
+    "Javascript_badge.png",
+    "Next_js.png",
+    "Nodejs.png",
+    "React-icon.png",
+    "sass.png",
+    "sql.png",
+    "styled-components.png",
+    "Typescript_logo_2020.png",
+    "Vercel.png",
+    "api.png",
+    "git.png",
+    "github.png",
+    "html_logo.png",
+];
 
-const Carousel: React.FC<CarouselProps> = ({ items }) => {
+const Carousel: React.FC = () => {
     return (
         <Wrapper>
             <Slider>
@@ -32,7 +48,7 @@ const Wrapper = styled.div`
     width: 600px;
     border-radius: 50%;
     background: radial-gradient(ellipse 100% 20% at 50% 50%,#7e7e7eb0,var(--transparent));
-    @media (max-width: 600px) {
+    @media (max-width: 700px) {
         height: 75px;
         background: radial-gradient(ellipse 100% 50% at 50% 50%,#7e7e7eb0,var(--transparent));
     }

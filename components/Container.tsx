@@ -3,7 +3,7 @@ import styled from 'styled-components';
 interface ContainerProps {
   bgColour: string;
   children: React.ReactElement;
-  gradient: React.ReactElement;
+  gradient?: React.ReactElement;
 }
 
 const Container: React.FC<ContainerProps> = ({bgColour, children, gradient} :any) => {
@@ -25,11 +25,19 @@ const FullScreenContainer = styled.div<{ bgColour: string}>`
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 20px;
+    overflow: hidden;
 `;
 
 const MaxWidthContainer = styled.div`
+    width: 100%;
+    height: 100%;
     max-width: 1400px;
     position: relative;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 `;
 
 export default Container;

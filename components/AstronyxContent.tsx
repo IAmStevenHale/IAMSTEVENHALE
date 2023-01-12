@@ -31,13 +31,17 @@ const AstronyxContent = ({ currentIndex, thisIndex }: ContentProps) => {
 const Wrapper = styled.div`
     display: flex;
     position: relative;
-    @media (max-width: 600px) {
+    height: 100%;
+    width: 100%;
+    padding-right: 20px;
+    @media (max-width: 700px) {
         flex-direction: column;
     }
 `;
 
+
 const Gradient = styled.div`
-    background: radial-gradient(ellipse 80% 50% at 50% -20%,rgba(120,119,198,0.3),var(--transparent));
+    background: radial-gradient(ellipse 80% 50% at 50% -20%,#7877c667,var(--transparent));
     position: absolute;
     height: 100%;
     width: 100%;
@@ -48,67 +52,63 @@ const TextWrapper = styled.div`
     -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
     color: transparent;
-    padding-bottom: 0.13em;
     font-weight: 600;
     background: linear-gradient(to right bottom, rgb(255, 255, 255) 30%, rgba(255, 255, 255, 0.38));
     -webkit-background-clip: text;
     background-clip: text;
-    gap: 50px;
     font-family: "Linear","SF Pro Display",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu, Cantarell,"Open Sans","Helvetica Neue",sans-serif;
 `;
 
 const ShowCaseContainerRight = styled.div<ShowCaseContainer>`
-    width: 50%;
+    width: 60%;
+    height: 100%;
+    margin: auto;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-right: 100px;
     color: #b4bcd0;
     flex-direction: column;
-    text-align: center;
-    font-family: "Linear","SF Pro Display",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu, Cantarell,"Open Sans","Helvetica Neue",sans-serif;
+    text-align: center; 
     transition: 800ms ease-in-out;
+    padding: 0 2vw;
     ${({ isCurrent }) => isCurrent ? `opacity: 1; transform: translateY(0);` : `opacity: 0; transform: translateY(25vh);`};
-    & > :first-child{
+    & > :first-child {
         font-weight: 700;
         font-size: 50px;
     }
-    @media (max-width: 900px) {
-        width: 100%;
-        height: 100%;
-        padding-right: 80px;
-    }
-    @media (max-width: 600px) {
+
+    @media (max-width: 700px) {
         width: 100%;
         height: 60%;
-        padding: 0 30px;
         justify-content: flex-start;
-        font-size: calc(14px + (24 - 14) * (100vmin - 280px) / (1200 - 280));
+        font-size: calc(16px + (24 - 16) * (100vmin - 280px) / (1200 - 280));
     }
 `;
 
 const ShowCaseContainerLeft = styled.div<ShowCaseContainer>`
-    width: 50%;
+    width: 40%;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 100px;
     flex-direction: column;
+    text-align: center;
+    margin: auto 0;
     transition: 800ms ease-in-out;
     ${({ isCurrent }) => isCurrent ? `opacity: 1; transform: translate(0, 0);` : `opacity: 0; transform: translate(-25vw, 25vh);`};
-    
     & :first-child {
-        height: 60%;
-        width: auto;
-        max-height: 600px;
+        height: auto;
+        width: 100%;
+        max-width: 500px;
+        min-width: 300px;
         filter: drop-shadow(10px 10px 15px #000000b2);
         -webkit-filter: drop-shadow(10px 10px 15px #000000b2);
+        transition: 1.2s ease-in-out;
+        padding: 20px;
     }
-    @media (max-width: 600px) {
+    @media (max-width: 700px) {
         width: 100%;
         height: 40%;
-        padding: 50px;
         & :first-child {
             height: 100%;
             width: auto;

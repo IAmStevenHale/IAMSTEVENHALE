@@ -96,6 +96,8 @@ const Wrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 100%;
+    width: 100%;
 `;
 
 const Gradient = styled.div`
@@ -119,9 +121,6 @@ const Title = styled.div`
     & > * {
         white-space: nowrap;
     }
-    @media (max-width: 950px) {
-        font-size: 4vw;
-    }
 `;
 
 const SocialsContainer = styled.div`
@@ -135,7 +134,6 @@ const SocialsContainer = styled.div`
     bottom: 0;
     right: 0;
     color: white;
-    padding: 0 51px 15px 0;
     z-index: 99;
     & ul::after {
         content: "";
@@ -148,14 +146,19 @@ const SocialsContainer = styled.div`
     & li {
         list-style: none;
         transition: 0.24s;
-        margin-bottom: 20px;
+        margin-bottom: 15px;
         &:hover{
             transform: translateY(-6px);
         }
+        & svg {
+            height: 35px;
+            width: auto;
+        }
         & a {
             color: white;
-            height: 30px;
-            width: auto;
+            :hover {
+                color:#fd9814;;
+            }
         }
     }
 `;
@@ -171,7 +174,6 @@ const EmailContainer = styled.div`
     bottom: 0;
     left: 0;
     color: white;
-    padding: 0 0 15px 30px;
     z-index: 99;
     & ul::after {
         content: "";
@@ -187,6 +189,9 @@ const EmailContainer = styled.div`
         transition: 0.24s;
         &:hover{
             transform: translateY(-6px);
+            & > * {
+                color: #fd9814;
+            }  
         }
     }
 `;
@@ -204,6 +209,10 @@ const ScrollDownPrompt = styled.div`
     animation: ${css`${bounce} 1.5s ease-in-out infinite`};
     cursor: pointer;    
     z-index: 99;
+    &:hover{
+        color: #fd9814;
+        font-weight: 600;
+    }
 `;
 
 export default HomeContent;

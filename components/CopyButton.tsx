@@ -33,9 +33,6 @@ const Button = styled.button`
     padding: 0; 
     color: white; 
     font-weight: 500;
-    &:hover { 
-        color: #fd9814; 
-    };
     & > p {
         -webkit-writing-mode: vertical-rl;
         writing-mode: vertical-rl;

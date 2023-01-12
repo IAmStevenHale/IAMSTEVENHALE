@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import DoubleArrowIcon from '@mui/icons-material/DoubleArrow';
 
-const JumpToNav: React.FC<{setCurrentIndex: any}> = ({setCurrentIndex}) => {
+const JumpToNav: React.FC<{handleJumpTo: any}> = ({handleJumpTo}) => {
     const [isNavOpen, setIsNavOpen] = useState(false);
     const handleMouseEnter = () => setIsNavOpen(true);
     const handleMouseLeave = () => setIsNavOpen(false);
@@ -10,11 +10,11 @@ const JumpToNav: React.FC<{setCurrentIndex: any}> = ({setCurrentIndex}) => {
     return (
         <Wrapper>
             <JumpToWrapper onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-                <DoubleArrowIcon style={{ color: "white", height: "30px", width: "auto" }} />
+                <DoubleArrowIcon />
                 <NavList isOpen={isNavOpen}>
-                    <NavItem onClick={() => setCurrentIndex(0)}>Top</NavItem>
-                    <NavItem onClick={() => setCurrentIndex(1)}>Projects</NavItem>
-                    <NavItem onClick={() => setCurrentIndex(5)}>About</NavItem>
+                    <NavItem onClick={() => handleJumpTo(0)}>Top</NavItem>
+                    <NavItem onClick={() => handleJumpTo(1)}>Projects</NavItem>
+                    <NavItem onClick={() => handleJumpTo(5)}>About</NavItem>
                 </NavList>
             </JumpToWrapper>
         </Wrapper>
@@ -36,6 +36,15 @@ const JumpToWrapper = styled.div`
     padding: 15px;
     @media (max-width: 850px) {
         padding: 5px;
+    }
+    &:hover > svg {
+        color: #fd9814;
+    } 
+    & > svg {
+        color: white;
+        height: 30px;
+        width: auto;
+
     }
 ` ;
 
