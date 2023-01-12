@@ -13,27 +13,15 @@ const ScrollableContainer: React.FC<ScrollableProps> = ({ currentIndex, setCurre
     const isHomeScreen = currentIndex === 0;
     const ref = useRef<HTMLDivElement>(null);
     const firstChildRef = useRef<HTMLDivElement>(null);
-    const [contentHeight, setContentHeight]: any = useState();
+    const [contentHeight, setContentHeight]:any = useState();
     const [isVisible, setIsVisible] = useState(false);
 
-    // if (navigator.userAgent.match(/iPhone/i)) {
-    //     // Apply styles for iPhones
-    //   }
 
     useEffect(() => {
-
-        const userAgent = navigator.userAgent;
         if(typeof window === undefined) return;
-        if(userAgent.includes("iPhone")){
-            const innerHeight = window.screen.availHeight;
-            const addressBarHeight = window.outerHeight - innerHeight;
-            setContentHeight(innerHeight - addressBarHeight + "px");
-        }else{
-            const innerHeight = window.innerHeight;
-            const addressBarHeight = window.outerHeight - innerHeight;
-            setContentHeight(innerHeight - addressBarHeight + "px") 
-        }
-
+        const innerHeight = window.innerHeight;
+        const addressBarHeight = window.outerHeight - innerHeight;
+        setContentHeight(innerHeight - addressBarHeight);
         setIsVisible(true);
     }, [])
 
@@ -107,10 +95,11 @@ const InnerContainer = styled.div<{ ref: any; height: string; }>`
         position: relative;
     }
     @media (max-width: 700px) {
-        height: ${props => `${props.height}`};
+        /* height: ${props => `${props.height}`};
         & > * {
             height: ${props => `${props.height}`};
-        }
+        } */
+
     }
 `;
 
