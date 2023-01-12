@@ -18,10 +18,16 @@ const ScrollableContainer: React.FC<ScrollableProps> = ({ currentIndex, setCurre
 
 
     useEffect(() => {
+        
         if(typeof window === undefined) return;
-        const innerHeight = window.innerHeight;
-        const addressBarHeight = window.outerHeight - innerHeight;
-        setContentHeight(innerHeight - addressBarHeight + "px");
+        if(navigator.userAgent.includes("iPhone")){
+            setContentHeight("100vh");
+        }else{
+            const innerHeight = window.innerHeight;
+            const addressBarHeight = window.outerHeight - innerHeight;
+            setContentHeight(innerHeight - addressBarHeight + "px");
+        }
+
         setIsVisible(true);
     }, [])
 
