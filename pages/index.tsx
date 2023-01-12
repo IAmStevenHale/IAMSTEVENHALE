@@ -5,7 +5,7 @@ import DicefallContent from '../components/DicefallContent';
 import DocAssistContent from '../components/DocAssistContent';
 import AstronyxContent from '../components/AstronyxContent';
 import GHCContent from '../components/GHCContent';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ScrollableContainer from '../components/ScrollableContainer';
 
 
@@ -20,6 +20,13 @@ const Home: React.FC = () => {
         <AboutContent key={5} thisIndex={5} currentIndex={currentIndex} setCurrentIndex={setCurrentIndex} />
     ];
 
+    useEffect(() => {
+        if(typeof window === undefined) return;
+        window.scrollTo(0,1);
+    }, [])
+    
+
+    
     return (
         <Wrapper>
             <ScrollableContainer currentIndex={currentIndex} setCurrentIndex={setCurrentIndex}>

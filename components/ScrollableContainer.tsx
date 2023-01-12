@@ -19,7 +19,7 @@ const ScrollableContainer: React.FC<ScrollableProps> = ({ currentIndex, setCurre
             top: key * ref.current.clientHeight,
             behavior: 'smooth'
         });
-    };
+    };    
     
     useEffect(() => {
         const currentRef = ref.current;
