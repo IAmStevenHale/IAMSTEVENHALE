@@ -13,14 +13,27 @@ const ScrollableContainer: React.FC<ScrollableProps> = ({ currentIndex, setCurre
     const isHomeScreen = currentIndex === 0;
     const ref = useRef<HTMLDivElement>(null);
     const firstChildRef = useRef<HTMLDivElement>(null);
-    const [contentHeight, setContentHeight]:any = useState();
+    const [contentHeight, setContentHeight]: any = useState();
     const [isVisible, setIsVisible] = useState(false);
 
+    // if (navigator.userAgent.match(/iPhone/i)) {
+    //     // Apply styles for iPhones
+    //   }
+
     useEffect(() => {
+
+        const userAgent = navigator.userAgent;
         if(typeof window === undefined) return;
-        const innerHeight = window.screen.availHeight;
-        const addressBarHeight = window.outerHeight - innerHeight;
-        setContentHeight(innerHeight - addressBarHeight);
+        if(userAgent.includes("iPhone")){
+            const innerHeight = window.screen.availHeight;
+            const addressBarHeight = window.outerHeight - innerHeight;
+            setContentHeight(innerHeight - addressBarHeight + "px");
+        }else{
+            const innerHeight = window.innerHeight;
+            const addressBarHeight = window.outerHeight - innerHeight;
+            setContentHeight(innerHeight - addressBarHeight + "px") 
+        }
+
         setIsVisible(true);
     }, [])
 
@@ -79,7 +92,7 @@ const Wrapper = styled.div<{ isVisible: boolean}>`
     display: ${props => props.isVisible ? `block` : 'none'};
 `;
 
-const InnerContainer = styled.div<{ ref: any; height: number; }>`
+const InnerContainer = styled.div<{ ref: any; height: string; }>`
     height: 100vh;
     scroll-snap-type: y mandatory;
     -webkit-scroll-snap-type: y mandatory;
@@ -94,9 +107,9 @@ const InnerContainer = styled.div<{ ref: any; height: number; }>`
         position: relative;
     }
     @media (max-width: 700px) {
-        height: ${props => `${props.height}px`};
+        height: ${props => `${props.height}`};
         & > * {
-            height: ${props => `${props.height}px`};
+            height: ${props => `${props.height}`};
         }
     }
 `;

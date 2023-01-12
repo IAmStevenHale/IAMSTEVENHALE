@@ -158,6 +158,9 @@ const SocialsContainer = styled.div`
             }
         }
     }
+    @media (max-width: 1400px) {
+        padding-right: 25px;
+    }
 `;
 
 const EmailContainer = styled.div`
