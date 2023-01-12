@@ -65,11 +65,11 @@ const Wrapper = styled.div`
 `;
 
 const InnerContainer = styled.div<{ ref: any }>`
-    height: 100vh;
+    height: 100dvh;
     scroll-snap-type: y mandatory;
-    overflow: auto;
+    overflow: hidden scroll;
     & > * {
-        height: 100vh;
+        height: 100dvh;
         width: 100vw;
         scroll-snap-align: start;
         scroll-snap-stop: always;
