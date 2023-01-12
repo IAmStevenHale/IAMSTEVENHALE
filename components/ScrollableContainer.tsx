@@ -14,12 +14,14 @@ const ScrollableContainer: React.FC<ScrollableProps> = ({ currentIndex, setCurre
     const ref = useRef<HTMLDivElement>(null);
     const firstChildRef = useRef<HTMLDivElement>(null);
     const [contentHeight, setContentHeight]:any = useState();
+    const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
         if(typeof window === undefined) return;
         const innerHeight = window.innerHeight;
         const addressBarHeight = window.outerHeight - innerHeight;
-        setContentHeight(innerHeight - addressBarHeight) 
+        setContentHeight(innerHeight - addressBarHeight);
+        setIsVisible(true);
     }, [])
 
     const handleJumpTo = (key: number) => {
@@ -49,7 +51,7 @@ const ScrollableContainer: React.FC<ScrollableProps> = ({ currentIndex, setCurre
     }, [children.length, currentIndex, ref, setCurrentIndex]);
 
     return (
-        <Wrapper>
+        <Wrapper isVisible={isVisible}>
             <JumpToNav handleJumpTo={handleJumpTo} />
             <JumpTo isHomeScreen={isHomeScreen}>
                 {children.map((_, i) => (
@@ -71,21 +73,31 @@ const ScrollableContainer: React.FC<ScrollableProps> = ({ currentIndex, setCurre
     )
 };
 
-const Wrapper = styled.div`
+const Wrapper = styled.div<{ isVisible: boolean}>`
     width: 100vw;
     overflow: hidden;
+    display: ${props => props.isVisible ? `block` : 'none'};
 `;
 
 const InnerContainer = styled.div<{ ref: any; height: number; }>`
-    height: ${props => `${props.height}px`};
+    height: 100vh;
     scroll-snap-type: y mandatory;
+    -webkit-scroll-snap-type: y mandatory;
     overflow: hidden scroll;
     & > * {
-        height: ${props => `${props.height}px`};
+        height: 100vh;
         width: 100vw;
         scroll-snap-align: start;
+        -webkit-scroll-snap-align: start;
         scroll-snap-stop: always;
+        -webkit-scroll-snap-stop: always;
         position: relative;
+    }
+    @media (max-width: 700px) {
+        height: ${props => `${props.height}px`};
+        & > * {
+            height: ${props => `${props.height}px`};
+        }
     }
 `;
 
