@@ -21,7 +21,7 @@ const ScrollableContainer: React.FC<ScrollableProps> = ({ currentIndex, setCurre
         if(typeof window === undefined) return;
         const innerHeight = window.innerHeight;
         const addressBarHeight = window.outerHeight - innerHeight;
-        setContentHeight(innerHeight - addressBarHeight);
+        setContentHeight(innerHeight - addressBarHeight + "px");
         setIsVisible(true);
     }, [])
 
@@ -95,11 +95,10 @@ const InnerContainer = styled.div<{ ref: any; height: string; }>`
         position: relative;
     }
     @media (max-width: 700px) {
-        /* height: ${props => `${props.height}`};
+        height: ${props => `${props.height}`};
         & > * {
             height: ${props => `${props.height}`};
-        } */
-
+        }
     }
 `;
 
