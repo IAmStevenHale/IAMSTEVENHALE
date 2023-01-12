@@ -83,9 +83,6 @@ const HomeContent: React.FC<ContentProps> = ({ currentIndex, thisIndex, setCurre
                         ))}
                     </ul>
                 </SocialsContainer>
-                <ScrollDownPrompt onClick={() => setCurrentIndex(1)}>
-                    Scroll down for projects
-                </ScrollDownPrompt>
             </Wrapper>
         </Container>
     );
@@ -193,25 +190,6 @@ const EmailContainer = styled.div`
                 color: #fd9814;
             }  
         }
-    }
-`;
-
-const ScrollDownPrompt = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: fit-content;
-    width:  100%;
-    position: absolute;
-    bottom: 10px;
-    color: white;
-    animation: ${css`${bounce} 1.5s ease-in-out infinite`};
-    cursor: pointer;    
-    z-index: 99;
-    &:hover{
-        color: #fd9814;
-        font-weight: 600;
     }
 `;
 

@@ -6,6 +6,7 @@ import Container from './Container';
 
 const DocAssistContent: React.FC<ContentProps> = ({ currentIndex, thisIndex }) => {
     const isCurrent = currentIndex === thisIndex;
+    const text = "DocAssist is a web-based tool that helps Allied Health Professionals find MBS rebates for their patients by using a filtering algorithm to identify key terms in patient notes and generate a list of relevant MBS items. It's built with React, TypeScript, and styled components for efficient performance and a visually appealing user interface, streamlining the process of finding MBS rebates and saving time for professionals."
 
     return (
         <Container bgColour='#130000;' gradient={<Gradient/>}>
@@ -13,14 +14,7 @@ const DocAssistContent: React.FC<ContentProps> = ({ currentIndex, thisIndex }) =
             <ShowCaseContainerLeft isCurrent={isCurrent}>
                 <h2>DocAssist</h2>
                 <br />
-                <p>
-                    DocAssist is a web-based tool that helps Allied Health Professionals find relevant MBS rebates for their patients.
-                    The application utilizes a Rake Filtering algorithm to identify key terms in patient notes and generate a list of
-                    relevant MBS items. The application is built with a modern tech stack including React, TypeScript, and styled components.
-                    This allows for efficient and reliable performance, as well as a visually appealing user interface. DocAssist
-                    streamlines the process of finding MBS rebates, saving time and effort for Allied Health Professionals. Give it a
-                    try and see how it can benefit your practice.
-                </p>
+                <p>{text}</p>
                 <br />
                 <p><a target={'_blank'} rel="noreferrer" href='https://www.docassist.org/'>https://www.docassist.org/</a></p>
             </ShowCaseContainerLeft>
@@ -53,7 +47,7 @@ const Gradient = styled.div`
     position: absolute;
     height: 100%;
     width: 100%;
-        position: absolute;
+    position: absolute;
     top: 0;
     left: 0;
 `;
@@ -69,13 +63,11 @@ const ShowCaseContainerLeft = styled.div<ShowCaseContainer>`
     flex-direction: column;
     text-align: center; 
     transition: 800ms ease-in-out;
-    padding-right: 20px;
     ${({ isCurrent }) => isCurrent ? `opacity: 1; transform: translateY(0);` : `opacity: 0; transform: translateY(25vh);`};
     & > :first-child {
         font-weight: 700;
         font-size: 50px;
     }
-
     @media (max-width: 700px) {
         width: 100%;
         height: 60%;
@@ -103,6 +95,7 @@ const ShowCaseContainerRight = styled.div<ShowCaseContainer>`
         filter: drop-shadow(10px 10px 15px #000000b2);
         -webkit-filter: drop-shadow(10px 10px 15px #000000b2);
         transition: 1.2s ease-in-out;
+        padding: 20px;
     }
     @media (max-width: 700px) {
         width: 100%;

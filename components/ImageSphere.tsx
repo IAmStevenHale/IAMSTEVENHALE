@@ -32,22 +32,23 @@ const ImageSphere = () => {
         return () => clearInterval(interval);
     }, [currentImageIndex]);
 
-  return (
-    <ImageContainer>
-    <ImagesWrapper>
-        {profileUrls.map((profileUrl, i) => (
-            <ImageWrapper key={i} isCurrent={currentImageIndex === i} >
-                <Image src={`/${profileUrl}`} alt={`Profile image picture ${i}, AI generated image.`} width={1024} height={1024} />
-            </ImageWrapper>
-        ))}
-        <Sphere />
-    </ImagesWrapper>
-    <Shadow />
-</ImageContainer>
-  )
+    return (
+        <ImageContainer>
+            <ImagesWrapper>
+                {profileUrls.map((profileUrl, i) => (
+                    <ImageWrapper key={i} isCurrent={currentImageIndex === i} >
+                        <Image src={`/${profileUrl}`} alt={`Profile image picture ${i}, AI generated image.`} width={1024} height={1024} />
+                    </ImageWrapper>
+                ))}
+                <Sphere />
+            </ImagesWrapper>
+            <Shadow />
+        </ImageContainer>
+    )
 }
 
 const ImageContainer = styled.div`
+    margin-top: 20px;
     height: 300px;
     width: 300px;
         @media (max-width: 700px) {
@@ -71,7 +72,6 @@ const ImagesWrapper = styled.div`
     @media (max-width: 700px) {
         height: 230px;
         width: 230px;
-        /* margin-top: 50px; */
     }
 `;
 
@@ -94,7 +94,7 @@ const ImageWrapper = styled.div<{ isCurrent: boolean }>`
 
 const Shadow = styled.div`
     position: relative;
-    top: 20px;
+    top: 50px;
     height: 20px;
     width: 100px;
     margin: 0 auto;
@@ -128,6 +128,5 @@ const Sphere = styled.div`
         width: 230px;
     }
 `;
-
 
 export default ImageSphere

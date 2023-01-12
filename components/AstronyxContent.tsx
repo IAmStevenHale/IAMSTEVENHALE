@@ -5,6 +5,7 @@ import Container from './Container';
 
 const AstronyxContent = ({ currentIndex, thisIndex }: ContentProps) => {
     const isCurrent = currentIndex === thisIndex;
+    const text = "Astronyx is a software development company that creates visually stunning websites and applications. Our team of developers and designers create innovative digital solutions that exceed client expectations. We combine cosmic wonder with practical functionality to create aesthetically pleasing and sturdy products. We focus on customer satisfaction and delivering top-quality results for web and app development projects."
 
     return (
         <Container bgColour={"#000213"} gradient={<Gradient/>}>
@@ -18,7 +19,7 @@ const AstronyxContent = ({ currentIndex, thisIndex }: ContentProps) => {
                     </TextWrapper>
                     <br />
                     <TextWrapper>
-                        <p>Astronyx is a software development company that specializes in creating visually stunning websites and intuitive applications. Our team of experienced developers and designers work together to create innovative digital solutions that exceed our clients&rsquo; expectations. We pride ourselves on combining cosmic wonder with practical functionality, combining astral beauty and the durable nature of onyx to create products that are both aesthetically pleasing and sturdy. At Astronyx, we strive to bring the convergence of cosmic marvel and functional reliability to every project we work on. With a strong focus on customer satisfaction and delivering top-quality results, Astronyx is the perfect partner for your next web or app development project.</p>
+                        <p>{text}</p>
                         <br />
                         <p><a target={'_blank'} rel="noreferrer" href='https://www.astronyx.com.au/'>https://www.astronyx.com.au/</a></p>
                     </TextWrapper>
@@ -38,7 +39,6 @@ const Wrapper = styled.div`
         flex-direction: column;
     }
 `;
-
 
 const Gradient = styled.div`
     background: radial-gradient(ellipse 80% 50% at 50% -20%,#7877c667,var(--transparent));
@@ -70,7 +70,6 @@ const ShowCaseContainerRight = styled.div<ShowCaseContainer>`
     flex-direction: column;
     text-align: center; 
     transition: 800ms ease-in-out;
-    padding: 0 2vw;
     ${({ isCurrent }) => isCurrent ? `opacity: 1; transform: translateY(0);` : `opacity: 0; transform: translateY(25vh);`};
     & > :first-child {
         font-weight: 700;

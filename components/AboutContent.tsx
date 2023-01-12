@@ -7,29 +7,25 @@ import ImageSphere from './ImageSphere';
 //
 const AboutContent: React.FC<ContentProps> = ({currentIndex, thisIndex, setCurrentIndex}) => {
 
+    const text = "I started out as a Software Developer in 2019, chasing a new and challenging career after moving on from being a S&C Coach. I have a strong understanding of front-end and back-end development, and I am comfortable working on both sides of the stack. My experience with React, Typescript, and Next.js has given me the ability to build high-performance, scalable web applications that provide a seamless user experience."
+
     return (
         <Container bgColour='black'>
             <Wrapper>
             <Gradient />
                 <ShowCaseContainerLeft>
-                    
                     <ImageSphere/>
                 </ShowCaseContainerLeft>
                 <ShowCaseContainerRight>
                     <p>
                         Hi, <a rel='noreferrer' target={'_blank'} href='https://www.youtube.com/watch?v=ouA-U4x17KY'>Stevie here.</a>
                     </p>
-                    <br />
-                    <p>
-                        I started out as a Software Developer in 2019, chasing a new and challenging career after moving on from being a S&C Coach.
-                        I have a strong understanding of front-end and back-end development, and I am comfortable working on both sides of the stack.
-                        My experience with React, Typescript, and Next.js has given me the ability to build high-performance, scalable web applications
-                        that provide a seamless user experience.
-                    </p>
+                    <p>{text}</p>
                     <br />
                     <p style={{ fontFamily: "'Gloria Hallelujah', cursive" }}>Steven Hale</p>
-                    <Carousel />
+                    
                 </ShowCaseContainerRight>
+                <Carousel />
             </Wrapper>
         </Container>
     );
@@ -51,7 +47,7 @@ const Gradient = styled.div`
     height: 100%;
     width: 100%;
     @media (max-width: 700px) {
-        background: radial-gradient(ellipse 60% 60% at 50% 0%,#c6be77b7,var(--transparent));
+        background: radial-gradient(ellipse 50% 70% at 50% 0%,#c6be77b7,var(--transparent));
     }
 `;
 
@@ -70,7 +66,7 @@ const ShowCaseContainerLeft = styled.div`
     font-family: "Linear","SF Pro Display",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu, Cantarell,"Open Sans","Helvetica Neue",sans-serif;
     @media (max-width: 700px) {
         width: 100%;
-        height: 50%;
+        height: 30%;
     }
 `;
 const ShowCaseContainerRight = styled.div`

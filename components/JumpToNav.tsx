@@ -44,7 +44,6 @@ const JumpToWrapper = styled.div`
         color: white;
         height: 30px;
         width: auto;
-
     }
 ` ;
 

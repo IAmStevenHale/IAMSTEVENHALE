@@ -15,23 +15,26 @@ const items = [
     "sql.png",
     "styled-components.png",
     "Typescript_logo_2020.png",
-    "Vercel.png",
-    "api.png",
-    "git.png",
-    "github.png",
-    "html_logo.png",
+    "Vercel.png"
 ];
 
 const Carousel: React.FC = () => {
     return (
         <Wrapper>
-            <Slider>
+                <Slider>
                 {items.map((item, i) => (
                     <CarouselItemWrapper key={i} width={150}>
-                        <Image src={`/${item}`} alt='Profile picture 0' width={1024} height={1024} style={{height: '50px', width: 'auto'}} />
+                        <Image src={`/${item}`} alt='Profile picture 0' width={1024} height={1024} style={{ height: '50px', width: 'auto' }} />
                     </CarouselItemWrapper>
                 ))}
-            </Slider>
+                </Slider>
+                <Slider>
+                {items.map((item, i) => (
+                    <CarouselItemWrapper key={i} width={150}>
+                        <Image src={`/${item}`} alt='Profile picture 0' width={1024} height={1024} style={{ height: '50px', width: 'auto' }} />
+                    </CarouselItemWrapper>
+                ))}
+                </Slider>
         </Wrapper>
     );
 };
@@ -41,26 +44,22 @@ const Wrapper = styled.div`
     width: 100%;
     position: absolute;
     bottom: 0;
+    left: 0;
     display: flex;
-    justify-content: center;
-    align-items: center;
     overflow: hidden;
-    width: 600px;
-    border-radius: 50%;
-    background: radial-gradient(ellipse 100% 20% at 50% 50%,#7e7e7eb0,var(--transparent));
-    @media (max-width: 700px) {
-        height: 75px;
-        background: radial-gradient(ellipse 100% 50% at 50% 50%,#7e7e7eb0,var(--transparent));
+    width: 100%;
+    background: radial-gradient(ellipse 100% 50% at 50% 50%,#7e7e7eb0,var(--transparent));
+    @media (max-width: 700px){
+        margin-bottom: 50px;
     }
 `;
 
 const Slider = styled.div`
-    left: 0;
-    position: absolute;
+    position: relative;
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    width: 2550px;
+    width: 1950px;
     animation: ${css`${moveLeft} 34s linear infinite`};
 `;
 

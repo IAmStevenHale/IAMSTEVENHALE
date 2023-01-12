@@ -3,15 +3,6 @@ import styled from 'styled-components';
 import ContentProps, { ShowCaseContainer } from '../Interfaces';
 import Container from './Container';
 
-/**
- * This is a functional component that displays information and an image for a project called Dicefall.
- * It takes in two props: currentIndex and thisIndex, and displays different content based on whether 
- * currentIndex is equal to thisIndex. The component is made up of two styled divs: ShowCaseContainerLeft 
- * and ShowCaseContainerRight, which are rendered within a Wrapper div and a Gradient div. ShowCaseContainerLeft 
- * displays an image, and ShowCaseContainerRight displays text content. Both of these divs have a transition 
- * animation that is triggered based on the value of isCurrent.
- */
-
 const DicefallContent: React.FC<ContentProps> = ({ currentIndex, thisIndex }) => {
 
     const isCurrent = currentIndex === thisIndex;
@@ -19,7 +10,6 @@ const DicefallContent: React.FC<ContentProps> = ({ currentIndex, thisIndex }) =>
     return (
         <Container bgColour='#130000' gradient={<Gradient />}>
             <Wrapper>
-
                 <ShowCaseContainerLeft isCurrent={isCurrent}>
                     <Image src='/DiceFall.png' alt='A landscape ipad showcasing the Dicefall app.' width={1585} height={2243} />
                 </ShowCaseContainerLeft>
@@ -99,7 +89,6 @@ const ShowCaseContainerRight = styled.div<ShowCaseContainer>`
     flex-direction: column;
     text-align: center; 
     transition: 800ms ease-in-out;
-    padding-right: 20px;
     ${({ isCurrent }) => isCurrent ? `opacity: 1; transform: translateY(0);` : `opacity: 0; transform: translateY(25vh);`};
     & > :first-child {
         font-weight: 700;

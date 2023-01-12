@@ -6,6 +6,8 @@ import Container from './Container';
 const GHCContent: React.FC<ContentProps> = ({ currentIndex, thisIndex }) => {
     const isCurrent = currentIndex === thisIndex;
 
+    const text = "GamerHC is an ecommerce platform for the gaming community. Our goal is to help customers improve their health and wellness by providing gaming-themed products and resources such as workout guides and nutrition plans. The platform is built with React, TypeScript and styled components to ensure a smooth and visually appealing experience. It's more than an online store, it's a community for gamers who want to take control of their health and wellness."
+
     return (
         <Container bgColour='#130000' gradient={<Gradient />}>
             <Wrapper>
@@ -15,7 +17,7 @@ const GHCContent: React.FC<ContentProps> = ({ currentIndex, thisIndex }) => {
                     </TextWrapper>
                     <br />
                     <TextWrapper>
-                        <p>GamerHC is an ecommerce platform targeting the gaming community, both recreational and professional. Our goal is to provide motivation and guidance to help customers lead a more active lifestyle, through the use of gaming-themed products and resources. The platform is built with a modern tech stack including React, TypeScript, and styled components, ensuring a smooth and visually appealing user experience. We offer a range of products and services, including workout guides, nutrition plans, and gaming-themed merchandise, to help our customers reach their health and wellness goals. GamerHC is more than just an online store - it&rsquo;s a community for gamers who want to take control of their health and wellness. Join us and discover the benefits of gaming-inspired motivation and guidance.</p>
+                        <p>{text}</p>
                         <br />
                         <p><a target={'_blank'} rel="noreferrer" href='https://www.gamerhc.com/'>https://www.gamerhc.com/</a></p>
                     </TextWrapper>
@@ -89,7 +91,6 @@ const ShowCaseContainerLeft = styled.div<ShowCaseContainer>`
     flex-direction: column;
     text-align: center; 
     transition: 800ms ease-in-out;
-    padding-right: 20px;
     ${({ isCurrent }) => isCurrent ? `opacity: 1; transform: translateY(0);` : `opacity: 0; transform: translateY(25vh);`};
     & > :first-child {
         font-weight: 700;
@@ -116,6 +117,7 @@ const ShowCaseContainerRight = styled.div<ShowCaseContainer>`
     margin: auto 0;
     ${({ isCurrent }) => isCurrent ? `opacity: 1; transform: translate(0, 0);` : `opacity: 0; transform: translate(0, -25vh);`};
     & :first-child {
+        padding: 20px;
         height: auto;
         width: 100%;
         max-width: 400px;
