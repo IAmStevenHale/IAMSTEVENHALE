@@ -57,6 +57,9 @@ const TextWrapper = styled.div`
     -webkit-background-clip: text;
     background-clip: text;
     font-family: "Linear","SF Pro Display",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu, Cantarell,"Open Sans","Helvetica Neue",sans-serif;
+    & :last-child{
+        padding-top: 5px;
+    }
 `;
 
 const ShowCaseContainerRight = styled.div<ShowCaseContainer>`

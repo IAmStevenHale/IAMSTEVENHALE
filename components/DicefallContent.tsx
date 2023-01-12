@@ -95,6 +95,9 @@ const ShowCaseContainerRight = styled.div<ShowCaseContainer>`
         font-weight: 700;
         font-size: 50px;
     }
+    & :last-child{
+        padding-top: 5px;
+    }
     @media (max-width: 700px) {
         width: 100%;
         height: 60%;

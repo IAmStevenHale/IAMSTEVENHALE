@@ -68,6 +68,9 @@ const TextWrapper = styled.div`
     & p {
         font-family: "Linear","SF Pro Display",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu, Cantarell,"Open Sans","Helvetica Neue",sans-serif;
     }
+    & :last-child{
+        padding-top: 5px;
+    }
     @media (max-width: 700px){
         background: linear-gradient(to top, #ffffffb7 20%, #ffffff );
         -webkit-background-clip: text;
@@ -76,6 +79,7 @@ const TextWrapper = styled.div`
             font-size: 40px;
         }
     }
+    
 `;
 
 const ShowCaseContainerLeft = styled.div<ShowCaseContainer>`

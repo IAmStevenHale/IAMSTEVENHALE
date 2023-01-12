@@ -34,9 +34,6 @@ const JumpToWrapper = styled.div`
     align-items: center; 
     position: relative;
     padding: 15px;
-    @media (max-width: 850px) {
-        padding: 5px;
-    }
     &:hover > svg {
         color: #fd9814;
     } 
@@ -59,10 +56,6 @@ const NavList = styled.ul<{ isOpen: boolean }>`
     height: 30px;
     display: flex;
     align-items: center;
-    @media (max-width: 850px) {
-        top: 15px;
-        transform: ${ ({ isOpen }) => isOpen ? 'translateY(-12.5px) translateX(0)' : 'translateY(-50%) translateX(calc(-100% + -45px))' }; 
-    }
 `;
 
 const NavItem = styled.li`

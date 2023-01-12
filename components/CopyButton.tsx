@@ -4,9 +4,19 @@ import { useState, useEffect } from 'react';
 const CopyToClipboard = () => {
     const [isCopied, setIsCopied] = useState(false);
 
-    const copyToClipboard = (text: string) => {
-        navigator.clipboard.writeText(text);
-        setIsCopied(true);
+    const copyToClipboard = async (text: string) => {
+        try {
+            if (navigator.clipboard) {
+                await navigator.clipboard.writeText(text);
+                setIsCopied(true);
+            } else {
+                const clipboard = new Clipboard();
+                await clipboard.writeText(text);
+                setIsCopied(true);
+            }
+        } catch (err) {
+            console.error('Failed to copy text: ', err);
+        }
     }
 
     useEffect(() => {

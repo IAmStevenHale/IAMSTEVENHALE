@@ -175,7 +175,6 @@ const EmailContainer = styled.div`
     left: 0;
     color: white;
     z-index: 99;
-    overflow: hidden;
     & ul::after {
         content: "";
         display: block;
