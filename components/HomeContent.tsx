@@ -1,25 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import styled, { css } from 'styled-components';
-import ContentProps from '../Interfaces';
+import React, { useEffect, useState } from 'react';
+import styled, { css, keyframes } from 'styled-components';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import InstagramIcon from '@mui/icons-material/Instagram';
-import CopyToClipboard from './CopyButton';
 import MailIcon from '@mui/icons-material/Mail';
-import { bounce } from '../animations';
 import Container from './Container';
+import TypingText from './TypingText';
 
-const iAmArray = [
-    "steven hale.",
-    "a software developer.",
-    "a fullstack developer.",
-    "steven hale.",
-    "a front-end developer.",
-    "a back-end developer.",
-    "steven hale.",
-    "a web developer.",
-    "a pizza connoisseur."
-];
 
 const socialsIcons = [
     {
@@ -40,49 +27,17 @@ const socialsIcons = [
     }
 ];
 
-const HomeContent: React.FC<ContentProps> = ({ currentIndex, thisIndex, setCurrentIndex }) => {
-    const [currentWord, setCurrentWord] = useState(iAmArray[0]);
-    const [currentWordIndex, setCurrentWordIndex] = useState(0);
-
-    useEffect(() => {
-        const interval = setInterval(() => {
-            if (currentWordIndex >= iAmArray.length - 1) {
-                setCurrentWordIndex(0);
-            } else {
-                setCurrentWordIndex(currentWordIndex + 1);
-            }
-        }, 2000);
-        return () => clearInterval(interval);
-    }, [currentWordIndex]);
-
-    useEffect(() => {
-        setCurrentWord(iAmArray[currentWordIndex]);
-    }, [currentWordIndex]);
+const HomeContent: React.FC = () => {
 
     return (
         <Container bgColour='#000425' gradient={<Gradient />}>
             <Wrapper>
                 <Title>
-                    <h1>I AM<br />{currentWord}</h1>
+                    <h1>Steven Hale</h1>
+                    <SubtitleWrapper>
+                        <TypingText/>
+                    </SubtitleWrapper>
                 </Title>
-                <EmailContainer>
-                    <ul>
-                        <li>
-                            <CopyToClipboard />
-                        </li>
-                    </ul>
-                </EmailContainer>
-                <SocialsContainer>
-                    <ul>
-                        {socialsIcons.map((social, i) => (
-                            <li key={i}>
-                                <a target={"_blank"} rel={"noreferrer"} href={`${social.href}`}>
-                                    {social.icon}
-                                </a>
-                            </li>
-                        ))}
-                    </ul>
-                </SocialsContainer>
             </Wrapper>
         </Container>
     );
@@ -98,11 +53,14 @@ const Wrapper = styled.div`
 `;
 
 const Gradient = styled.div`
-    background: radial-gradient(ellipse 80% 50% at 50% -20%,rgba(120,119,198,0.3),var(--transparent));
+    background: radial-gradient(ellipse 25% 120% at 50% -20%,rgba(154, 153, 226, 0.712),var(--transparent));
     position: absolute;
     height: 100%;
     width: 100%;
     z-index: 0;
+    @media (max-width: 700px) {
+        background: radial-gradient(ellipse 50% 120% at 50% -20%,rgba(154, 153, 226, 0.712),var(--transparent));
+    }
 `;
 
 const Title = styled.div`
@@ -111,87 +69,28 @@ const Title = styled.div`
     flex-direction: column;
     text-align: left;
     justify-content: center;
-    font-size: 10px;
+    font-size: 40px;
+    width: fit-content;
+    height: fit-content;
+    text-align: center;
+    @media (max-width: 700px) {
+        font-size: 30px;
+    }
+`;
+
+const SubtitleWrapper = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: fit-content;
+    text-align: center;
     width: 100%;
-    height: 50%;
-    transform: translateX(25%);
-    & > * {
-        white-space: nowrap;
-    }
-`;
-
-const SocialsContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: fit-content;
-    width: 30px;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    color: white;
-    z-index: 99;
-    & ul::after {
-        content: "";
-        display: block;
-        width: 1px;
-        height: 90px;
-        margin: 0px auto;
-        background-color: white;
-    }
-    & li {
-        list-style: none;
-        transition: 0.24s;
-        margin-bottom: 15px;
-        &:hover{
-            transform: translateY(-6px);
-        }
-        & svg {
-            height: 35px;
-            width: auto;
-        }
-        & a {
-            color: white;
-            :hover {
-                color:#fd9814;;
-            }
-        }
-    }
-    @media (max-width: 1400px) {
-        padding-right: 25px;
-    }
-`;
-
-const EmailContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: fit-content;
-    width: 30px;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    color: white;
-    z-index: 99;
-    & ul::after {
-        content: "";
-        display: block;
-        width: 1px;
-        height: 90px;
-        margin: 0px auto;
-        background-color: white;
-    }
-    & li {
-        list-style: none;
-        padding-left: 5px;
-        transition: 0.24s;
-        &:hover{
-            transform: translateY(-6px);
-            & > * {
-                color: #fd9814;
-            }  
+    margin-top: 10px;
+    & h2 {
+        font-size: 40px;
+        font-weight: 400;
+        @media (max-width: 700px) {
+            font-size: 20px;
         }
     }
 `;

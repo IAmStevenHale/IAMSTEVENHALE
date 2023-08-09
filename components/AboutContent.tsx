@@ -7,7 +7,7 @@ import ImageSphere from './ImageSphere';
 //
 const AboutContent: React.FC<ContentProps> = ({ currentIndex, thisIndex, setCurrentIndex }) => {
 
-    const text = "I started out as a Full-stack Developer back in 2019. I have a strong understanding of both front-end and back-end development using the JavaScript eco-system. I've used React, Typescript, and Next.js to build high-performance, scalable web applications both personally and professionally.\nThanks for checking out my portfolio!"
+    const text = "I started out as a Full-stack Developer back in 2019. I have a strong understanding of both front-end and back-end development using the JavaScript eco-system. I've used React, Typescript, and Next.js to build high-performance, scalable web applications both personally and professionally.\nThanks for checking out my personal portfolio!"
 
     return (
         <Container bgColour='black'>
@@ -23,7 +23,9 @@ const AboutContent: React.FC<ContentProps> = ({ currentIndex, thisIndex, setCurr
                         <p style={{ fontFamily: "'Gloria Hallelujah', cursive" }}>Steven Hale</p>
                     </ShowCaseContainerRight>
                 </InnerWrapper>
-                <Carousel />
+                {/* <CarouselContainer>
+                    <Carousel />
+                </CarouselContainer> */}
             </Wrapper>
         </Container>
     );
@@ -35,6 +37,17 @@ const Wrapper = styled.div`
     position: relative;
     display: flex;
     flex-direction: column;
+`;
+
+const CarouselContainer = styled.div`
+    height: fit-content;
+    position: absolute;
+    bottom: 0;
+    left: -20px;
+    width: calc(100% + 40px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 `;
 
 const InnerWrapper = styled.div`

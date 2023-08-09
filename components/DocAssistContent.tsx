@@ -3,23 +3,28 @@ import React from 'react';
 import styled from 'styled-components';
 import ContentProps, { ShowCaseContainer } from '../Interfaces';
 import Container from './Container';
+import Link from 'next/link';
 
 const DocAssistContent: React.FC<ContentProps> = ({ currentIndex, thisIndex }) => {
     const isCurrent = currentIndex === thisIndex;
     const text = "DocAssist is a web-based tool that helps Allied Health Professionals find MBS rebates for their patients by using a filtering algorithm to identify key terms in patient notes and generate a list of relevant MBS items. It's built with React, TypeScript, and styled components for efficient performance and a visually appealing user interface, streamlining the process of finding MBS rebates and saving time for professionals."
 
     return (
-        <Container bgColour='#130000;' gradient={<Gradient/>}>
-        <Wrapper>
-            <ShowCaseContainerLeft isCurrent={isCurrent}>
-                <h2>DocAssist</h2>
-                <p>{text}</p>
-                <p><strong><a target={'_blank'} rel="noreferrer" href='https://www.docassist.org/'>https://www.docassist.org/</a></strong></p>
-            </ShowCaseContainerLeft>
-            <ShowCaseContainerRight isCurrent={isCurrent}>
-                <Image src='/docAssist.png' alt='A landscape ipad showcasing the Dicefall app.' width={543} height={649} />
-            </ShowCaseContainerRight>
-        </Wrapper>
+        <Container bgColour='#130000;' gradient={<Gradient />}>
+            <Wrapper>
+                <ShowCaseContainerLeft isCurrent={isCurrent}>
+                    <h2>DocAssist</h2>
+                    <p>{text}</p>
+                    <Link rel="noreferrer" href='https://www.docassist.org/'>
+                        <Button>
+                            <p>Go to website</p>
+                        </Button>
+                    </Link>
+                </ShowCaseContainerLeft>
+                <ShowCaseContainerRight isCurrent={isCurrent}>
+                    <Image src='/docAssist.png' alt='A landscape ipad showcasing the Dicefall app.' width={543} height={649} />
+                </ShowCaseContainerRight>
+            </Wrapper>
         </Container>
 
     );
@@ -72,7 +77,7 @@ const ShowCaseContainerLeft = styled.div<ShowCaseContainer>`
     @media (max-width: 700px) {
         width: 100%;
         height: 60%;
-        justify-content: flex-start;
+        justify-content: center;
         font-size: calc(16px + (24 - 16) * (100vmin - 280px) / (1200 - 280));
         & h2 {
             font-weight: 700;
@@ -114,5 +119,22 @@ const ShowCaseContainerRight = styled.div<ShowCaseContainer>`
         }
     }
 `;
+
+const Button = styled.button`
+    background: #000213;
+    border: 2px solid #25bec3;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin-top: 20px;
+    cursor: pointer;
+    color: #25bec3;
+    font-weight: 700;
+    transition: 0.12s ease-in-out;
+    :hover {
+        background: #25bec3;
+        color: #000213;
+    }
+`
+
 
 export default DocAssistContent;

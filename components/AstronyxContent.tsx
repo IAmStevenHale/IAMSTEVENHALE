@@ -2,26 +2,29 @@ import Image from 'next/image';
 import styled from 'styled-components';
 import ContentProps, { ShowCaseContainer } from '../Interfaces';
 import Container from './Container';
+import Link from 'next/link';
 
 const AstronyxContent = ({ currentIndex, thisIndex }: ContentProps) => {
     const isCurrent = currentIndex === thisIndex;
-    const text = "Astronyx is a software development company that creates visually stunning websites and applications. Our team of developers and designers create innovative digital solutions that exceed client expectations. We combine cosmic wonder with practical functionality to create aesthetically pleasing and sturdy products. We focus on customer satisfaction and delivering top-quality results for web and app development projects."
+    const text = "Astronyx is an innovative Space Photography, Marketing, and Space Imaging Hardware business. They marry the awe of the astral space with the resilience of onyx, implementing robust space imaging equipment, capturing celestial visuals, and creating compelling narratives. The dedicated team blends technical expertise with creative brilliance to exceed client expectations, delivering functional and awe - inspiring space solutions that fuel exploration and inspire fascination."
 
     return (
-        <Container bgColour={"#000213"} gradient={<Gradient/>}>
+        <Container bgColour={"#000213"} gradient={<Gradient />}>
             <Wrapper>
                 <ShowCaseContainerLeft isCurrent={isCurrent}>
                     <Image src='/AstronyxLogo.png' alt='A landscape ipad showcasing the Dicefall app.' width={600} height={1430} />
                 </ShowCaseContainerLeft>
                 <ShowCaseContainerRight isCurrent={isCurrent}>
                     <TextWrapper>
-                        <h2>
-                        ASTRONYX
-                        </h2>
+                        <h2>ASTRONYX</h2>
                     </TextWrapper>
                     <TextWrapper>
                         <p>{text}</p>
-                        <p><strong><a target={'_blank'} rel="noreferrer" href='https://www.astronyx.com.au/'>https://www.astronyx.com.au/</a></strong></p>
+                        <Link rel="noreferrer" href='https://www.astronyx.com.au/'>
+                            <Button>
+                                <p>Go to website</p>
+                            </Button>
+                        </Link>
                     </TextWrapper>
                 </ShowCaseContainerRight>
             </Wrapper>
@@ -82,7 +85,7 @@ const ShowCaseContainerRight = styled.div<ShowCaseContainer>`
     @media (max-width: 700px) {
         width: 100%;
         height: 60%;
-        justify-content: flex-start;
+        justify-content: center;
         font-size: calc(16px + (24 - 16) * (100vmin - 280px) / (1200 - 280));
         & h2 {
             font-size: 30px;
@@ -123,5 +126,21 @@ const ShowCaseContainerLeft = styled.div<ShowCaseContainer>`
         }
     }
 `;
+
+const Button = styled.button`
+    background: #000213;
+    border: 2px solid #b4bcd0;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin-top: 20px;
+    cursor: pointer;
+    color: #b4bcd0;
+    font-weight: 700;
+    transition: 0.12s ease-in-out;
+    :hover {
+        background: #b4bcd0;
+        color: #000213;
+    }
+`
 
 export default AstronyxContent;

@@ -2,6 +2,7 @@ import Image from 'next/image';
 import styled from 'styled-components';
 import ContentProps, { ShowCaseContainer } from '../Interfaces';
 import Container from './Container';
+import Link from 'next/link';
 
 const DicefallContent: React.FC<ContentProps> = ({ currentIndex, thisIndex }) => {
 
@@ -16,7 +17,9 @@ const DicefallContent: React.FC<ContentProps> = ({ currentIndex, thisIndex }) =>
                 <ShowCaseContainerRight isCurrent={isCurrent}>
                     <h2>Dicefall</h2>
                     <p>DiceFall is the perfect tool for managing and running in-person Dungeons and Dragons campaigns. With a focus on collaboration and real-time interactivity, DiceFall makes it easy to plan epic tabletop adventures with your friends. Its intuitive interface allows players and Dungeon Masters to stay connected and engaged in their campaigns. Whether you&rsquo;re a seasoned DM or a newcomer to tabletop gaming, DiceFall has something for everyone. Start your next adventure today with DiceFall!</p>
-                    <p><strong>Currently in Development</strong></p>
+                        <Button disabled>
+                            <p>Currently in Development</p>
+                        </Button>
                 </ShowCaseContainerRight>
             </Wrapper>
         </Container>
@@ -101,12 +104,22 @@ const ShowCaseContainerRight = styled.div<ShowCaseContainer>`
     @media (max-width: 700px) {
         width: 100%;
         height: 60%;
-        justify-content: flex-start;
+        justify-content: center;
         font-size: calc(16px + (24 - 16) * (100vmin - 280px) / (1200 - 280));
         & > h2 {
             font-size: 30px;
         }
     }
 `;
+
+const Button = styled.button`
+    background: transparent;
+    border: 2px solid #b4bcd0;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin-top: 20px;
+    color: #b4bcd0;
+    font-weight: 700;
+`
 
 export default DicefallContent;

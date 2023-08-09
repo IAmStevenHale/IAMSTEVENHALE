@@ -2,6 +2,7 @@ import Image from 'next/image';
 import styled from 'styled-components';
 import ContentProps, { ShowCaseContainer } from '../Interfaces';
 import Container from './Container';
+import Link from 'next/link';
 
 const GHCContent: React.FC<ContentProps> = ({ currentIndex, thisIndex }) => {
     const isCurrent = currentIndex === thisIndex;
@@ -17,7 +18,11 @@ const GHCContent: React.FC<ContentProps> = ({ currentIndex, thisIndex }) => {
                     </TextWrapper>
                     <TextWrapper>
                         <p>{text}</p>
-                        <p><strong><a target={'_blank'} rel="noreferrer" href='https://www.gamerhc.com/'>https://www.gamerhc.com/</a></strong></p>
+                        <Link rel="noreferrer" href='https://www.gamerhc.com/'>
+                            <Button>
+                                <p>Go to website</p>
+                            </Button>
+                        </Link>
                     </TextWrapper>
                 </ShowCaseContainerLeft>
                 <ShowCaseContainerRight isCurrent={isCurrent}>
@@ -102,7 +107,7 @@ const ShowCaseContainerLeft = styled.div<ShowCaseContainer>`
     @media (max-width: 700px) {
         width: 100%;
         height: 60%;
-        justify-content: flex-start;
+        justify-content: center;
         font-size: calc(16px + (24 - 16) * (100vmin - 280px) / (1200 - 280));
         & h2 {
             font-size: 34px;
@@ -143,5 +148,21 @@ const ShowCaseContainerRight = styled.div<ShowCaseContainer>`
         }
     }
 `;
+
+const Button = styled.button`
+    background: #000213;
+    border: 2px solid #c6be77;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin-top: 20px;
+    cursor: pointer;
+    color: #c6be77;
+    font-weight: 700;
+    transition: 0.12s ease-in-out;
+    :hover {
+        background: #c6be77;
+        color: #000213;
+    }
+`
 
 export default GHCContent;
