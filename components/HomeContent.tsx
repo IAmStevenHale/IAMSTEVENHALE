@@ -6,7 +6,7 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import MailIcon from '@mui/icons-material/Mail';
 import Container from './Container';
 import TypingText from './TypingText';
-
+import ContentProps from '../Interfaces';
 
 const socialsIcons = [
     {
@@ -27,7 +27,8 @@ const socialsIcons = [
     }
 ];
 
-const HomeContent: React.FC = () => {
+const HomeContent: React.FC<ContentProps> = ({ currentIndex, thisIndex }) => {
+    const isCurrent = currentIndex === thisIndex;
 
     return (
         <Container bgColour='#000425' gradient={<Gradient />}>
