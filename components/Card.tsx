@@ -92,6 +92,7 @@ const Logo = styled(Image) <{ includepadding: string; bgColor?: string }>`
     background-color: #000425;
     padding: ${({ includepadding }) => includepadding === 'true' ? '10px' : '0'};
     border-radius: 10px;
+    border: 1px solid rgb(154, 153, 226, 0.25);
 `;
 
 const CardContent = styled.div`

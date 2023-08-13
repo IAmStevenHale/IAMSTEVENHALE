@@ -19,6 +19,9 @@ const Line = styled.line<{ isOpen: boolean }>`
   /* Default styles */
   &.top {
     transform: translateY(-35%);
+    @media (max-width: 700px) {
+        transform: translateY(-20%);
+    }
   }
 
   &.middle {
@@ -29,6 +32,9 @@ const Line = styled.line<{ isOpen: boolean }>`
   &.bottom {
     transform: translateY(33%);
     stroke-dashoffset: 9px;
+    @media (max-width: 700px) {
+        transform: translateY(20%);
+    }
 
     /* Hover effect */
     ${ButtonSVG}:hover & {

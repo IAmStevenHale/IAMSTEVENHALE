@@ -15,6 +15,11 @@
     font-family: 'inter', sans-serif;
 }
 
+p {
+    @media (max-width: 700px) {
+        font-size: 16px !important;
+    }
+}
 /* For Chrome, Safari and Opera */
 ::-webkit-scrollbar {
     width: 12px;

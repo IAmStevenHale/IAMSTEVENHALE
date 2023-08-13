@@ -123,6 +123,11 @@ const Nav = styled.nav`
     text-align: right;
     z-index: 1000;
     gap:10px;
+    @media (max-width: 700px) {
+        top: 40px;
+        left: calc(100vw - 40px);
+        font-size: 14px;
+    }
 `;
 
 const slideInFromRight = keyframes`
@@ -178,6 +183,10 @@ const MenuIcon = styled.div<{ scrolled: boolean }>`
     background-color: #8892b0;
     border-radius: 10px 0 0 10px;
     padding: 10px;
+    @media (max-width: 700px) {
+        width: 36px;
+        height: 30px;
+    }
 `;
 
 export default SideNav

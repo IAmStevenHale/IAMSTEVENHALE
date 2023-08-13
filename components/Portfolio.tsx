@@ -97,6 +97,32 @@ const content = [
             alt: 'DiceFall Logo'
         }
     },
+    {
+        title: 'Epic Defenders',
+        description: 'An early project of mine, Epic Defenders is a clone of the popular game Plants vs Zombies. It is built with JavaScript and HTML5 Canvas. The game is a tower defence game where the player must defend their base from waves of enemies by strategically placing defenders on the map.',
+        url: `https://epic-defenders.vercel.app/`,
+        includepadding: false,
+        quote: 'Clone of Plants vs Zombies using JavaScript Canvas',
+        logo: {
+            src: '/epic-defenders-logo.png',
+            height: 500,
+            width: 500,
+            alt: 'Epic Defenders Logo'
+        }
+    },
+    {
+        title: 'Drunken Heroes',
+        description: 'My very first project, Drunken Heroes is a digital card drinking game. It is built with JavaScript, HTML5, and CSS. The game is rudimentary but functional, and it is a great example to show progress from where I started to where I am now.',
+        url: `https://drunkenheroes.vercel.app/`,
+        includepadding: false,
+        quote: 'Digital Card Drinking Game - "What happens when the Heroes hit the town?"',
+        logo: {
+            src: '/drunken-heroes-logo.png',
+            height: 1000,
+            width: 1000,
+            alt: 'Drunken Heroes Logo'
+        }
+    },
 ]
 
 const Portfolio: React.FC = () => {

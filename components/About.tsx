@@ -66,7 +66,7 @@ const InnerWrapper = styled.div`
     position: relative;
     display: flex;
     flex-direction: row;
-    @media (max-width: 700px) {
+    @media (max-width: 850px) {
         flex-direction: column;
         height: fit-content;
     }
@@ -85,7 +85,7 @@ const ShowCaseContainerLeft = styled.div`
     flex-direction: column;
     text-align: center;
     font-family: "Linear","SF Pro Display",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu, Cantarell,"Open Sans","Helvetica Neue",sans-serif;
-    @media (max-width: 700px) {
+    @media (max-width: 850px) {
         width: 100%;
         height: fit-content;
         margin-bottom: 80px;
@@ -111,7 +111,7 @@ const ShowCaseContainerRight = styled.div`
         width: 100%;
         font-size: 18px;
     }
-    @media (max-width: 700px) {
+    @media (max-width: 850px) {
         width: 100%;
         height: fit-content;
         padding: 0;

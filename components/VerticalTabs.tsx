@@ -9,7 +9,7 @@ const workHistory = [
         id: 1,
         title: 'Knowby Pro',
         html: `<div>
-                <h2>KNOWBY PRO - MAY 2023 - CURRENT</h2>
+                <h2>KNOWBY PRO</h2>
                 <h3>SENIOR JAVASCRIPT DEVELOPER</h3>
                 <br/>
                 <ul>
@@ -26,8 +26,8 @@ const workHistory = [
         id: 2,
         title: 'Shine Lawyers',
         html: `<div>
-                <h2>SHINE LAWYERS - MAY 2022 - MAY 2023</h2>
-                <h3>FRONT-END DEVELOPER - MARKETING DEPARTMENT</h3>
+                <h2>SHINE LAWYERS</h2>
+                <h3>FRONT-END DEVELOPER</h3>
                 <br/>
                 <ul>
                     <li>Architected and developed the National Shine Lawyers "Website Overhaul Project" from a frontend perspective, delivering a custom website builder.</li>
@@ -45,8 +45,8 @@ const workHistory = [
         id: 3,
         title: 'Online Solutions Experts',
         html: `<div>
-                <h2>ONLINE SOLUTIONS EXPERTS - MAR 2021 - MAY 2022</h2>
-                <h3>WEB DEVELOPER - AGENCY</h3>
+                <h2>ONLINE SOLUTIONS EXPERTS</h2>
+                <h3>WEB DEVELOPER</h3>
                 <br/>
                 <ul>
                     <li>Developed visually impressive websites and eCommerce stores using JavaScript and React.</li>
@@ -63,8 +63,8 @@ const workHistory = [
         id: 4,
         title: 'Dynamic Digital Solutions',
         html: `<div>
-                <h2>DYNAMIC DIGITAL SOLUTIONS - FEB 2019 - MAR 2021</h2>
-                <h3>JUNIOR DEVELOPER - BESPOKE SOFTWARE</h3>
+                <h2>DYNAMIC DIGITAL SOLUTIONS</h2>
+                <h3>JUNIOR DEVELOPER</h3>
                 <br/>
                 <ul>
                     <li>Utilized modern JavaScript and React to construct dynamic, engaging websites, adhering to industry best practices for code quality and performance optimization.</li>
@@ -79,20 +79,21 @@ const workHistory = [
         title: 'Technical Skills & Education',
         html: `<div>
                 <h2>TECHNICAL SKILLS</h2>
-                <p><strong>Expertise:</strong></p>
-                <p>JavaScript, React, TypeScript, CSS/SCSS, Styled-Components, Next.js, Node.js, Git, REST API, SQL/NoSQL, GraphQL, Netlify & Vercel, CMS.</p>
+                <p><strong>Programming  Languages</strong></p>
+                <p>JavaScript, TypeScript, CSS/SCSS, SQL, NoSQL</p>
                 <br/>
-                <p><strong>Familiarity:</strong></p>
-                <p>AWS, Google Analytics, Google Tag Manager, Vercel, PHP & WordPress, Gatsby, Prisma, Tailwind.</p>
+                <p><strong>Libraries & Frameworks</strong></p>
+                <p>React, React Hooks, Redux, Jotai, Next.js, Node.js, Gatsby, GraphQL, Styled-components, MUI, Axios, Fastify, Node-Tap</p>
+                <br />
+                <p><strong>Tools & Platforms</strong></p>
+                <p>Git, GitHub, Vercel, Netlify, Headless CMS, WordPress, GTM, Google Analytics, Firebase (Firestore), Jira, Asana</p>
                 <br />
                 <h2>EDUCATION</h2>
                 <p><strong>University of South Australia</strong></p>
                 <p>Bachelor of Information Technology & Data Analytics</p>
-                <p>2019 - 2021</p>
                 <br />
                 <p><strong>Central Queensland University</strong></p>
                 <p>Diploma of Business</p>
-                <p>2018 - 2019</p>
             </div>`
     },
 ];
@@ -120,8 +121,12 @@ function TabPanel(props: TabPanelProps) {
                     color: '#8892b0',
                     fontSize: '18px',
                     paddingLeft: '50px',
-                    '@media (max-width: 700px)': {
+                    'li': {
+                        marginLeft: '20px'
+                    },
+                    '@media (max-width: 850px)': {
                         paddingLeft: '0',
+                        paddingRight: '0',
                     }
                 }}>
                     <Typography fontSize={'18px'}>{children}</Typography>
@@ -154,8 +159,14 @@ export default function VerticalTabs() {
                 minHeight: '450px',
                 width: '100%',
                 transition: 'all 0.5s ease',
-                '@media (max-width: 700px)': {
+                '@media (max-width: 850px)': {
                     flexDirection: 'column',
+                    'h2': {
+                        fontSize: '20px',
+                    },
+                    'h3': {
+                        fontSize: '16px',
+                    }
                 }
             }}>
             <Tabs
@@ -175,7 +186,7 @@ export default function VerticalTabs() {
                         alignItems: 'flex-start',
                         color: '#cfd5e9',
                         fontWeight: '400',
-                        '@media (max-width: 700px)': {
+                        '@media (max-width: 850px)': {
                             paddingLeft: '0',
                         }
                     }}/>

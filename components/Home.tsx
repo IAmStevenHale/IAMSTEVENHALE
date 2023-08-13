@@ -77,12 +77,12 @@ const PreTitleWrapper = styled.div<{ isLoaded: boolean }>`
     width: 100%;
     height: fit-content;
     color: #cfd5e9;
-    font-size: 18px;
+    font-size: 30px;
     font-weight: 600;
     transition: all 1s ease-in-out;
     opacity: ${props => props.isLoaded ? 1 : 0};
     @media (max-width: 700px) {
-        font-size: 30px;
+        font-size: 18px;
     }
 `;
 
@@ -92,8 +92,13 @@ const TypingTextWrapper = styled.div`
     justify-content: flex-end;
     align-items: flex-end;
     color: #cfd5e9;
-    font-size: 25px;
+    font-size: 24px;
     font-weight: 600;
+    @media (max-width: 700px) {
+       p {
+            font-size: 18px
+        }
+    }
 `;
 
 const SubtitleWrapper = styled.div<{ isLoaded: boolean }>`
@@ -110,6 +115,11 @@ const SubtitleWrapper = styled.div<{ isLoaded: boolean }>`
     letter-spacing: 0.5px;
     transition: all 1s ease-in-out;
     opacity: ${props => props.isLoaded ? 1 : 0};
+    @media (max-width: 700px) {
+       p {
+            font-size: 16px
+        }
+    }
 `;
 
 export default Home;

@@ -51,15 +51,21 @@ const TypingText = () => {
 
     return (
         <Wrapper>
-            {text}<Cursor />
+            <p>{text}</p><Cursor />
         </Wrapper>
     );
 };
 
 const Wrapper = styled.div`
-    display: inline-block;
+    display: flex;
     color: #cfd5e9;
-    font-size: 25px;
+    font-size: 24px;
+    flex-direction: row;
+    @media (max-width: 700px) {
+       p {
+            font-size: 18px
+        }
+    }
 `;
 
 const blink = keyframes`
@@ -74,7 +80,10 @@ const Cursor = styled.span`
     width: 2px;
     height: 30px;
     background-color: #8892b0;
-    animation: ${blink} 1s linear infinite
+    animation: ${blink} 1s linear infinite;
+    @media (max-width: 700px) {
+       height: 18px;
+    }
 `;
 
 export default TypingText;

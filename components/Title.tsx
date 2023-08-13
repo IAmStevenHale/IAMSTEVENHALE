@@ -61,7 +61,7 @@ const TitleWrapper = styled.div<{ isLoaded: boolean }>`
         }
     }
 
-    & h1 {
+    h1 {
         font-size: 60px;
         font-weight: 400;
         margin: 0;
@@ -71,7 +71,11 @@ const TitleWrapper = styled.div<{ isLoaded: boolean }>`
     }
 
     @media (max-width: 700px) {
-        font-size: 30px;
+       margin: 0 auto 0 0;
+       h1 {
+            font-size: 24px;
+            line-height: 60px;
+        }
     }
 `;
 
@@ -86,7 +90,7 @@ const rollIn = keyframes`
 
 const Letter = styled.span<{ delay: number; }>`
     display: inline-block;
-    transform-origin: 50% 50% 25px;
+    transform-origin: 50% 50% 24px;
     transform: rotateX(-90deg);
     animation: ${rollIn} 0.32s forwards;
     animation-delay: ${props => `${props.delay}ms`};
