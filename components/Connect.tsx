@@ -70,17 +70,17 @@ const Wrapper = styled.div`
 `;
 
 const StyledButton = styled(Button)`
-    margin: 20px 0 50px 0;
-    background-color: #000425;
-    color: #cfd5e9;
-    border: 2px solid  #cfd5e9;
-    font-weight: 700;
-    padding: 10px 14px;
+    margin: 20px 0 50px 0 !important;
+    background-color: #000425 !important;
+    color: #cfd5e9 !important;
+    border: 2px solid  #cfd5e9 !important;
+    font-weight: 700 !important;
+    padding: 10px 14px !important;
     &:hover {
-        background-color: rgb(154, 153, 226, 0.25);
+        background-color: rgb(154, 153, 226, 0.25) !important;
     }
     @media (max-width: 700px) {
-        font-size: 12px;
+        font-size: 12px !important;
     }
 `;
 
