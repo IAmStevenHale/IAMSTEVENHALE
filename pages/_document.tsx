@@ -1,8 +1,8 @@
-import Document from 'next/document';
+import Document, { Html, Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 
 export default class MyDocument extends Document {
-    static async getInitialProps(ctx:any) {
+    static async getInitialProps(ctx: any) {
         const sheet = new ServerStyleSheet();
         const originalRenderPage = ctx.renderPage;
 
@@ -26,5 +26,34 @@ export default class MyDocument extends Document {
         } finally {
             sheet.seal();
         }
+    }
+
+    render() {
+        return (
+            <Html>
+                <Head>
+                    {/* Preconnect to Google domains for performance optimization */}
+                    <link rel="preconnect" href="https://fonts.googleapis.com" />
+                    <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin={true.toString()} />
+
+                    {/* Preload Rock Salt font */}
+                    <link
+                        rel="preload"
+                        as="style"
+                        href="https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap"
+                    />
+
+                    {/* Include stylesheet for Rock Salt font */}
+                    <link
+                        rel="stylesheet"
+                        href="https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap"
+                    />
+                </Head>
+                <body>
+                    <Main />
+                    <NextScript />
+                </body>
+            </Html>
+        );
     }
 }

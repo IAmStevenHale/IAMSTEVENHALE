@@ -4,19 +4,18 @@ import styled, { css } from 'styled-components';
 import { hover, shadowAnimation } from '../animations';
 
 const profileUrls = [
-    "1d62d29067f8824bcc22c1dbaf922bfc-min.jpg",
-    "4a8861c2be55787c4450d90a9a8baab1-min.jpg",
-    "6f690e4c4f39dc1a96496bb62738159a-min.jpg",
-    "8f571ef315c0346d749bcee6170c71f0-min.jpg",
-    "22ada7249943f29418eed29f2e8f9fa4-min.jpg",
-    "50ec4af07690f0f8729efc9e6118bcb7-min.jpg",
-    "9606631f93e4a80bfb80c4f414016371-min.jpg",
-    "934858926a3da6e5f4b05927579cc3d4-min.jpg",
-    "a0274b258023688e60bdfd527020b993-min.jpg",
-    "df65ad6e7e74f9ccd30d977cf1cf5f3f-min.jpg",
-    "e578e6d03c3b11e4026467865bf02f11-min.jpg",
+    "/profile/1d62d29067f8824bcc22c1dbaf922bfc-min.jpg",
+    "/profile/4a8861c2be55787c4450d90a9a8baab1-min.jpg",
+    "/profile/6f690e4c4f39dc1a96496bb62738159a-min.jpg",
+    "/profile/8f571ef315c0346d749bcee6170c71f0-min.jpg",
+    "/profile/22ada7249943f29418eed29f2e8f9fa4-min.jpg",
+    "/profile/50ec4af07690f0f8729efc9e6118bcb7-min.jpg",
+    "/profile/9606631f93e4a80bfb80c4f414016371-min.jpg",
+    "/profile/934858926a3da6e5f4b05927579cc3d4-min.jpg",
+    "/profile/a0274b258023688e60bdfd527020b993-min.jpg",
+    "/profile/df65ad6e7e74f9ccd30d977cf1cf5f3f-min.jpg",
+    "/profile/e578e6d03c3b11e4026467865bf02f11-min.jpg",
 ]
-
 
 const ImageSphere = () => {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -37,7 +36,7 @@ const ImageSphere = () => {
             <ImagesWrapper>
                 {profileUrls.map((profileUrl, i) => (
                     <ImageWrapper key={i} isCurrent={currentImageIndex === i} >
-                        <Image src={`/${profileUrl}`} alt={`Profile image picture ${i}, AI generated image.`} width={1024} height={1024} />
+                        <Image src={`${profileUrl}`} alt={`Profile image picture ${i}, AI generated image.`} width={1024} height={1024} />
                     </ImageWrapper>
                 ))}
                 <Sphere />
@@ -51,12 +50,12 @@ const ImageContainer = styled.div`
     margin-top: 20px;
     height: 300px;
     width: 300px;
+    z-index: 1000;
         @media (max-width: 700px) {
-        height: 230px;
-        width: 230px;
+        height: 260px;
+        width: 260px;
     }
 `;
-
 
 const ImagesWrapper = styled.div`
     height: 300px;
@@ -71,8 +70,8 @@ const ImagesWrapper = styled.div`
     border-radius: 50%;
     animation: ${css`${hover} 5s ease-in-out infinite`};
     @media (max-width: 700px) {
-        height: 200px;
-        width: 200px;
+        height: 260px;
+        width: 260px;
     }
 `;
 
@@ -87,8 +86,8 @@ const ImageWrapper = styled.div<{ isCurrent: boolean }>`
         width: auto;
     }
     @media (max-width: 700px) {
-        height: 200px;
-        width: 200px;
+        height: 260px;
+        width: 260px;
         
     }
 `;
@@ -108,7 +107,7 @@ const Shadow = styled.div`
         bottom: 0;
         top: 0;
         border-radius: 50%; 
-        box-shadow: rgba(0, 0, 0, 0.5) 0 5px 10px;
+        box-shadow: rgb(154, 153, 226, 0.2) 0 5px 10px;
         clip: rect(20px, auto, 50px, 0);
         transform-origin: center;
         animation: ${css`${shadowAnimation} 5s ease-in-out infinite`}; 
@@ -125,8 +124,8 @@ const Sphere = styled.div`
     background: radial-gradient(circle at 150px 100px, var(--transparent) 30%,  #000 75%),
     radial-gradient(circle at 30% 20%,  rgb(255, 255, 255, 0.5), rgba(255, 255, 255, 0) 30%);
     @media (max-width: 700px) {
-        height: 200px;
-        width: 200px;
+        height: 260px;
+        width: 260px;
     }
 `;
 

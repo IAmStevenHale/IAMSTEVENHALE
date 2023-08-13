@@ -2,14 +2,13 @@ import React, { useState, useEffect } from 'react';
 import styled from '@emotion/styled';
 import { keyframes } from '@emotion/react';
 
-// Approx. 68 characters max length
 const fullText = [
-    "software developer",
-    "fullstack developer",
-    "front-end developer",
-    "back-end developer",
-    "web developer",
-    "pizza connoisseur"
+    "a software developer",
+    "a fullstack developer",
+    "a front-end developer",
+    "a back-end developer",
+    "a web developer",
+    "a pizza connoisseur"
 ];
 
 
@@ -38,7 +37,7 @@ const TypingText = () => {
                         setTimeout(() => {
                             setIsDeleting(true);
                             startInterval();  // Restart the interval after the pause
-                        }, 1500);  // Add a 1.5s delay. Adjust as per your needs.
+                        }, 2500);  // Add a 1.5s delay. Adjust as per your needs.
                     }
                 }
             }, 60);
@@ -59,7 +58,8 @@ const TypingText = () => {
 
 const Wrapper = styled.div`
     display: inline-block;
-    color: #fff;
+    color: #cfd5e9;
+    font-size: 25px;
 `;
 
 const blink = keyframes`
@@ -68,13 +68,13 @@ const blink = keyframes`
   100% { opacity: 1; }
 `;
 
-const Cursor = styled('span')({
-    display: 'inline-block',
-    marginLeft: '4px',
-    width: '4px',
-    height: '40px',
-    backgroundColor: '#fff',
-    animation: `${blink} 1s linear infinite`
-});
+const Cursor = styled.span`
+    display: inline-block;
+    margin-left: 4px;
+    width: 2px;
+    height: 30px;
+    background-color: #8892b0;
+    animation: ${blink} 1s linear infinite
+`;
 
 export default TypingText;
