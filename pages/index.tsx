@@ -6,6 +6,7 @@ import SideNav from '../components/SideNav';
 import About from '../components/About';
 import Work from '../components/Work';
 import Connect from '../components/Connect';
+import ScrollWrapper from '../components/ScrollWrapper';
 
 
 const index: React.FC = () => {
@@ -13,10 +14,10 @@ const index: React.FC = () => {
     return (
         <Wrapper>
             <Home />
-            <About />
-            <Work />
-            <Portfolio />
-            <Connect />
+            <ScrollWrapper><About /></ScrollWrapper>
+            <ScrollWrapper><Work /></ScrollWrapper>
+            <ScrollWrapper><Portfolio /></ScrollWrapper>
+            <ScrollWrapper><Connect /></ScrollWrapper>
             <SideNav />
         </Wrapper>
     )
