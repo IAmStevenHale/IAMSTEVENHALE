@@ -21,7 +21,7 @@ const About: React.FC = () => {
                             <ImageSphere />
                         </ShowCaseContainerLeft>
                         <ShowCaseContainerRight>
-                            <p>Hi, <a rel='noreferrer' target={'_blank'} href='https://www.youtube.com/watch?v=ouA-U4x17KY'>Stevie here.</a> I&apos;m Fullstack Developer.</p>
+                            <p>Hi, <a rel='noreferrer' target={'_blank'} href='https://www.youtube.com/watch?v=ouA-U4x17KY'>Stevie here.</a> I&apos;m a Fullstack Developer.</p>
                             <br />
                             <p>{text}</p>
                             <br />
