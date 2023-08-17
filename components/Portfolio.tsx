@@ -35,7 +35,7 @@ const content = [
     {
         title: 'Astronyx',
         description: 'Astronyx is an innovative Space Photography, Marketing, and Space Imaging Hardware business. They marry the awe of the astral space with the resilience of onyx, implementing robust space imaging equipment, capturing celestial visuals, and creating compelling narratives. The dedicated team blends technical expertise with creative brilliance to exceed client expectations, delivering functional and awe - inspiring space solutions that fuel exploration and inspire fascination.',
-        url: 'https://www.astronyx.com.au/',
+        url: 'https://astronyx.vercel.app/',
         includepadding: true,
         quote: 'Space photography meets compelling storytelling.',
         logo: {
@@ -48,7 +48,7 @@ const content = [
     {
         title: 'DocAssist',
         description: 'DocAssist is a web-based tool that helps Allied Health Professionals find MBS rebates for their patients by using a filtering algorithm to identify key terms in patient notes and generate a list of relevant MBS items. It is built with React, TypeScript, and styled-components for efficient performance and a visually appealing user interface, streamlining the process of finding MBS rebates and saving time for professionals.',
-        url: 'https://www.docassist.org/',
+        url: 'https://docassist.vercel.app/',
         includepadding: true,
         quote: 'Simplifying MBS rebate searches for health professionals with a click.',
         logo: {
@@ -61,7 +61,7 @@ const content = [
     {
         title: 'GamerHC',
         description: 'GamerHC is an ecommerce platform for the gaming community. Our goal is to help customers improve their health and wellness by providing gaming-themed products and resources such as workout guides and nutrition plans. The platform is built with React, TypeScript and styled components to ensure a smooth and visually appealing experience. It is more than an online store, it is a community for gamers who want to take control of their health and wellness.',
-        url: 'https://www.gamerhc.com/',
+        url: 'https://gamerhc.vercel.app/',
         includepadding: true,
         quote: 'Elevating gamer health and wellness beyond the screen.',
         logo: {
