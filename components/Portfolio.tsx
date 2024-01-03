@@ -22,7 +22,7 @@ const content = [
     {
         title: 'Cosmos Digital',
         description: `Cosmos Digital is a rapidly emerging force in the software industry, specializing in crafting bespoke, custom-made solutions that empower businesses and redefine user experiences. Our team of skilled and dedicated professionals stay at the forefront of the digital landscape by embracing cutting-edge technologies and leveraging collective expertise.`,
-        url: 'https://www.cosmosdigital.com.au/',
+        url: 'https://cosmos-digital.vercel.app/',
         includepadding: true,
         quote: 'Simple digital solutions for complex, modern challenges.',
         logo: {
